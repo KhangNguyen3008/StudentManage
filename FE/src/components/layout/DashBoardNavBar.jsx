@@ -1,16 +1,20 @@
 import React from 'react'
 import NavItem from '../ui/NavItem'
-import { FaListAlt } from "react-icons/fa";
+import { FaHome, FaListAlt } from "react-icons/fa";
 export default function DashBoardNavBar() {
     const navitem = [{
+        icon: <FaHome />,
+        title: 'Dashboard',
+        path: '/'
+    },{
         icon: <FaListAlt />,
         title: 'Manager Faculty',
         path: 'faculty'
     },
     {
         icon: <FaListAlt />,
-        title: 'Manager Contribution',
-        path:'faculty'
+        title: 'Manager User',
+        path:'user'
     }
     ]
     return (

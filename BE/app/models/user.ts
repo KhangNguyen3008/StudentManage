@@ -26,8 +26,8 @@ export default class User extends compose(BaseModel, AuthFinder) {
 
   @column()
   declare roleId: number
-  @hasOne(() => Role)
-  declare role: HasOne<typeof Role>
+  @belongsTo(() => Role)
+  declare role: BelongsTo<typeof Role>
   @column()
   declare password: string
 

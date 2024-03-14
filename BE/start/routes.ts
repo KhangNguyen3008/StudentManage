@@ -11,8 +11,8 @@ import AuthController from '#controllers/auth_controller'
 
 import router from '@adonisjs/core/services/router'
 import { middleware } from './kernel.js'
-import Role from '#models/role'
-import Roles from '../app/Enum/Roles.js'
+import RolesController from '#controllers/roles_controller'
+import UsersController from '#controllers/users_controller'
 
 router.get('/', async () => {
   return {
@@ -25,4 +25,11 @@ router.group(() => {
     router.post('/register', [AuthController, 'Register'])
     router.get('/profile', [AuthController, 'Profile']).use([middleware.auth()])
   }).prefix('/auth')
+  router.group(() => {
+    router.get('/', [RolesController, 'Get'])
+  }).prefix('/role')
+  router.group(() => {
+    router.get('/', [UsersController, 'Get'])
+  }).prefix('/user')
+
 }).prefix('/api')

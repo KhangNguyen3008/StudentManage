@@ -6,7 +6,7 @@ export default function Faculty() {
   return (
     <div>
         <Button variant='outlined' color='primary'>Create new Falcuty</Button>
-        <TableCustom/>
+        <TableCustom />
     </div>
   )
 }
