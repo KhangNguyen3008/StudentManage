@@ -23,7 +23,6 @@ export default function Login() {
           <h1 className='flex justify-center font-bold text-3xl'>Login Form</h1>
 
           <form action="" className='mt-5 flex flex-col gap-4'>
-<<<<<<< Updated upstream
             <TextField id="email" type='email' label="Email" variant="outlined" />
             <TextField id="password" type='password' label="Password" variant="outlined" />
             <InputLabel id="role" className='text-center'>Select Role</InputLabel>
@@ -40,10 +39,6 @@ export default function Login() {
          
             </Select>
 
-=======
-            <TextField name='email' id="email" type='email' label="Email" variant="outlined" />
-            <TextField name='password' id="password" type='password' label="Password" variant="outlined" />
->>>>>>> Stashed changes
             <button type='button' className='text-pink-500'>Forgot password?</button>
             <button type='submit' className='login-bg py-3 rounded-md'>
               Login
