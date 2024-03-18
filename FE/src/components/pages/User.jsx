@@ -6,7 +6,7 @@ import UserTable from '../ui/UserTable'
 export default function User() {
   return (
     <div>
-        <Button variant='outlined' color='primary'>Create new User</Button>
+        <Button href='/admin/user/create' variant='outlined' color='primary' >Create new User</Button>
         <UserTable />
     </div>
   )

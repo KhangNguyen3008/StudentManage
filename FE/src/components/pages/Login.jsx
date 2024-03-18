@@ -1,20 +1,12 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import TextField from '@mui/material/TextField';
 import Link from 'next/link';
 import instance from '@/data/Instance';
 import { InputLabel, MenuItem, Select } from '@mui/material';
+import SelectRole from '../ui/SelectRole';
 export default function Login() {
-  const [data, setData] = useState()
-  useEffect(() => {
 
-    instance.get('/role').then(x => { setData(x.data) }).catch(() => {
-
-    })
-    return () => {
-
-    }
-  }, [])
 
   return (
     <div className='login-bg h-[100vh] w-full relative'>
@@ -25,19 +17,8 @@ export default function Login() {
           <form action="" className='mt-5 flex flex-col gap-4'>
             <TextField id="email" type='email' label="Email" variant="outlined" />
             <TextField id="password" type='password' label="Password" variant="outlined" />
-            <InputLabel id="role" className='text-center'>Select Role</InputLabel>
-            <Select
-              labelId="role"
-              id="roleid"
-              name='role'
-              defaultValue={4}
-              label="Age"
-            >
-              {data && data.map((item,i)=>{
-                return <MenuItem key={i} value={item.id}>{item.name}</MenuItem>
-              })}
-         
-            </Select>
+            <SelectRole/>
+
 
             <button type='button' className='text-pink-500'>Forgot password?</button>
             <button type='submit' className='login-bg py-3 rounded-md'>

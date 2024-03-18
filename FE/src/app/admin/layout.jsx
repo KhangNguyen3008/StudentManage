@@ -8,7 +8,7 @@ export default function RootLayout({ children }) {
             <DashBoardNavBar />
             <div className="w-full">
                 <TopDashBoard />
-                <div className="p-5">
+                <div className="p-10">
                     {children}
                 </div>
             </div>

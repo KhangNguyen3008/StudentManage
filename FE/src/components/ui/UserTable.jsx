@@ -25,6 +25,7 @@ import { visuallyHidden } from '@mui/utils';
 import { Edit } from '@mui/icons-material';
 import Link from 'next/link';
 import instance from '@/data/Instance';
+import UserService from '@/app/services/UserService';
 
 
 
@@ -274,7 +275,7 @@ export default function UserTable() {
     // );
 
     useEffect(() => {
-        instance.get('/user').then(x => {
+        UserService.getUser().then(x => {
             setData(stableSort(x.data, getComparator(order, orderBy)).slice(
                 page * rowsPerPage,
                 page * rowsPerPage + rowsPerPage,
@@ -344,9 +345,7 @@ export default function UserTable() {
                             })}
                             {emptyRows > 0 && (
                                 <TableRow
-                                    style={{
-                                        height: (dense ? 33 : 53) * emptyRows,
-                                    }}
+                                   
                                 >
                                     <TableCell colSpan={6} />
                                 </TableRow>

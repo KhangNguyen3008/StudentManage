@@ -1,7 +1,8 @@
+import CreateUser from '@/components/pages/CreateUser'
 import React from 'react'
 
 export default function  page() {
   return (
-    <div> page</div>
+    <div> <CreateUser/></div>
   )
 }

@@ -30,6 +30,10 @@ router.group(() => {
   }).prefix('/role')
   router.group(() => {
     router.get('/', [UsersController, 'Get'])
+    router.get('/:id', [UsersController, 'GetById'])
+    router.post('/', [UsersController, 'Post'])
+    router.put('/', [UsersController, 'Put'])
+    router.delete('/', [UsersController, 'Delete'])
   }).prefix('/user')
 
 }).prefix('/api')
