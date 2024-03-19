@@ -63,6 +63,7 @@ export default function CreateUser() {
             id="password"
             name="password"
             type="password"
+
             placeholder="enter user password"
             autoComplete="password"
             required

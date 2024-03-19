@@ -14,6 +14,9 @@ export default class UsersController {
     }
     Post = async ({response,request}:HttpContext) => {
         const payload = await request.validateUsing(PostUserForm)
+        if(await User.findBy('email',payload.email)){
+            return ['User exits',400]
+        }
         const user = new User()
         user.fullName = payload.fullname
         user.email = payload.email
