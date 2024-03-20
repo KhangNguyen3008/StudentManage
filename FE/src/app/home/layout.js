@@ -1,6 +1,7 @@
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
 import Home from "./page";
 
 
@@ -12,7 +13,7 @@ const metadata = {
 export default function Layout({ children }) {
   return (
     <>
-
+    <Navbar/>
       <Home />
       <Footer />
     </>
