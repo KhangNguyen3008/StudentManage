@@ -2,6 +2,7 @@
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import Home from "./page";
+import { ConfirmProvider } from "material-ui-confirm";
 
 
 const metadata = {
@@ -12,9 +13,11 @@ const metadata = {
 export default function Layout({ children }) {
   return (
     <>
-    <Navbar/>
-      <Home />
-      <Footer />
+
+        <Navbar />
+        <Home />
+        <Footer />
+
     </>
   );
 }

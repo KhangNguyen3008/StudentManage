@@ -33,7 +33,7 @@ router.group(() => {
     router.get('/:id', [UsersController, 'GetById'])
     router.post('/', [UsersController, 'Post'])
     router.put('/', [UsersController, 'Put'])
-    router.delete('/', [UsersController, 'Delete'])
+    router.delete('/:id', [UsersController, 'Delete'])
   }).prefix('/user')
 
 }).prefix('/api')
