@@ -29,7 +29,7 @@ export default function Home() {
                 property="og:image"
                 content="https://raw.githubusercontent.com/nauvalazhar/Magz/master//home/images/preview.png"
             />
-            <title>Magz — Responsive HTML5 &amp; CSS3 Magazine Template</title>
+            <title>Home  &amp; University GreenWich HCM</title>
             {/* Bootstrap */}
             <link rel="stylesheet" href="/home/scripts/bootstrap/bootstrap.min.css" />
             {/* IonIcons */}
@@ -193,13 +193,13 @@ export default function Home() {
                                                     </div>
                                                     <h2>
                                                         <a href="single.html">
-                                                            Duis aute irure dolor in reprehenderit in voluptate
+                                                        The Enigmatic Charm of Feline Companions: Exploring the World of Cats
                                                         </a>
                                                     </h2>
                                                     <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                                        sed do eiusmod tempor incididunt ut labore et dolore
-                                                        magna aliqua. Ut enim ad minim veniam.
+                                                    In this article, we will take you into the magical world of cats. 
+                                                    From interesting things about their history and origins to the most adorable and fascinating stories about life with cats, 
+                                                    join us to explore the richness and uniqueness of the cat world.
                                                     </p>
                                                     <footer>
                                                         <a href="#" className="love">
@@ -232,14 +232,13 @@ export default function Home() {
                                                     </div>
                                                     <h2>
                                                         <a href="single.html">
-                                                            Exercitation ullamco laboris nisi ut aliquip
+                                                        Savor the Flavor: A Delectable Dish with Mouthwatering Fish
                                                         </a>
                                                     </h2>
                                                     <p>
-                                                        Maecenas accumsan tortor ut velit pharetra mollis. Proin
-                                                        eu nisl et arcu iaculis placerat sollicitudin ut est. In
-                                                        fringilla dui dui.
-                                                    </p>
+                                                    The star of this dish is undoubtedly the perfectly cooked fish, with its tender flesh and delicate flavor. 
+                                                    Served alongside a medley of vibrant vegetables and aromatic herbs, 
+                                                    each bite bursts with a symphony of flavors that dance on your palate.                                                    </p>
                                                     <footer>
                                                         <a href="#" className="love">
                                                             <i className="ion-android-favorite-outline" />{" "}
@@ -275,13 +274,13 @@ export default function Home() {
                                                     </div>
                                                     <h2>
                                                         <a href="single.html">
-                                                            Mauris elementum libero at pharetra auctor
+                                                        Thrilling Adventures of a Skateboarding Boy: Riding the Streets with Gusto
                                                         </a>
                                                     </h2>
                                                     <p>
-                                                        Vivamus in efficitur mi. Nullam semper justo ut elit
-                                                        lacinia lacinia. Class aptent taciti sociosqu ad litora
-                                                        torquent per conubia nostra.
+                                                    In this article, we will get lost in the enchanting world of a skateboarding boy. 
+                                                    From his daring techniques and impressive performances to his exciting adventures and 
+                                                    valuable lessons he learned on the streets. Please join us to enjoy the fascinating.
                                                     </p>
                                                     <footer>
                                                         <a href="#" className="love">
@@ -314,13 +313,11 @@ export default function Home() {
                                                     </div>
                                                     <h2>
                                                         <a href="single.html">
-                                                            Sed do eiusmod tempor incididunt ut labore
-                                                        </a>
+                                                        Embracing the Spirit of Fitness: The Joy of Running</a>
                                                     </h2>
                                                     <p>
-                                                        Pellentesque habitant morbi tristique senectus et netus
-                                                        et malesuada fames ac turpis egestas. Mauris elementum
-                                                        libero at pharetra auctor.
+                                                    Every morning, as the first rays of sunlight pierce through the dawn, the streets come alive with the rhythmic patter of feet pounding against the pavement. 
+                                                    It's a symphony of motion, a celebration of life, walks of life lace up their running shoes and hit the road.
                                                     </p>
                                                     <footer>
                                                         <a href="#" className="love">
@@ -367,13 +364,12 @@ export default function Home() {
                                             </div>
                                             <h1>
                                                 <a href="single.html">
-                                                    Donec consequat arcu at ultrices sodales quam erat aliquet
-                                                    diam
+                                                Cycling Adventure: Exploring the Urban Landscape
                                                 </a>
                                             </h1>
                                             <p>
-                                                Donec consequat, arcu at ultrices sodales, quam erat aliquet
-                                                diam, sit amet interdum libero nunc accumsan nisi.
+                                            In the bustling cityscape where skyscrapers reach for the sky and streets hum with activity, a solitary bicycle leans against a graffiti-covered wall, 
+                                            a silent witness to the ebb and flow of urban life. Against this backdrop of concrete and steel, the simple elegance of the bike stands in stark contrast, a symbol of freedom and escape.
                                             </p>
                                             <footer>
                                                 <a href="#" className="love">
@@ -407,13 +403,11 @@ export default function Home() {
                                             </div>
                                             <h1>
                                                 <a href="single.html">
-                                                    Nulla facilisis odio quis gravida vestibulum Proin
-                                                    venenatis pellentesque arcu
+                                                Into the Clouds: Conquering the Heights of the Himalayas
                                                 </a>
                                             </h1>
                                             <p>
-                                                Nulla facilisis odio quis gravida vestibulum. Proin
-                                                venenatis pellentesque arcu, ut mattis nulla placerat et.
+                                            High above the world, where the air is thin and the sky stretches endlessly, lies the majestic Himalayan mountain range. Towering peaks pierce the clouds, their snow-capped summits glistening in the sunlight. For adventurers brave enough to venture into this rugged terrain, the journey is as daunting as it is breathtaking
                                             </p>
                                             <footer>
                                                 <a href="#" className="love active">
@@ -445,13 +439,12 @@ export default function Home() {
                                             </div>
                                             <h1>
                                                 <a href="single.html">
-                                                    Maecenas blandit ultricies lorem id tempor enim pulvinar
-                                                    at
+                                                Sweet Sensations: Creating Culinary Magic with Caramelized Treats
                                                 </a>
                                             </h1>
                                             <p>
-                                                Maecenas blandit ultricies lorem, id tempor enim pulvinar
-                                                at. Curabitur sit amet tortor eu ipsum lacinia malesuada.
+                                            In the heart of a bustling kitchen, the aroma of melting sugar fills the air as a skilled chef deftly manipulates a hot skillet. With a flick of the wrist, caramelized sugar transforms into a golden syrup, coating nuts and fruits in a sticky, 
+                                            sweet glaze. Each sizzle and crackle is a symphony of flavor, promising delectable delights to come.
                                             </p>
                                             <footer>
                                                 <a href="#" className="love">
@@ -490,8 +483,8 @@ export default function Home() {
                                                         <img src="/home/images/img01.jpg" alt="Sample Article" />
                                                     </figure>
                                                     <div className="featured-author-info">
-                                                        <h2 className="name">John Doe</h2>
-                                                        <div className="desc">@JohnDoe</div>
+                                                        <h2 className="name">User01</h2>
+                                                        <div className="desc">User01</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -677,12 +670,11 @@ export default function Home() {
                                                     </div>
                                                     <h1>
                                                         <a href="single.html">
-                                                            Donec congue turpis vitae mauris
-                                                        </a>
+                                                        Exploring the Wilderness: Mountain Biking Adventures</a>
                                                     </h1>
                                                     <p>
-                                                        Donec congue turpis vitae mauris condimentum luctus. Ut
-                                                        dictum neque at egestas convallis.
+                                                    whether you're a seasoned rider or a novice enthusiast, grab your bike, and embark on an unforgettable journey into the wilderness. With each turn of the pedal, 
+                                                    you'll discover new landscapes, conquer new challenges, and forge memories that will last a lifetime.
                                                     </p>
                                                 </div>
                                             </div>
@@ -698,8 +690,7 @@ export default function Home() {
                                                 <div className="padding">
                                                     <h1>
                                                         <a href="single.html">
-                                                            Duis aute irure dolor in reprehenderit in voluptate
-                                                            velit
+                                                        Thrilling Adventures of a Skateboarding Boy: Riding the Streets with Gusto
                                                         </a>
                                                     </h1>
                                                     <div className="detail">
@@ -721,8 +712,7 @@ export default function Home() {
                                                 <div className="padding">
                                                     <h1>
                                                         <a href="single.html">
-                                                            Fusce ullamcorper elit at felis cursus suscipit
-                                                        </a>
+                                                        Embracing the Spirit of Fitness: The Joy of Running</a>
                                                     </h1>
                                                     <div className="detail">
                                                         <div className="category">
@@ -743,8 +733,7 @@ export default function Home() {
                                                 <div className="padding">
                                                     <h1>
                                                         <a href="single.html">
-                                                            Duis aute irure dolor in reprehenderit in voluptate
-                                                            velit
+                                                        The Enigmatic Charm of Feline Companions: Exploring the World of Cats
                                                         </a>
                                                     </h1>
                                                     <div className="detail">
@@ -756,55 +745,6 @@ export default function Home() {
                                                 </div>
                                             </div>
                                         </article>
-                                    </div>
-                                    <div className="tab-pane comments" id="comments">
-                                        <div className="comment-list sm">
-                                            <div className="item">
-                                                <div className="user">
-                                                    <figure>
-                                                        <img src="/home/images/img01.jpg" alt="User Picture" />
-                                                    </figure>
-                                                    <div className="details">
-                                                        <h5 className="name">Mark Otto</h5>
-                                                        <div className="time">24 Hours</div>
-                                                        <div className="description">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                            elit.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="item">
-                                                <div className="user">
-                                                    <figure>
-                                                        <img src="/home/images/img01.jpg" alt="User Picture" />
-                                                    </figure>
-                                                    <div className="details">
-                                                        <h5 className="name">Mark Otto</h5>
-                                                        <div className="time">24 Hours</div>
-                                                        <div className="description">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                            elit.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="item">
-                                                <div className="user">
-                                                    <figure>
-                                                        <img src="/home/images/img01.jpg" alt="User Picture" />
-                                                    </figure>
-                                                    <div className="details">
-                                                        <h5 className="name">Mark Otto</h5>
-                                                        <div className="time">24 Hours</div>
-                                                        <div className="description">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                            elit.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </aside>
