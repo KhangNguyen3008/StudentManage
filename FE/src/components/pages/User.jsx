@@ -1,7 +1,7 @@
 import React from 'react'
 import TableCustom from '../ui/TableCustom'
 import { Button } from '@mui/material'
-import UserTable from '../ui/UserTable'
+import UserTable from './UserTable'
 
 export default function User() {
   return (

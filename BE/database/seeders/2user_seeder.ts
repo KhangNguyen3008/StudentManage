@@ -8,22 +8,26 @@ export default class extends BaseSeeder {
       {
         email:'admin@gmail.com',
         password:'passwordtest',
-        roleId:Roles.ADMIN
+        roleId:Roles.ADMIN,
+        fullName:'admin'
       },
       {
         email:'mm@gmail.com',
         password:'passwordtest',
-        roleId:Roles.MAKETING_MANAGER
+        roleId:Roles.MAKETING_MANAGER,
+        fullName:'marketing manager'
       },
       {
         email:'mc@gmail.com',
         password:'passwordtest',
-        roleId:Roles.MAKETING_COORDINATOR
+        roleId:Roles.MAKETING_COORDINATOR,
+        fullName:'marketing coordinator'
       },
       {
         email:'student@gmail.com',
         password:'passwordtest',
-        roleId:Roles.STUDENT
+        roleId:Roles.STUDENT,
+        fullName :'student'
       }
     ])
   }

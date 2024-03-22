@@ -8,7 +8,7 @@ import Grid from '@mui/material/Grid';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { Button, MenuItem, Select } from '@mui/material';
 import SelectRole from '../ui/SelectRole';
-import UserService from '@/app/services/UserService';
+import UserService from '@/services/UserService';
 import { toast } from 'react-toastify';
 
 

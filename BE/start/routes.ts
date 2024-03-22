@@ -13,6 +13,7 @@ import router from '@adonisjs/core/services/router'
 import { middleware } from './kernel.js'
 import RolesController from '#controllers/roles_controller'
 import UsersController from '#controllers/users_controller'
+import FacultiesController from '#controllers/faculties_controller'
 
 router.get('/', async () => {
   return {
@@ -30,10 +31,18 @@ router.group(() => {
   }).prefix('/role')
   router.group(() => {
     router.get('/', [UsersController, 'Get'])
+    router.get('/mc', [UsersController, 'Getmc'])
     router.get('/:id', [UsersController, 'GetById'])
     router.post('/', [UsersController, 'Post'])
     router.put('/', [UsersController, 'Put'])
     router.delete('/:id', [UsersController, 'Delete'])
   }).prefix('/user')
+  router.group(() => {
+    router.get('/', [FacultiesController, 'Get'])
+    router.get('/:id', [FacultiesController, 'GetById'])
+    router.post('/', [FacultiesController, 'Post'])
+    router.put('/', [FacultiesController, 'Put'])
+    router.delete('/:id', [FacultiesController, 'Delete'])
+  }).prefix('/faculty')
 
 }).prefix('/api')

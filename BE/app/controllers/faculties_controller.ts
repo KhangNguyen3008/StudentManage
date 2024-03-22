@@ -4,7 +4,7 @@ import type { HttpContext } from '@adonisjs/core/http'
 
 export default class FacultiesController {
     Get = async ({response}:HttpContext) => {
-        let faculty = await Faculty.query()       
+        let faculty = await Faculty.query().preload('user')       
         return response.send(faculty)
     }
     GetById = async ({response,request}:HttpContext) => {
