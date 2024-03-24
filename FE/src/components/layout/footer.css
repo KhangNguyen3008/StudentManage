@@ -92,6 +92,10 @@ ul{
 }
 }
 
-
+.login-bg {
+	background-image: url('/home/images/socialbg.png');
+	background-size: cover;
+	background-position: center;
+  }
 
 

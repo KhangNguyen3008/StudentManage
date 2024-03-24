@@ -11,9 +11,9 @@ const metadata = {
 export default function Layout({ children }) {
   return (
       <>
-        <Header/> 
+
           <Contact/>
-          <Footer/>
+
       </>
   );
 }

@@ -5,11 +5,11 @@ import Link from 'next/link';
 import instance from '@/data/Instance';
 import { InputLabel, MenuItem, Select } from '@mui/material';
 import SelectRole from '../ui/SelectRole';
+import '../layout/footer.css'
+
 export default function Login() {
-
-
   return (
-    <div className='login-bg h-[100vh] w-full relative'>
+    <div className='login-bg h-screen w-full relative'>
       <div className=' absolute top-40 w-full flex justify-center'>
         <div className='w-[400px] bg-white rounded-md p-5'>
           <h1 className='flex justify-center font-bold text-3xl'>Login Form</h1>

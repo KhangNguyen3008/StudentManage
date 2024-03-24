@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <ToastContainer/>
         {children}
-        <Footer />
+        
       </body>
     </html>
   );

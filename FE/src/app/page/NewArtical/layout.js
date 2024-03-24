@@ -1,10 +1,18 @@
-import React from 'react'
 
-export default function 
-() {
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
+
+import NewArtical from "./page";
+
+
+export default function Layout({ children }) {
   return (
-    <div>
-        
-    </div>
-  )
+    <>
+
+        <Navbar />
+        <NewArtical />
+        <Footer />
+
+    </>
+  );
 }

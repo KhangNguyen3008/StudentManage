@@ -1,6 +1,6 @@
 import React from 'react'
 
-function page() {
+function NewArtical() {
   return (
     <>
         <div className="flex items-center justify-center h-screen bg-gray-100">
@@ -58,4 +58,4 @@ function page() {
   )
 }
 
-export default page
+export default NewArtical

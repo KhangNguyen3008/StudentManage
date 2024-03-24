@@ -119,6 +119,10 @@ ul{
 }
 }
 
-
+.login-bg {
+	background-image: url('/images/background.jpg'); /* Đường dẫn tới hình ảnh trong thư mục public */
+	background-size: cover;
+	background-position: center;
+  }
 
 

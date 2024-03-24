@@ -56,177 +56,10 @@ export default function Home() {
             <link rel="stylesheet" href="/home/css/skins/all.css" />
             <link rel="stylesheet" href="/home/css/demo.css" />
 
-            <div className="owl-carousel owl-theme slide" id="featured">
-  <div className="item">
-    <article className="featured">
-      <div className="overlay" />
-      <figure>
-        <img src="images/news/img04.jpg" alt="Sample Article" />
-      </figure>
-      <div className="details">
-        <div className="category"><a href="category.html">Computer</a></div>
-        <h1><a href="single.html">Phasellus iaculis quam sed est elementum vel ornare ligula venenatis</a></h1>
-        <div className="time">December 26, 2016</div>
-      </div>
-    </article>
-  </div>
-  <div className="item">
-    <article className="featured">
-      <div className="overlay" />
-      <figure>
-        <img src="images/news/img14.jpg" alt="Sample Article" />
-      </figure>
-      <div className="details">
-        <div className="category"><a href="category.html">Travel</a></div>
-        <h1><a href="single.html">Class aptent taciti sociosqu ad litora torquent per conubia nostra</a></h1>
-        <div className="time">December 10, 2016</div>
-      </div>
-    </article>
-  </div>
-  <div className="item">
-    <article className="featured">
-      <div className="overlay" />
-      <figure>
-        <img src="images/news/img13.jpg" alt="Sample Article" />
-      </figure>
-      <div className="details">
-        <div className="category"><a href="category.html">International</a></div>
-        <h1><a href="single.html">Maecenas accumsan tortor ut velit pharetra mollis</a></h1>
-        <div className="time">October 12, 2016</div>
-      </div>
-    </article>
-  </div>
-  <div className="item">
-    <article className="featured">
-      <div className="overlay" />
-      <figure>
-        <img src="images/news/img05.jpg" alt="Sample Article" />
-      </figure>
-      <div className="details">
-        <div className="category"><a href="category.html">Lifestyle</a></div>
-        <h1><a href="single.html">Mauris elementum libero at pharetra auctor Fusce ullamcorper elit</a></h1>
-        <div className="time">November 27, 2016</div>
-      </div>
-    </article>
-  </div>
-</div>
-
             <section className="home">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 col-sm-12 col-xs-12">
-                            <div className="headline">
-                                <div className="nav" id="headline-nav">
-                                    <a
-                                        className="left carousel-control"
-                                        role="button"
-                                        data-slide="prev"
-                                    >
-                                        <span className="ion-ios-arrow-left" aria-hidden="true" />
-                                        <span className="sr-only">Previous</span>
-                                    </a>
-                                    <a
-                                        className="right carousel-control"
-                                        role="button"
-                                        data-slide="next"
-                                    >
-                                        <span className="ion-ios-arrow-right" aria-hidden="true" />
-                                        <span className="sr-only">Next</span>
-                                    </a>
-                                </div>
-                                <div className="owl-carousel owl-theme" id="headline">
-                                    <div className="item">
-                                        <a href="#">
-                                            <div className="badge">Tip!</div> Vestibulum ante ipsum primis
-                                            in faucibus orci
-                                        </a>
-                                    </div>
-                                    <div className="item">
-                                        <a href="#">Ut rutrum sodales mauris ut suscipit</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="owl-carousel owl-theme slide" id="featured">
-                                <div className="item">
-                                    <article className="featured">
-                                        <div className="overlay" />
-                                        <figure>
-                                            <img src="/home/images/news/img04.jpg" alt="Sample Article" />
-                                        </figure>
-                                        <div className="details">
-                                            <div className="category">
-                                                <a href="category.html">Computer</a>
-                                            </div>
-                                            <h1>
-                                                <a href="single.html">
-                                                    Phasellus iaculis quam sed est elementum vel ornare ligula
-                                                    venenatis
-                                                </a>
-                                            </h1>
-                                            <div className="time">December 26, 2016</div>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div className="item">
-                                    <article className="featured">
-                                        <div className="overlay" />
-                                        <figure>
-                                            <img src="/home/images/news/img14.jpg" alt="Sample Article" />
-                                        </figure>
-                                        <div className="details">
-                                            <div className="category">
-                                                <a href="category.html">Travel</a>
-                                            </div>
-                                            <h1>
-                                                <a href="single.html">
-                                                    Class aptent taciti sociosqu ad litora torquent per
-                                                    conubia nostra
-                                                </a>
-                                            </h1>
-                                            <div className="time">December 10, 2016</div>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div className="item">
-                                    <article className="featured">
-                                        <div className="overlay" />
-                                        <figure>
-                                            <img src="/home/images/news/img13.jpg" alt="Sample Article" />
-                                        </figure>
-                                        <div className="details">
-                                            <div className="category">
-                                                <a href="category.html">International</a>
-                                            </div>
-                                            <h1>
-                                                <a href="single.html">
-                                                    Maecenas accumsan tortor ut velit pharetra mollis
-                                                </a>
-                                            </h1>
-                                            <div className="time">October 12, 2016</div>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div className="item">
-                                    <article className="featured">
-                                        <div className="overlay" />
-                                        <figure>
-                                            <img src="/home/images/news/img05.jpg" alt="Sample Article" />
-                                        </figure>
-                                        <div className="details">
-                                            <div className="category">
-                                                <a href="category.html">Lifestyle</a>
-                                            </div>
-                                            <h1>
-                                                <a href="single.html">
-                                                    Mauris elementum libero at pharetra auctor Fusce
-                                                    ullamcorper elit
-                                                </a>
-                                            </h1>
-                                            <div className="time">November 27, 2016</div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
                             <div className="line">
                                 <div>Latest News</div>
                             </div>
@@ -520,6 +353,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="col-xs-6 col-md-4 sidebar" id="sidebar">
+                            {/* need fix sidebar */}
                             <div className="sidebar-title for-tablet">Sidebar</div>
                             <aside>
                                 <div className="aside-body">
