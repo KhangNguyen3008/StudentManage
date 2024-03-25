@@ -21,7 +21,7 @@ export default function Login() {
 
 
             <button type='button' className='text-pink-500'>Forgot password?</button>
-            <button type='submit' className='login-bg py-3 rounded-md'>
+            <button type='submit' className='login'>
               Login
             </button>
           </form>
