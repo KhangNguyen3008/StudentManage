@@ -1,0 +1,71 @@
+.textbox-container input[type="text"] {
+    width: 750px;
+    padding: 25px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    color: #333; 
+}
+
+.textbox-container input[type="text"]::placeholder {
+    font-size: 14px;
+    text-align: left; 
+}
+
+
+input[type="text"]:focus::placeholder {
+    color: transparent;
+}
+
+input[type="text"]::placeholder {
+    font-size: 14px; 
+    text-align: left; 
+}
+
+
+.large-textbox-container input[type="text"] {
+    width: 750px; 
+    height: 100px; 
+    padding: 100px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.add-new-button {
+    background-color: #e1e6ee; 
+    color: rgb(12, 12, 12); 
+    padding: 10px 20px; 
+    border: rgb(60, 97, 166); 
+    border-radius: 5px; 
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; 
+    font-size: 16px; 
+}
+
+.add-new-button:hover {
+    background-color: #0c56f6; 
+}
+
+.button-container {
+    text-align: center; /* Căn chỉnh nút vào giữa */
+}
+
+.add-button, .cancel-button {
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; /* Con trỏ chuột khi di chuyển qua nút */
+    text-align: center; 
+    text-decoration: none; 
+    font-size: 16px; 
+    margin-right: 10px; 
+    float: left;
+}
+
+.add-button:hover, .cancel-button:hover {
+    background-color: #45a049; 
+}
