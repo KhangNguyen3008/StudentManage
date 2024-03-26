@@ -56,28 +56,26 @@ export default function NewArtical() {
             <link rel="stylesheet" href="/home/css/skins/all.css" />
             <link rel="stylesheet" href="/home/css/demo.css" />
             <div className="container2">
-            <h1 className="mt-5" style={{ fontSize: '2rem' }}>Add New Artical for this year magazine</h1>
-            <h1 className="mt-5" style={{ fontSize: '1.5rem' }}>Closure Date:</h1>
-            <h1 className="mt-5" style={{ fontSize: '1.5rem' }}>Faculty:</h1>
-        <form className="mt-3">
-          <div className="mb-3">
-            <label htmlFor="articleTitle" className="form-label">Artical Title:</label>
-            <input type="text" className="form-control" id="articleTitle" />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="articleContent" className="form-label">Artical Content:</label>
-            <textarea className="form-control" id="articleContent" rows="5"></textarea>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="articlePhoto" className="form-label">File Submission:</label>
-            <input type="file" className="form-control" id="articlePhoto" />
-          </div>
-          <div className="mb-3 accept-text">Accepted file formats:</div>
-          <div className="mb-3 document-files">Document files: <span>.doc .docx .epub .gdoc .odt .oth .ott .pdf .rtf</span></div>
-          <div className="mb-3 image-files">Image files: <span>.jpg .jpeg .png</span></div>
-          <button type="submit" className="btn btn-info mr-2">Apply Artical</button>
-          <button type="button" className="btn btn-danger">Cancel</button>
-        </form>
+      <h1 className="mt-5" style={{ fontSize: '2rem' }}>Submission List</h1>
+      <form className="mt-3">
+        <div className="mb-3">
+          <label htmlFor="status" className="form-label">Status:</label>
+          <input type="text" className="form-control" id="status" />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="uploadDate" className="form-label">Upload Date:</label>
+          <input type="date" id="uploadDate" name="uploadDate" className="form-control" />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="articlePhoto" className="form-label">File Submission:</label>
+          <input type="file" className="form-control" id="articlePhoto" />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="articleContent" className="form-label">Comment:</label>
+          <textarea className="form-control" id="articleContent" rows="5"></textarea>
+        </div>
+        <button type="submit" className="btn btn-primary">Commit</button>
+      </form>
     </div>
         </>
     )
