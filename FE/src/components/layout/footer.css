@@ -8,6 +8,13 @@ body{
 	padding:0;
 	box-sizing: border-box;
 }
+.container2 {
+	max-width: 600px;
+	margin: 3% 5% 3% 12%; 
+	max-height: auto;
+  }
+  
+  
 .container{
 	max-width: 1170px;
 	margin:auto;
@@ -26,6 +33,7 @@ ul{
 .footer-col{
    width: 25%;
    padding: 0 15px;
+   
 }
 .footer-col h4{
 	font-size: 18px;
@@ -97,16 +105,16 @@ ul{
 	background-size: cover;
 	background-position: center;
   }
+
   .login {
 	display: inline-block;
-	background-color: #007bff; /* Màu nền */
-	color: #fff; /* Màu chữ */
+	background-color: #007bff; 
+	color: #fff; 
 	border: none;
-	padding: 10px 20px; /* Kích thước nút */
-	border-radius: 5px; /* Độ cong viền */
-	font-size: 16px; /* Kích thước chữ */
+	padding: 10px 20px; 
+	border-radius: 5px; 
+	font-size: 16px; 
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
 }
-
