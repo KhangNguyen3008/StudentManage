@@ -4132,4 +4132,13 @@ blockquote {
   z-index: 2001;
 }
 
+.document-files span {
+  color: gray;
+}
+
+.image-files span {
+  color: gray;
+}
+
+
 /*# sourceMappingURL=style.css.map */
