@@ -254,3 +254,74 @@ ul{
 		text-align: left; 
 	}
 	
+	.faculty, .articleTitle {
+		margin-bottom: 20px;
+	}
+	
+	.container h1, .container h2 {
+		margin-bottom: 20px;
+	}
+
+	summary {
+		background-color: #898484; 
+		padding: 10px;
+		cursor: pointer;
+		outline: none; 
+	}
+	
+	summary:hover {
+		background-color: #999; 
+	}
+	
+	details {
+		margin-bottom: 10px; 
+	}
+
+	table {
+		width: 100%;
+	}
+	
+	table td {
+		padding: 10px;
+		border: none;
+	}
+	
+	.left-column {
+		width: 200px;
+	}
+	
+	.right-column {
+		width: calc(100% - 200px);
+	}
+	
+	.pdf-logo {
+		width: 20px;
+		vertical-align: middle;
+	}
+	
+	textarea {
+		width: calc(100% - 10px);
+		padding: 5px;
+		resize: none;
+		border: 1px solid #ccc;
+    	border-radius: 5px;
+	}
+
+	textarea:focus::placeholder {
+		color: transparent;
+	}
+
+	.comment-button {
+		display: block;
+		margin-top: 20px; 
+		padding: 10px 20px;
+		background-color: #13e101; 
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		outline: none;
+	}
+	
+	.comment-button:hover {
+		background-color: #99b2b0; 
+	}

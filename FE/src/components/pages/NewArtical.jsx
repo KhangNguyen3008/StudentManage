@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../app/globals.css'
 
 export default function NewArtical() {
   return (
@@ -56,9 +57,9 @@ export default function NewArtical() {
             <link rel="stylesheet" href="/home/css/skins/all.css" />
             <link rel="stylesheet" href="/home/css/demo.css" />
             <div className="container2">
-            <h1 className="mt-5" style={{ fontSize: '2rem' }}>Add New Article For This Year Magazine</h1>
+            <h1 className="mt-5" style={{ fontSize: '24px', color: 'darkslategray', lineHeight: '2.5'  }}>Add New Article For This Year Magazine</h1>
             <h1 className="mt-5" style={{ fontSize: '1.5rem' }}>Closure Date: </h1>
-            <h1 className="mt-5" style={{ fontSize: '1.5rem' }}>Faculty: </h1>
+            <h1 className="faculty" style={{ fontSize: '1.5rem' }}>Faculty: </h1>
             <form className="mt-3">
               <div className="mb-3">
         <label htmlFor="articleTitle" className="form-label">Article Title:</label>
