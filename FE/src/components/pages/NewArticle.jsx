@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../app/globals.css'
 
-export default function NewArtical() {
+export default function NewArticle() {
   return (
         <>
             <meta charSet="utf-8" />

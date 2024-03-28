@@ -1,6 +1,6 @@
-import React from 'react'
-import '../../globals.css'
-import { FaWeight } from 'react-icons/fa'
+import React from 'react';
+import '../../globals.css';
+import { FaWeight } from 'react-icons/fa';
 
 function ArticleDetail() {
   return (
@@ -15,94 +15,92 @@ function ArticleDetail() {
       <div>
         <h1 style={{ fontSize: '18px', color: 'black', fontWeight: 'bold' }}>Submission List</h1>
         <details>
-          <summary class="summary">Submission no.#</summary>
-          <div class="table-container">
-        <table>
-            <tr>
-                <td class="left-column">Status:</td>
-                <td class="right-column">Selected</td>
-            </tr>
-            <tr>
-                <td class="left-column">Update:</td>
-                <td class="right-column">12/26/2023</td>
-            </tr>
-            <tr>
-                <td class="left-column">File Summision:</td>
-                <td class="right-column">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.pdf
-                </td>
-            </tr>
-            <tr>
-                <td class="left-column">Comment:</td>
-                <td class="right-column">
+          <summary className="summary">Submission no.#</summary>
+          <div className="table-container">
+            <table>
+              <tbody>
+                <tr>
+                  <td className="left-column">Status:</td>
+                  <td className="right-column">Selected</td>
+                </tr>
+                <tr>
+                  <td className="left-column">Update:</td>
+                  <td className="right-column">12/26/2023</td>
+                </tr>
+                <tr>
+                  <td className="left-column">File Submission:</td>
+                  <td className="right-column">Lorem ipsum dolor sit amet, consectetur adipiscing elit.pdf</td>
+                </tr>
+                <tr>
+                  <td className="left-column">Comment:</td>
+                  <td className="right-column">
                     <textarea placeholder="Enter your comment" rows="5" cols="50"></textarea>
-                </td>
-            </tr>
-        </table>
-        <button class="comment-button">Comment</button>
-    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button className="comment-button">Comment</button>
+          </div>
         </details>
         <details>
-          <summary class="summary">Submission no.#</summary>
-          <div class="table-container">
-        <table>
-            <tr>
-                <td class="left-column">Status:</td>
-                <td class="right-column">Selected</td>
-            </tr>
-            <tr>
-                <td class="left-column">Update:</td>
-                <td class="right-column">12/26/2023</td>
-            </tr>
-            <tr>
-                <td class="left-column">File Summision:</td>
-                <td class="right-column">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.pdf
-                </td>
-            </tr>
-            <tr>
-                <td class="left-column">Comment:</td>
-                <td class="right-column">
+          <summary className="summary">Submission no.#</summary>
+          <div className="table-container">
+            <table>
+              <tbody>
+                <tr>
+                  <td className="left-column">Status:</td>
+                  <td className="right-column">Selected</td>
+                </tr>
+                <tr>
+                  <td className="left-column">Update:</td>
+                  <td className="right-column">12/26/2023</td>
+                </tr>
+                <tr>
+                  <td className="left-column">File Submission:</td>
+                  <td className="right-column">Lorem ipsum dolor sit amet, consectetur adipiscing elit.pdf</td>
+                </tr>
+                <tr>
+                  <td className="left-column">Comment:</td>
+                  <td className="right-column">
                     <textarea placeholder="Enter your comment" rows="5" cols="50"></textarea>
-                </td>
-            </tr>
-        </table>
-        <button class="comment-button">Comment</button>
-    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button className="comment-button">Comment</button>
+          </div>
         </details>
         <details>
-          <summary class="summary">Submission no.#</summary>
-          <div class="table-container">
-        <table>
-            <tr>
-                <td class="left-column">Status:</td>
-                <td class="right-column">Selected</td>
-            </tr>
-            <tr>
-                <td class="left-column">Update:</td>
-                <td class="right-column">12/26/2023</td>
-            </tr>
-            <tr>
-                <td class="left-column">File Summision:</td>
-                <td class="right-column">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.pdf
-                </td>
-            </tr>
-            <tr>
-                <td class="left-column">Comment:</td>
-                <td class="right-column">
+          <summary className="summary">Submission no.#</summary>
+          <div className="table-container">
+            <table>
+              <tbody>
+                <tr>
+                  <td className="left-column">Status:</td>
+                  <td className="right-column">Selected</td>
+                </tr>
+                <tr>
+                  <td className="left-column">Update:</td>
+                  <td className="right-column">12/26/2023</td>
+                </tr>
+                <tr>
+                  <td className="left-column">File Submission:</td>
+                  <td className="right-column">Lorem ipsum dolor sit amet, consectetur adipiscing elit.pdf</td>
+                </tr>
+                <tr>
+                  <td className="left-column">Comment:</td>
+                  <td className="right-column">
                     <textarea placeholder="Enter your comment" rows="5" cols="50"></textarea>
-                </td>
-            </tr>
-        </table>
-        <button class="comment-button">Comment</button>
-    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button className="comment-button">Comment</button>
+          </div>
         </details>
       </div>
     </div>
-
-    
-  )
+  );
 }
 
-export default ArticleDetail
+export default ArticleDetail;

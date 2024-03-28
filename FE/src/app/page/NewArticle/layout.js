@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from "@/components/layout/Footer";
-import NewArtical from '@/components/pages/NewArtical';
+import NewArtical from '@/components/pages/NewArticle';
 import Navbar from '@/components/layout/Navbar';
 
 const metadata = {

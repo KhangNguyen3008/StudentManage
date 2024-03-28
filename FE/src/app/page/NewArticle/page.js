@@ -1,11 +1,11 @@
 
-import NewArtical from "@/components/pages/NewArtical";
+import NewArticle from "@/components/pages/NewArticle";
 import Image from "next/image";
 
 export default function page() {
   return (
     <>
-      <NewArtical/>
+      <NewArticle/>
     </>
   );
 }

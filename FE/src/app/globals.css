@@ -315,13 +315,77 @@ ul{
 		display: block;
 		margin-top: 20px; 
 		padding: 10px 20px;
-		background-color: #13e101; 
+		background-color: #7607c5f8; 
 		border: none;
 		border-radius: 5px;
 		cursor: pointer;
 		outline: none;
+		color:white;
 	}
 	
 	.comment-button:hover {
 		background-color: #99b2b0; 
-	}
+	}	
+	
+	/*Details Mkt manager */
+header {
+    text-align: left;
+    padding: 10px 10px;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    
+}
+
+.left-column,
+.right-column {
+    flex: 1;
+    padding: 30px;
+    border: 3px solid #ccc; 
+    border-radius: 5px; 
+    margin-right: 10px; 
+    background-color: #f9f9f9; 
+    
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-weight:bold;
+}
+
+.download {
+    margin-bottom: 20px;
+    font-size:15px;
+}
+.description-download {
+  border: 3px solid #ccc;
+  padding: 50px;
+  margin-bottom: 20px;
+}
+
+.description-download h2 {
+  margin-top: 0;
+  height:auto;  
+}
+.download a {
+    color: blue;
+}
+
+.related-contributions {
+    margin-bottom: 20px;
+}
+
+.related-contributions ul {
+    list-style-type: none;
+    padding: 0;
+}
