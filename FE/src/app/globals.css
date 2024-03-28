@@ -220,11 +220,37 @@ ul{
   }
   }
   
-  .login-bg {
-	  background-image: url('/home/images/socialbg.png');
-	  background-size: cover;
-	  background-position: center;
+
+	.form-control input[type="text"] {
+		width: 750px; 
+		height: 100px; 
+		padding: 100px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		font-size: 18px;	
 	}
-  
-  
-  
+	
+	.textbox-container input[type="text"] {
+		width: 750px;
+		padding: 25px; 
+		border: 1px solid #ccc; 
+		border-radius: 5px; 
+		font-size: 16px; 
+		color: #333; 
+	}
+	
+	.textbox-container input[type="text"]::placeholder {
+		font-size: 14px;
+		text-align: left; 
+	}
+	
+	
+	input[type="text"]:focus::placeholder {
+		color: transparent;
+	}
+	
+	input[type="text"]::placeholder {
+		font-size: 14px; 
+		text-align: left; 
+	}
+	
