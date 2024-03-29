@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from "@/components/layout/Footer";
-import NewArtical from '@/components/pages/NewArticle';
 import Navbar from '@/components/layout/Navbar';
+import NewArticle from '@/components/pages/NewArticle';
 
 const metadata = {
   title: "Create Next App",
@@ -12,7 +12,7 @@ export default function Layout({ children }) {
   return (
       <>
         <Navbar/> 
-          <NewArtical/>
+          <NewArticle/>
           <Footer/>
       </>
   );
