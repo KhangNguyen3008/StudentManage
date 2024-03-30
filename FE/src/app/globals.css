@@ -327,11 +327,7 @@ ul{
 		background-color: #99b2b0; 
 	}	
 	
-	/*Details Mkt manager */
-header {
-    text-align: left;
-    padding: 10px 10px;
-}
+
 
 main {
     max-width: 800px;
@@ -429,3 +425,26 @@ body {
     background-color: #999;
 }
 
+.simple-table {
+	width: 100%;
+	border-collapse: collapse;
+  }
+
+  .simple-table th,
+  .simple-table td {
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: left;
+  }
+
+  .simple-table th {
+	background-color: #f2f2f2;
+  }
+
+  .simple-table tbody tr:nth-child(even) {
+	background-color: #f2f2f2;
+  }
+
+  .simple-table tbody tr:hover {
+	background-color: #ddd;
+  }
