@@ -63,11 +63,15 @@ export default function NewArticle() {
             <form className="mt-3">
               <div className="mb-3">
         <label htmlFor="articleTitle" className="form-label">Article Title:</label>
-        <input type="text" className="form-control" id="articleTitle" />
+        <div className="textbox-container">
+            <input type="text" placeholder="Enter your article content"/>
+        </div>
     </div>
     <div className="mb-3">
-        <label htmlFor="articleContent" className="form-label">Article Content:</label>
-        <textarea className="form-control" id="articleContent" rows="5"></textarea>
+        <label htmlFor="ArticleContent" className="form-label">Article Content:</label>
+        <div className="large-textbox-container">
+            <input type="text" placeholder="Enter your article content"/>
+        </div>
     </div>
     <div className="mb-3">
         <label htmlFor="articlePhoto" className="form-label">File Submission:</label>
