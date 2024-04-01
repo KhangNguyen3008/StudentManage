@@ -58,38 +58,83 @@ export default function IndexMM() {
             <div className="container">
       <header>
         <div className="header-right">
-          <button className="year-button">Current Year</button>
-          <button className="download-button">Download All Articles</button>
+        <select name="sort-by">
+          <option value="Currentyear">Current Year</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+        </select>          
+        <button className="download-button">Download All Articles</button>
         </div>
       </header>
-
+      
       <div className="search-bar">
+        <select name="sort-by" style={{ marginRight: '20px' }}>
+          <option value="Studentname">Student Name</option>
+          <option value="Studentage">Student Age</option>
+        </select>
+
         <input type="text" placeholder="Search..." />
-        <div className="scroll-box student-names">
-        </div>
-        <div className="scroll-box faculty">
-        </div>
+
+        <select name="sort-by" style={{ marginRight: '20px' }}>
+          <option value="falculty">Falculty</option>
+        </select>
+
         <select name="sort-by">
+          <option value="default">Sort by Default</option>
           <option value="date">Sort by Date</option>
           <option value="title">Sort by Title</option>
         </select>
       </div>
-
-      <main>
-        <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Upload Date</th>
-              <th>Selected Date</th>
-              <th>Author</th>
+      
+      <div className="article-table">
+       <table>
+        <thead>
+          <tr>
+            <th> ID</th>
+            <th>Title</th>
+            <th>Upload Date</th>
+            <th>Selected Date</th>
+            <th>Author</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>Cycling Adventure: Exploring the Urban Landscape
+            <br />
+            <a href="#">Download</a>
+            </td>
+            <td>12/25/2023</td>
+            <td>12/27/2023</td>
+            <td>Student001</td>
             </tr>
-          </thead>
-          <tbody>
-
-          </tbody>
-        </table>
-      </main>
+            </tbody>
+            <tbody>
+          <tr>
+            <td>02</td>
+            <td>Into the Clouds: Conquering the Heights of the Himalayas
+            <br />
+            <a href="#">Download</a>
+            </td>
+            <td>12/25/2023</td>
+            <td>12/27/2023</td>
+            <td>Student002</td>
+            </tr>
+            </tbody><tbody>
+          <tr>
+            <td>03</td>
+            <td>Sweet Sensations: Creating Culinary Magic with Caramelized Treats
+            <br />
+            <a href="#">Download</a>
+            </td>
+            <td>12/25/2023</td>
+            <td>12/27/2023</td>
+            <td>Student003</td>
+            </tr>
+            </tbody>
+      </table>
+    </div>
     </div>
         </>
     )

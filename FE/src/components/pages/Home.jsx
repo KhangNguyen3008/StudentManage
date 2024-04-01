@@ -256,19 +256,11 @@ export default function Home() {
                                                 Cycling Adventure: Exploring the Urban Landscape
                                                 </a>
                                             </h1>
-                                            <p>
-                                            In the bustling cityscape where skyscrapers reach for the sky and streets hum with activity, a solitary bicycle leans against a graffiti-covered wall, 
-                                            a silent witness to the ebb and flow of urban life. Against this backdrop of concrete and steel, the simple elegance of the bike stands in stark contrast, a symbol of freedom and escape.
-                                            </p>
                                             <footer>
-                                                <a href="#" className="love">
-                                                    <i className="ion-android-favorite-outline" />{" "}
-                                                    <div>273</div>
-                                                </a>
                                                 <a className="btn btn-primary more" href="single.html">
                                                     <div>More</div>
                                                     <div>
-                                                        <i className="ion-ios-arrow-thin-right" />
+                                                    <i className="ion-ios-arrow-thin-right" />
                                                     </div>
                                                 </a>
                                             </footer>

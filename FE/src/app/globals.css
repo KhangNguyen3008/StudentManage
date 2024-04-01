@@ -367,6 +367,7 @@ ul li {
     margin-bottom: 20px;
     font-size:15px;
 }
+
 .description-download {
   border: 3px solid #ccc;
   padding: 50px;
@@ -446,17 +447,23 @@ header {
 
 .header-right {
     display: flex;
+    justify-content: flex-end;
+}
+.header-right select {
+    margin-right: 25px; 
 }
 
 .search-bar {
     background-color: #ddd;
     padding: 10px;
+	display: flex;
+    justify-content: flex-end;
 }
 
 .search-bar input {
-    width: 200px;
-    padding: 5px;
-    margin-right: 10px;
+    width: 750px;
+    padding: 10px;
+    margin-right: auto;
 }
 
 .scroll-box {
@@ -464,7 +471,7 @@ header {
     overflow-y: auto;
     margin-bottom: 10px;
 }
-
+  
 main {
     padding: 20px;
 }
@@ -479,16 +486,30 @@ th, td {
     padding: 8px;
     text-align: left;
 }
-
+td a {
+	font-size: smaller;
+	color: grey;
+  }
 th {
     background-color: #f2f2f2;
 }
 
-footer {
-    background-color: #f0f0f0;
-    padding: 10px;
-    text-align: center;
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
 }
+
+.article-table th, .article-table td {
+  border: 2px solid #ddd;
+  padding: 15px;
+}
+
+.article-table th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+
 
 .pagination {
     list-style-type: none;
@@ -505,5 +526,16 @@ footer {
     padding: 5px 10px;
     background-color: #ddd;
 }
+.download-button {
+    background-color: #53059b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+.download-button:hover {
+    background-color: #0056b3;
+}
 
