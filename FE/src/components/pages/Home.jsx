@@ -69,7 +69,7 @@ export default function Home() {
                                         <article className="article col-md-12">
                                             <div className="inner">
                                                 <figure>
-                                                    <a href="single.html">
+                                                    <a href="./Student/DetailArticle">
                                                         <img src="/home/images/news/img10.jpg" alt="Sample Article" />
                                                     </a>
                                                 </figure>
@@ -81,7 +81,7 @@ export default function Home() {
                                                         </div>
                                                     </div>
                                                     <h2>
-                                                        <a href="single.html">
+                                                        <a href="./Student/DetailArticle">
                                                         The Enigmatic Charm of Feline Companions: Exploring the World of Cats
                                                         </a>
                                                     </h2>
