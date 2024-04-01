@@ -372,6 +372,7 @@ ul li {
     margin-bottom: 20px;
     font-size:15px;
 }
+
 .description-download {
   border: 3px solid #ccc;
   padding: 50px;
@@ -458,3 +459,185 @@ body {
 	background-color: #ddd;
   }
 /*Index Marketing Manager*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+}
+.header-right select {
+    margin-right: 25px; 
+}
+
+.search-bar {
+    background-color: #ddd;
+    padding: 10px;
+	display: flex;
+    justify-content: flex-end;
+}
+
+.search-bar input {
+    width: 750px;
+    padding: 10px;
+    margin-right: auto;
+}
+
+.scroll-box {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+  
+main {
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+td a {
+	font-size: smaller;
+	color: grey;
+  }
+th {
+    background-color: #f2f2f2;
+}
+
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.article-table th, .article-table td {
+  border: 2px solid #ddd;
+  padding: 15px;
+}
+
+.article-table th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+
+
+.pagination {
+    list-style-type: none;
+    padding: 0;
+}
+
+.pagination li {
+    display: inline;
+    margin-right: 5px;
+}
+
+.pagination li a {
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #ddd;
+}
+.download-button {
+    background-color: #53059b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.download-button:hover {
+    background-color: #0056b3;
+}
+
+/* css for index student */
+.container1 {
+	margin: 0 auto;
+	max-width: 800px;
+	padding: 20px;
+	border-radius: 8px;
+	margin-top: 20px;
+  }
+  
+  .container1 h1 {
+	font-size: 18px;
+	color: black;
+	font-weight: bold;
+  }
+  
+  .search-bar {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+  }
+  
+  .search-bar select,
+  .search-bar input {
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+  }
+  
+  .search-bar select {
+	margin-right: 20px;
+  }
+  
+  .search-bar input[type="text"] {
+	flex-grow: 1;
+	margin-right: 20px;
+  }
+  
+
+  .pagination {
+	display: flex;
+	justify-content: flex-end; 
+	align-items: center; 
+	margin-top: 20px;
+  }
+  
+  .page-index, .dots, .next {
+	display: inline-block;
+	width: 32px; 
+	height: 32px;
+	line-height: 32px;
+	text-align: center; 
+	margin-right: 5px;
+	background-color: #eeeeee;
+	color: rgb(57, 237, 240);
+	text-decoration: none;
+	border-radius: 4px;
+	padding: 0;
+	margin: 0;
+  }
+  
+  .dots, .next {
+	cursor: pointer; 
+  }
+  
+  .page-index:hover, .dots:hover, .next:hover {
+	background-color: #ddd;
+  }
+  
+  .next {
+	white-space: nowrap; 
+	width: 50px; 
+	height: 32px;
+  }
