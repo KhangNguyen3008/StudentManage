@@ -8,13 +8,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Navbar() {
   const [user, setUser] = useState()
- 
-  useEffect(()=>{
-    AuthService.profile().then(x => setUser(x.data)).catch(e=>console.log(e))
-    return ()=>{
-      
+
+  useEffect(() => {
+    AuthService.profile().then(x => setUser(x.data)).catch(e => console.log(e))
+    return () => {
+
     }
-  },[])
+  }, [])
   return (
     <>
       <ToastContainer />
@@ -28,7 +28,7 @@ export default function Navbar() {
 
               <div className='flex items-center gap-4'>
                 <button className='text-3xl font-bold'>{user && user.fullName}</button>
-                <button onClick={(e)=>{localStorage.removeItem('token')}} className='text-3xl font-bold'>logout</button>
+                <button onClick={(e) => { localStorage.removeItem('token'); setUser() }} className='text-3xl font-bold'>logout</button>
               </div>
           }
         </div>

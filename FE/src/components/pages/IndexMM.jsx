@@ -2,6 +2,7 @@
 import FacultyService from '@/services/FacultyService'
 import React, { useEffect, useState } from 'react'
 import Time from '../ui/Time'
+import Link from 'next/link'
 
 export default function IndexMM() {
   const [faculty, setFaculty] = useState()
@@ -84,34 +85,35 @@ export default function IndexMM() {
           </select>
         </div>
 
-        <main>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Total submited</th>
-                <th>Closure Date</th>
-                <th>Final Closure Date</th>
-                <th>Create Date</th>
-                <th>Marketing Coordinator</th>
-              </tr>
-            </thead>
-            <tbody>
-              {faculty && faculty.map(x => {
-                return <>
-                  <tr>
-                    <td>{x.name}</td>
-                    <td>{x.contribution.length}</td>
-                    <td>{<Time string={x.closureDate}/>}</td>
-                    <td>{<Time string={x.finalclosureDate}/>}</td>      
-                    <td>{<Time string={x.createdAt}/>}</td>
-                    <td>{x.user.email}</td>
-                  </tr>
-                </>
-              })}
-            </tbody>
-          </table>
-        </main>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Total submited</th>
+              <th>Closure Date</th>
+              <th>Final Closure Date</th>
+              <th>Create Date</th>
+              <th>Marketing Coordinator</th>
+              <th>View Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            {faculty && faculty.map(x => {
+              return <>
+                <tr>
+                  <td>{x.name}</td>
+                  <td>{x.contribution.length}</td>
+                  <td>{<Time string={x.closureDate} />}</td>
+                  <td>{<Time string={x.finalclosureDate} />}</td>
+                  <td>{<Time string={x.createdAt} />}</td>
+                  <td>{x.user.email}</td>
+                  <td><Link href={`/Manager/Details/${x.id}`} className='bg-primary p-4'>View Detail</Link></td>
+                </tr>
+              </>
+            })}
+          </tbody>
+        </table>
+
       </div>
     </>
   )

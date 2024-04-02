@@ -26,7 +26,7 @@ export default function Login() {
             router.push('/admin')
             break
           case '4':
-            router.push('/home');
+            router.push('/Student/index');
         }
 
       }, 2000)
