@@ -10,10 +10,10 @@ const metadata = {
 
 export default function Layout({ children }) {
   return (
-      <>
-        <Navbar/> 
-          <NewArticle/>
-          <Footer/>
-      </>
+    <>
+      <Navbar />
+        {children}
+      <Footer />
+    </>
   );
 }

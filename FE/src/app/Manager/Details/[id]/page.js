@@ -2,10 +2,10 @@
 import DetailMM from "@/components/pages/DetailMM";
 import Image from "next/image";
 
-export default function page() {
+export default function page({params}) {
   return (
     <>
-      <DetailMM/>
+      <DetailMM id={params.id}/>
     </>
   );
 }

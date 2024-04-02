@@ -1,7 +1,18 @@
-import React from 'react'
+'use client'
+import FacultyService from '@/services/FacultyService'
+import React, { useEffect, useState } from 'react'
+import Time from '../ui/Time'
+import { Button } from '@mui/material'
 
-export default function DetailMM() {
-  return (
+export default function DetailMM({ id }) {
+    const [faculty, setFaculty] = useState()
+    useEffect(() => {
+        FacultyService.getFacultyById(id).then(x => { setFaculty(x.data) }).catch(e => { })
+    }, [])
+    if (!faculty) {
+        return "Do not exist this faculty"
+    }
+    return (
         <>
             <meta charSet="utf-8" />
             <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -56,43 +67,76 @@ export default function DetailMM() {
             <link rel="stylesheet" href="/home/css/skins/all.css" />
             <link rel="stylesheet" href="/home/css/demo.css" />
             <div>
-            <main>
-            <header>
-            <h5>The Enigmatic Charm of Feline Companions: Exploring the World of Cats </h5>
-            </header>
-            <div className="description-download">
-                <p>In this article, we will take you into the magical world of cats. 
-                From interesting things about their history and origins to the most adorable and fascinating stories about life with cats, 
-                join us to explore the richness and uniqueness of the cat world.</p>
-                <section className="details">
-                    <div className="left-column">
-                        <ul>
-                            <li>Upload Date: </li>
-                            <li>Closure Date:  </li>
-                            <li>Student Name:  </li>
-                        </ul>
-                    </div>
-                    <div className="right-column">
-                        <ul>
-                            <li>Selected Date: </li>
-                            <li>Final Closure Date: </li>
-                            <li>Status: </li>
-                        </ul>
-                    </div>
-                </section>
-                <section className="download">
-                    <h5>Download File</h5>
-                   <p>You can download the file related to this article here: <a href="#">Download File</a></p>
-                </section>
-                </div>
-                <section className="related-contributions">
-                    <h5>Related Contributions</h5>
-                    <ul>
 
-                    </ul>
-                </section>
-            </main>
-        </div>
+                <main>
+                    <header>
+                        <h5 className=' text-center'>{faculty.name} </h5>
+                    </header>
+                    <div className="description-download">
+                        <p>{faculty.description}</p>
+                        <section className="details">
+                            <div className="left-column">
+                                <ul>
+                                    <li>Upload Date: {<Time string={faculty.createdAt} />}</li>
+                                    <li>Closure Date: {<Time string={faculty.closureDate} />} </li>
+                                    <li>Final Closure Date: {<Time string={faculty.finalclosureDate} />} </li>
+                                </ul>
+                            </div>
+                            <div className="right-column">
+                                <ul>
+                                    <li>Marketing Coordinator : {faculty.user.email} </li>
+                                    <li>Total Submited : {faculty.contribution.length} </li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section className="download">
+                            <h5>Download File</h5>
+                            <p>You can download the file related to this article here: <a href="#">Download File</a></p>
+                        </section>
+                    </div>
+                    <section className="related-contributions">
+                        <h5>Related Contributions</h5>
+                        {faculty.contribution && faculty.contribution.map(x => {
+
+                            return <details>
+                                <summary className="summary">Submission no.#</summary>
+                                <div className="table-container">
+                                    <table>
+                                        <tbody>
+                                            {/* <tr>
+                <td className="left-column">Status:</td>
+                <td className="right-column">Selected</td>
+            </tr> */}
+                                            <tr>
+                                                <td className="left-column">Submit At:</td>
+                                                <td className="right-column">{<Time string={x.createdAt} />}</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="left-column">Update:</td>
+                                                <td className="right-column">{<Time string={x.updatedAt} />}</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="left-column">File Submission:</td>
+                                                <td className="right-column"><a href={`/${x.filePath}`}>{x.fileName}</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td className="left-column">Comment:</td>
+                                                <td className="right-column">
+                                                    <form action=""><textarea name="" id="" cols="10" rows="4">
+                                                    </textarea>
+                                                        <Button variant='contained' className=' bg-primary'>Comment</Button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </details>
+                        })}
+                    </section>
+                </main>
+            </div>
         </>
     )
 }

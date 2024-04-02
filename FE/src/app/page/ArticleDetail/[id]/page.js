@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../globals.css';
 import { FaWeight } from 'react-icons/fa';
+import FacultyService from '@/services/FacultyService';
 
-function ArticleDetail() {
+function ArticleDetail({params }) {
+
   return (
     <div className='container'>
       <div>

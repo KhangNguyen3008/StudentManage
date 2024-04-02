@@ -12,6 +12,9 @@ export default class AuthController {
         if (!user) {
             return response.abort('Username Not Found', 400)
         }
+        if (user.roleId !== payload.role) {
+            return response.abort('Role not match', 400)
+        }
 
         /**
          * Verify the password using the hash service

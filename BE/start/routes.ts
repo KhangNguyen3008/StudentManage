@@ -14,6 +14,7 @@ import { middleware } from './kernel.js'
 import RolesController from '#controllers/roles_controller'
 import UsersController from '#controllers/users_controller'
 import FacultiesController from '#controllers/faculties_controller'
+import ContributionsController from '#controllers/contributions_controller'
 
 router.get('/', async () => {
   return {
@@ -44,5 +45,14 @@ router.group(() => {
     router.put('/', [FacultiesController, 'Put'])
     router.delete('/:id', [FacultiesController, 'Delete'])
   }).prefix('/faculty')
+  router.group(() => {
+    router.get('/', [ContributionsController, 'Get'])
+    router.get('/student/:id', [ContributionsController, 'GetByStudent']).use([middleware.auth()])
+    router.get('/:id', [ContributionsController, 'GetById'])
+  
+    router.post('/', [ContributionsController, 'Post']).use([middleware.auth()])
+    // router.put('/', [FacultiesController, 'Put'])
+    // router.delete('/:id', [FacultiesController, 'Delete'])
+  }).prefix('/contribution')
 
 }).prefix('/api')

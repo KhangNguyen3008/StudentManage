@@ -9,6 +9,8 @@ export default class extends BaseSchema {
       table.string('name')
       table.integer('user_id').references('id').inTable('users')
       table.boolean('isrequest')
+      table.timestamp('closure_date')
+      table.timestamp('finalclosure_date')
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })

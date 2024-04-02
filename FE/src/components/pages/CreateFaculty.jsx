@@ -11,6 +11,7 @@ import SelectRole from '../ui/SelectRole';
 import UserService from '@/services/UserService';
 import { toast } from 'react-toastify';
 import SelectMc from '../ui/SelectMc';
+import FacultyService from '@/services/FacultyService';
 
 
 export default function CreateFaculty() {
@@ -18,7 +19,7 @@ export default function CreateFaculty() {
   const onSubmit = (e) => {
     e.preventDefault()
     const formdata = new FormData(e.target)
-    UserService.createUser(formdata).then(x => {
+    FacultyService.createFaculty(formdata).then(x => {
       toast.success('add success')
 
     }).catch(err => {
@@ -28,8 +29,6 @@ export default function CreateFaculty() {
 
   return (
     <form onSubmit={onSubmit}>
-
-
       <Grid container spacing={3} >
         <Grid item xs={12} md={6} className='flex !flex-col' >
           <FormLabel htmlFor="name" required>
@@ -45,6 +44,32 @@ export default function CreateFaculty() {
           />
         </Grid>
         <Grid item xs={12} md={6} className='flex !flex-col'>
+          <FormLabel htmlFor="name" required>
+            Closure Date
+          </FormLabel>
+          <OutlinedInput
+            id="closuredate"
+            name="closuredate"
+            type="datetime-local"
+            placeholder="Select closure date"
+          
+            required
+          />
+        </Grid>
+        <Grid item xs={12} md={6} className='flex !flex-col'>
+          <FormLabel htmlFor="finalclosuredate" required>
+            Final Closure Date
+          </FormLabel>
+          <OutlinedInput
+            id="finalclosuredate"
+            name="finalclosuredate"
+            type="datetime-local"
+            placeholder="Select final closure date"
+    
+            required
+          />
+        </Grid>
+        <Grid item xs={12} md={6} className='flex !flex-col'>
           <SelectMc />
         </Grid>
         <Grid item xs={12} md={12} className='flex !flex-col'>
@@ -52,7 +77,7 @@ export default function CreateFaculty() {
             Is Request
           </FormLabel>
           <div className='flex justify-start'>
-          <Checkbox className=' justify-start'  />
+            <Checkbox className=' justify-start' />
           </div>
         </Grid>
         <Grid item xs={6} md={3} className='flex !flex-col'>
@@ -62,6 +87,6 @@ export default function CreateFaculty() {
           <Button href='/admin/faculty' type='button' variant='contained' color='error' className='bg-error'>Cancel</Button>
         </Grid>
       </Grid>
-    </form>
+    </form >
   )
 }

@@ -4,7 +4,8 @@ import vine from '@vinejs/vine'
 export const LoginForm = vine.compile(
     vine.object({
         email: vine.string().email(),
-        password: vine.string().minLength(8)
+        password: vine.string().minLength(8),
+        role:vine.number()
     })
 
 )

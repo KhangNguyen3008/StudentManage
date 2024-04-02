@@ -1,5 +1,6 @@
 import Faculty from '#models/faculty'
 import { BaseSeeder } from '@adonisjs/lucid/seeders'
+import { DateTime } from 'luxon'
 
 export default class extends BaseSeeder {
   async run() {
@@ -7,12 +8,16 @@ export default class extends BaseSeeder {
       {
         name:'IT',
         userId:3,
-        isrequest:false
+        isrequest:false,
+        closureDate: DateTime.now().plus({days:6}),
+        finalclosureDate: DateTime.now().plus({days:7})
       },
       {
         name:'Bussiness',
         userId:3,
-        isrequest:false
+        isrequest:false,
+        closureDate: DateTime.now().plus({days:6}),
+        finalclosureDate: DateTime.now().plus({days:7})
       }
     ])
   }

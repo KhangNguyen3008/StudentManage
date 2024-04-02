@@ -25,8 +25,8 @@ export default function SelectMc() {
         <FormLabel htmlFor="user" >Select User</FormLabel>
         <Select
             labelId="user"
-            id="user"
-            name='user'
+            id="userid"
+            name='userid'
             label="User"
             defaultValue={data?data[0].id:null}
         >

@@ -1,5 +1,5 @@
 import React from 'react'
-import ArticleDetail from './page'
+import ArticleDetail from './[id]/page'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 

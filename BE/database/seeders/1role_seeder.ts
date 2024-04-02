@@ -20,6 +20,10 @@ export default class extends BaseSeeder {
       {
         id:Roles.STUDENT,
         name:'STUDENT'
+      },
+      {
+        id:Roles.GUEST,
+        name:'GUEST'
       }
     ])
   }

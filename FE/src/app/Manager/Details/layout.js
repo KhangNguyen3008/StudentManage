@@ -15,7 +15,7 @@ export default function Layout({ children }) {
     <>
 
         <Navbar />
-        <DetailMM />
+        {children}
         <Footer />
 
     </>
