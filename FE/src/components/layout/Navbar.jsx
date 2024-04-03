@@ -8,9 +8,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Navbar() {
   const [user, setUser] = useState()
+  const [isAuth, setIsAuth] = useState()
 
   useEffect(() => {
-   
+
     AuthService.profile().then(x => setUser(x.data)).catch(e => console.log(e))
     return () => {
 
@@ -18,6 +19,7 @@ export default function Navbar() {
   }, [])
   return (
     <>
+
       <ToastContainer />
       <div className=' '>
         <div className='mx-[300px] mt-2 flex justify-between items-center px-20 '>
@@ -37,6 +39,7 @@ export default function Navbar() {
           <Link href='/home' className='! text-black hover:border-red-300 '>Home</Link>
         </div>
       </div>
+
     </>
   )
 }

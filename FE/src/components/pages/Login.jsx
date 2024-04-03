@@ -8,7 +8,7 @@ import SelectRole from '../ui/SelectRole';
 import '../layout/footer.css'
 import AuthService from '@/services/AuthService';
 import { toast } from 'react-toastify';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 
 export default function Login() {
   const router = useRouter()
@@ -23,10 +23,11 @@ export default function Login() {
         console.log(role)
         switch (role) {
           case '1':
-            router.push('/admin')
+            redirect('/admin')
             break
           case '4':
-            router.push('/Student/index');
+            window.location = 'http://localhost:3000/Student/index'
+            break
         }
 
       }, 2000)
