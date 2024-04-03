@@ -23,7 +23,10 @@ export default function Login() {
         console.log(role)
         switch (role) {
           case '1':
-            redirect('/admin')
+            window.location = 'http://localhost:3000/admin'
+            break
+          case '2':
+            window.location = 'http://localhost:3000/Manager/Index'
             break
           case '4':
             window.location = 'http://localhost:3000/Student/index'
