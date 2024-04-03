@@ -10,6 +10,7 @@ export default function Navbar() {
   const [user, setUser] = useState()
 
   useEffect(() => {
+   
     AuthService.profile().then(x => setUser(x.data)).catch(e => console.log(e))
     return () => {
 
