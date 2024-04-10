@@ -5,40 +5,34 @@ import app from '@adonisjs/core/services/app'
 
 export default class ContributionsController {
     Get = async ({ response }: HttpContext) => {
-        let contribution = await Contribution.query().preload('user').preload('faculty')
+        let contribution = await Contribution.query().preload('faculty').preload('deadline')
         return response.send(contribution)
     }
     GetById = async ({ response, request }: HttpContext) => {
         const id = request.param('id')
-        let contribution = await Contribution.query().preload('user').preload('faculty').where('id', id).first()
+        let contribution = await Contribution.query().preload('faculty').preload('deadline',x=>x.preload('submission')).where('id', id).first()
         return response.send(contribution)
     }
 
     GetByStudent = async ({ response, request,auth }: HttpContext) => {
         const id = request.param('id')
-        let contribution = await Contribution.query().preload('user').preload('faculty').where('faculty_id', id).where('user_id',auth.user?.id ||'-1')
+        let contribution = await Contribution.query().preload('faculty').where('faculty_id', id).where('user_id',auth.user?.id ||'-1')
         return response.send(contribution)
     }
 
     GetByfacId = async ({ response, request }: HttpContext) => {
         const id = request.param('id')
-        let contribution = await Contribution.query().preload('user').preload('faculty',(x)=>x.where('id',id))
+        let contribution = await Contribution.query().preload('faculty',(x)=>x.where('id',id))
         return response.send(contribution)
     }
     Post = async ({ response, request, auth }: HttpContext) => {
         const payload = await request.validateUsing(PostContributionForm)
         const contribution = new Contribution()
-        contribution.userId = auth.user?.id || -1
-        contribution.facultyId = payload.facultyid
-        contribution.content = payload.content
-        contribution.title =payload.title
-        await payload.file.move(app.makePath('public/uploads'))
-        contribution.filePath = `uploads/${payload.file.fileName}` || 'nul'
-        contribution.fileName = payload.file.fileName ||'null'
+        contribution.description = payload.description || ""
+        contribution.name = payload.name
+        contribution.facultyId=payload.facultyid
         await contribution.save()
-
         return contribution
-
     }
     // Put = async ({ response, request }: HttpContext) => {
     //     const id = request.param('id')
@@ -56,15 +50,15 @@ export default class ContributionsController {
     //     return faculty
 
     // }
-    // Delete = async ({ response, request }: HttpContext) => {
-    //     const id = request.param('id')
-    //     const faculty = await Faculty.find(id)
-    //     if (!faculty) {
-    //         return response.status(400).send(`Faculty not found`)
-    //     }
-    //     await faculty.delete()
+    Delete = async ({ response, request }: HttpContext) => {
+        const id = request.param('id')
+        const contribution = await Contribution.find(id)
+        if (!contribution) {
+            return response.status(400).send(`Contribution not found`)
+        }
+        await contribution.delete()
 
-    //     return ['', 200]
+        return ['', 200]
 
-    // }
+    }
 }

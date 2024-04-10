@@ -1,57 +1,11 @@
+import StudentIndex from '@/components/pages/StudentIndex'
+import UserTable from '@/components/pages/UserTable'
 import React from 'react'
 
 export default function page() {
   return (
     <div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-
-
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div><div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-
-        <div>pa32131ge</div>
-
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        <div>pa32131ge</div>
-        
+        <UserTable/>
     </div>
     
   )

@@ -43,7 +43,7 @@ export default function CreateFaculty() {
             required
           />
         </Grid>
-        <Grid item xs={12} md={6} className='flex !flex-col'>
+        {/* <Grid item xs={12} md={6} className='flex !flex-col'>
           <FormLabel htmlFor="name" required>
             Closure Date
           </FormLabel>
@@ -68,7 +68,7 @@ export default function CreateFaculty() {
     
             required
           />
-        </Grid>
+        </Grid> */}
         <Grid item xs={12} md={6} className='flex !flex-col'>
           <SelectMc />
         </Grid>

@@ -15,6 +15,8 @@ import RolesController from '#controllers/roles_controller'
 import UsersController from '#controllers/users_controller'
 import FacultiesController from '#controllers/faculties_controller'
 import ContributionsController from '#controllers/contributions_controller'
+import DeadlinesController from '#controllers/deadlines_controller'
+import SubmmissionsController from '#controllers/submmissions_controller'
 
 router.get('/', async () => {
   return {
@@ -46,13 +48,31 @@ router.group(() => {
     router.delete('/:id', [FacultiesController, 'Delete'])
   }).prefix('/faculty')
   router.group(() => {
+    router.get('/', [DeadlinesController, 'Get'])
+    router.get('/:id', [DeadlinesController, 'GetById'])
+    router.post('/', [DeadlinesController, 'Post'])
+    // router.put('/', [DeadlinesController, 'Put'])
+    router.delete('/:id', [DeadlinesController, 'Delete'])
+  }).prefix('/deadline')
+  router.group(() => {
+    router.get('/', [SubmmissionsController, 'Get'])
+    router.get('/getbydeadline/:id', [SubmmissionsController, 'GetByDeadlineId'])
+    router.get('/:id', [SubmmissionsController, 'GetById'])
+
+    router.post('/', [SubmmissionsController, 'Post']).use([middleware.auth()])
+
+    
+    // router.put('/', [SubmmissionsController, 'Put'])
+    router.delete('/:id', [SubmmissionsController, 'Delete'])
+  }).prefix('/submission')
+  router.group(() => {
     router.get('/', [ContributionsController, 'Get'])
     router.get('/student/:id', [ContributionsController, 'GetByStudent']).use([middleware.auth()])
     router.get('/:id', [ContributionsController, 'GetById'])
   
-    router.post('/', [ContributionsController, 'Post']).use([middleware.auth()])
+    router.post('/', [ContributionsController, 'Post'])
     // router.put('/', [FacultiesController, 'Put'])
-    // router.delete('/:id', [FacultiesController, 'Delete'])
+    router.delete('/:id', [ContributionsController, 'Delete'])
   }).prefix('/contribution')
 
 }).prefix('/api')

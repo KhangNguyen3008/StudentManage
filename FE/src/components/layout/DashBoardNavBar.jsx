@@ -5,16 +5,21 @@ export default function DashBoardNavBar() {
     const navitem = [{
         icon: <FaHome />,
         title: 'Dashboard',
-        path: '/'
+        path: '/admin'
     },{
         icon: <FaListAlt />,
         title: 'Manager Faculty',
-        path: 'faculty'
+        path: '/admin/faculty'
     },
     {
         icon: <FaListAlt />,
         title: 'Manager User',
-        path:'user'
+        path:'/admin/user'
+    },
+    {
+        icon: <FaListAlt />,
+        title: 'Manager Contribution',
+        path:'/admin/contribution'
     }
     ]
     return (

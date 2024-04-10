@@ -1,29 +1,30 @@
 
 'use client'
 
+import ContributionService from '@/services/ContributionService'
 import FacultyService from '@/services/FacultyService'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 export default function StudentIndex() {
-    const [faculty, setFaculty] = useState()
+    const [contribution, setContribution] = useState()
     const router = useRouter()
 
     useEffect(() => {
-        FacultyService.getFaculty().then(x => setFaculty(x.data)).catch(e => { })
+        ContributionService.getContribution().then(x => setContribution(x.data)).catch(e => { })
     }, [])
-    if (!faculty) {
+    if (!contribution) {
         return
     }
     return (
         <div className='container1'>
-            <h1 style={{ fontSize: '18px', color: 'black', fontWeight: 'bold' }}> Your Faculties </h1>
+            <h1 style={{ fontSize: '18px', color: 'black', fontWeight: 'bold' }}> Your Contribution </h1>
 
             <div className="search-bar">
                 <input type="text" placeholder="Search..." />
 
                 <select name="sort-by" style={{ marginRight: '20px' }}>
-                    <option value="falculty">Falculty</option>
+                    <option value="falculty">Contribution</option>
                 </select>
 
                 <select name="sort-by">
@@ -36,7 +37,7 @@ export default function StudentIndex() {
                 <h1> Content of index</h1>
             </div>
             <div>
-                {faculty.map(x => {
+                {contribution&&contribution.map(x => {
                     return <>
                         <div role='button' onClick={(e => {
                             router.push(`/Student/DetailArticle/${x.id}`)
@@ -44,7 +45,7 @@ export default function StudentIndex() {
 
                             <div className='flex justify-between'>
                                 <h1>{x.name}</h1>
-                                <p>Closure Date: {x.closureDate}</p>
+                                <p>Faculty: {x.faculty.name}</p>
                             </div>
                             <div>
                                 Status: Submited

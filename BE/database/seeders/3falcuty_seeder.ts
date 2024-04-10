@@ -9,15 +9,14 @@ export default class extends BaseSeeder {
         name:'IT',
         userId:3,
         isrequest:false,
-        closureDate: DateTime.now().plus({days:6}),
-        finalclosureDate: DateTime.now().plus({days:7})
+        // closureDate: DateTime.now().plus({days:6}),
+        // finalclosureDate: DateTime.now().plus({days:7})
       },
       {
         name:'Bussiness',
         userId:3,
         isrequest:false,
-        closureDate: DateTime.now().plus({days:6}),
-        finalclosureDate: DateTime.now().plus({days:7})
+  
       }
     ])
   }

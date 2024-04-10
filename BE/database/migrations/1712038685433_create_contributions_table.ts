@@ -7,12 +7,9 @@ export default class extends BaseSchema {
   async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.string('file_path')
-      table.string('file_name')
-      table.string('title')
-      table.string('content')
-      table.integer('user_id').references('id').inTable('users').notNullable().unsigned()
-      table.integer('faculty_id').references('id').inTable('faculties').notNullable().unsigned()
+      table.string('name')
+      table.integer('faculty_id').references('id').inTable('faculties').notNullable().unsigned().onDelete('CASCADE')
+      table.string('description')
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })

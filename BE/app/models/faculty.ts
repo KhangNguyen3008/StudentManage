@@ -15,11 +15,6 @@ export default class Faculty extends BaseModel {
   @belongsTo(() => User)
   declare user: BelongsTo<typeof User>
 
-  @column.dateTime()
-  declare closureDate: DateTime
-  @column.dateTime()
-  declare finalclosureDate: DateTime
-
   @hasMany(()=>Contribution)
   declare contribution :HasMany<typeof Contribution>
 

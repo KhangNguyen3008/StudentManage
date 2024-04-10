@@ -1,4 +1,4 @@
-import FacultyDetail from '@/components/pages/FacultyDetail'
+import FacultyDetail from '@/components/pages/ContributionDetail'
 import React from 'react'
 
 export default function page({params}) {

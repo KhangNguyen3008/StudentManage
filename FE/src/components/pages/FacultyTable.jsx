@@ -64,18 +64,18 @@ const headCells = [
         disablePadding: false,
         label: 'Marketing Coordinator',
     },
-    {
-        id: 'closuredate',
-        numeric: false,
-        disablePadding: true,
-        label: 'Closure Date',
-    },
-    {
-        id: 'finalclosuredate',
-        numeric: false,
-        disablePadding: true,
-        label: 'Final Closure Date',
-    },
+    // {
+    //     id: 'closuredate',
+    //     numeric: false,
+    //     disablePadding: true,
+    //     label: 'Closure Date',
+    // },
+    // {
+    //     id: 'finalclosuredate',
+    //     numeric: false,
+    //     disablePadding: true,
+    //     label: 'Final Closure Date',
+    // },
     {
         id: 'isrequest',
         numeric: false,
@@ -241,8 +241,8 @@ export default function FacultyTable() {
                                             {row.name}
                                         </TableCell>
                                         <TableCell align="left">{row.user.email}</TableCell>
-                                        <TableCell align="left"> {row.closureDate && new Date(row.closureDate).toLocaleString()} {}</TableCell>
-                                        <TableCell align="left"> {row.finalclosureDate && new Date(row.finalclosureDate).toLocaleString()} {}</TableCell>
+                                        {/* <TableCell align="left"> {row.closureDate && new Date(row.closureDate).toLocaleString()} {}</TableCell>
+                                        <TableCell align="left"> {row.finalclosureDate && new Date(row.finalclosureDate).toLocaleString()} {}</TableCell> */}
                                         <TableCell align="left"><Checkbox color="primary" checked={row.isrequest} /></TableCell>
                                         <TableCell align="right"><Link href={'/admin/faculty/edit'} className='bg-blue-400 rounded-md p-2 text-white mr-2'><Edit /></Link></TableCell>
                                     </TableRow>

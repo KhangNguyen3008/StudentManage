@@ -5,13 +5,15 @@ import FacultyService from '@/services/FacultyService'
 import ContributionService from '@/services/ContributionService'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
+import SubmissionService from '@/services/SubmissionService'
+import DeadlineService from '@/services/DeadlineService'
 
 export default function NewArticle({ id }) {
-    const [faculty, setFaculty] = useState()
+    const [deadline, setDeadline] = useState()
     const router = useRouter()
     useEffect(() => {
-        FacultyService.getFacultyById(id).then(x => setFaculty(x.data)).catch(e => {
-
+        DeadlineService.getDeadlineById(id).then(x => setDeadline(x.data)).catch(e => {
+g
         })
         return ()=>{
             
@@ -20,12 +22,13 @@ export default function NewArticle({ id }) {
     const onSubmit = (e) => {
         e.preventDefault();
         const formdata = new FormData(e.target)
-        ContributionService.createContribution(formdata).then(x => { toast.success(`add success`);router.push(`/Student/DetailArticle/${id}`) }).catch(e => {
+        SubmissionService.createSubmission(formdata).then(x => { toast.success(`add success`);router.push(`/Student/DetailArticle/${id}`) }).catch(e => {
+            console.log(e)
             toast.error(`add failed`)
         })
 
     }
-    if (!faculty) {
+    if (!deadline) {
         return
     }
     return (
@@ -84,11 +87,11 @@ export default function NewArticle({ id }) {
             <link rel="stylesheet" href="/home/css/demo.css" />
             <div className="container2">
                 <h1 className="mt-5" style={{ fontSize: '24px', color: 'darkslategray', lineHeight: '2.5' }}>Add New Article For This Year Magazine</h1>
-                <h1 className="mt-5" style={{ fontSize: '1.5rem' }}>Closure Date:  {faculty.closureDate && new Date(faculty.closureDate).toLocaleString()}</h1>
-                <h1 className="mt-5" style={{ fontSize: '1.5rem' }}>Closure Date:  {faculty.finalclosureDate && new Date(faculty.finalclosureDate).toLocaleString()}</h1>
-                <h1 className="faculty" style={{ fontSize: '1.5rem' }}>Faculty: {faculty.name}</h1>
+                <h1 className="mt-5" style={{ fontSize: '1.5rem' }}>Closure Date:  {deadline.closureDate && new Date(deadline.closureDate).toLocaleString()}</h1>
+                <h1 className="mt-5" style={{ fontSize: '1.5rem' }}>Closure Date:  {deadline.finalclosureDate && new Date(deadline.finalclosureDate).toLocaleString()}</h1>
+                <h1 className="faculty" style={{ fontSize: '1.5rem' }}>{deadline.name}</h1>
                 <form className="mt-3" onSubmit={onSubmit}>
-                    <input type="hidden" name='facultyid' value={faculty.id} />
+                    <input type="hidden" name='deadlineid' value={deadline.id} />
                     <div className="mb-3">
                         <label htmlFor="articleTitle" className="form-label">Article Title:</label>
                         <div className="textbox-container">
@@ -103,7 +106,7 @@ export default function NewArticle({ id }) {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="articlePhoto" className="form-label">File Submission:</label>
-                        <input type="file" name='file' className="form-control" id="articlePhoto" accept="image/png, image/jpeg, application/msword" />
+                        <input type="file" name='file' className="form-control" id="articlePhoto" accept="image/png, image/jpeg, application/msword" multiple />
                     </div>
                     <div>Accepted file formats:</div>
                     <div className="mb-3 document-files">
