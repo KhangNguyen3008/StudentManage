@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { FaWeight } from 'react-icons/fa';
 import Time from '../ui/Time';
 import AuthService from '@/services/AuthService';
+import { toast } from 'react-toastify';
 
 
 export default function ContributionDetailCo({ id }) {
@@ -18,17 +19,30 @@ export default function ContributionDetailCo({ id }) {
         })
        
     }, [])
+    const downloadfile = async(e)=>{
+        e.preventDefault()
+        let result = await ContributionService.downloadfile(id)
+        const url = window.URL.createObjectURL(new Blob([result.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", `${contribution.name}.zip`);
+        document.body.appendChild(link);
+        link.click();
+        toast.success(`export success`)
+    }
     if (!contribution) {
         return "Don't have Contribution this"
     }
     return (
         <div className='container'>
+        
             <div>
                 <h1><b>{contribution.name}</b></h1>
 
                 {/* <h2>Closure date: {faculty.closureDate && new Date(faculty.closureDate).toLocaleString()}</h2>
                 <h2>Final Closure date: {faculty.closureDate && new Date(faculty.finalclosureDate).toLocaleString()}</h2> */}
                 <h2> {contribution.description}</h2>
+                <button onClick={downloadfile}>Download All File</button>
             </div>
 
             <div>

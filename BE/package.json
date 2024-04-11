@@ -56,6 +56,8 @@
     "@adonisjs/lucid": "^20.1.0",
     "@adonisjs/static": "^1.1.1",
     "@vinejs/vine": "^1.7.1",
+    "fs": "^0.0.1-security",
+    "jszip": "^3.10.1",
     "luxon": "^3.4.4",
     "pg": "^8.11.3",
     "reflect-metadata": "^0.2.1"

@@ -4,6 +4,7 @@ import type { BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
 import User from './user.js'
 import Fileupload from './fileupload.js'
 import Deadline from './deadline.js'
+import Comment from './comment.js'
 
 export default class Submission extends BaseModel {
   @column({ isPrimary: true })
@@ -26,6 +27,10 @@ export default class Submission extends BaseModel {
 
   @column()
   declare content: string
+
+
+  @hasMany(()=>Comment)
+  declare comment:HasMany<typeof Comment>
 
   @hasMany(()=>Fileupload,{
     foreignKey:'submissionId'

@@ -8,7 +8,7 @@ export const PostSubmissionForm = vine.compile(
         content:vine.string(),
         deadlineid:vine.number().exists(exists(Deadline.table,Deadline.primaryKey)),
         title:vine.string(),
-        file:vine.array(vine.file({extnames:['png','jpg','docs']})) ,
+        file:vine.array(vine.file({extnames:['png','jpg','docx','doc']})) ,
     })
 
 )

@@ -16,16 +16,10 @@ export default class SubmmissionsController {
     }
     GetByDeadlineId = async ({ response, request }: HttpContext) => {
         const id = request.param('id')
-        let submission = await Submission.query().preload('fileupload').preload('user').where('deadline_id',id)
+        let submission = await Submission.query().preload('fileupload').preload('user').preload('comment').where('deadline_id',id)
         return response.send(submission)
     }
-    DownloadFile = async ({ response, request }: HttpContext) => {
-        const id = request.param('id')
-        let submission = await Submission.query().where('id', id).preload('deadline',x=>x.preload('submission',z=>z.preload('fileupload'))).first()
 
-
-        return response.send(submission)
-    }
     Post = async ({ response, request, auth }: HttpContext) => {
         const payload = await request.validateUsing(PostSubmissionForm)
         const submission = new Submission()
@@ -40,7 +34,7 @@ export default class SubmmissionsController {
             await x.move(app.makePath('public/uploads'))
             const fileupload = new Fileupload()
             fileupload.fileName = x.fileName || "image"
-            fileupload.filePath = `/public/uploads/${x.fileName}` || ""
+            fileupload.filePath = x.filePath || ""
             fileupload.submissionId = submission.id
             await submission.related('fileupload').create(fileupload)
         })

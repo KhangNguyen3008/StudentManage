@@ -3,12 +3,43 @@ import SubmissionService from '@/services/SubmissionService'
 import React, { useEffect, useState } from 'react'
 import Time from '../ui/Time'
 import { Button } from '@mui/material';
+import CommentService from '@/services/CommentService';
 export default function SubmissionDetail({ id }) {
+
     const [submission, setSubmission] = useState()
+
+    const submitComment = (e) => {
+        e.preventDefault();
+        const formdata = new FormData(e.target)
+        CommentService.createComment(formdata).then(x => {
+            SubmissionService.getSubmissionBydeadline(id).then(x => {
+                setSubmission(x.data)
+             
+               
+            }).catch(e => { })
+        })
+    }
+    const updateComment = (idcm)=>(e) => {
+        console.log(1)
+        e.preventDefault();
+        const formdata = new FormData(e.target)
+        CommentService.updateComment(idcm,formdata).then(x => {
+            SubmissionService.getSubmissionBydeadline(id).then(x => {
+                setSubmission(x.data)
+             
+               
+            }).catch(e => { })
+        })
+    }
+
     useEffect(() => {
-        SubmissionService.getSubmissionBydeadline(id).then(x => setSubmission(x.data)).catch(e => { })
+        SubmissionService.getSubmissionBydeadline(id).then(x => {
+            setSubmission(x.data)
+         
+           
+        }).catch(e => { })
     }, [])
-    console.log(submission)
+  
     return (
         <div>
             <button>Download All File</button>
@@ -43,7 +74,7 @@ export default function SubmissionDetail({ id }) {
                                         <td className="left-column">File Submission</td>
                                         <td className="right-column">
 
-                                            {x.fileupload.map(z=>{
+                                            {x.fileupload.map(z => {
                                                 return <p>{z.fileName}</p>
                                             })}
 
@@ -51,11 +82,23 @@ export default function SubmissionDetail({ id }) {
                                     </tr>
                                     <tr>
                                         <td className="left-column">Comment:</td>
+                                        
                                         <td className="right-column">
-                                            <form action=""><textarea name="" id="" cols="10" rows="4">
-                                            </textarea>
-                                                <Button variant='contained' className=' bg-primary'>Comment</Button>
-                                            </form>
+                                            {x.comment.length>0?<form action="" onSubmit={updateComment(x.comment[0].id)}>
+                                                <p></p>
+                                                <input type="hidden" name="submissionid" value={x.id} />
+                                                <textarea name="content" id="" cols="10" rows="4" defaultValue={x.comment[0].content}>
+                                                </textarea>
+                                                <Button type='submit' variant='contained' className=' bg-primary'>Update</Button>
+                                            </form>: <form action="" onSubmit={submitComment}>
+                                        
+                                               <input type="hidden" name="submissionid" value={x.id} />
+                                                <textarea name="content" id="" cols="10" rows="4">
+                                                </textarea>
+                                                <Button type='submit' variant='contained' className=' bg-primary'>Comment</Button>
+                                            </form>}
+                                            
+                                
                                         </td>
                                     </tr>
                                 </tbody>
