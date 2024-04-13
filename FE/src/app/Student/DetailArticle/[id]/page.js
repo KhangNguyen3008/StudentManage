@@ -1,8 +1,8 @@
-import FacultyDetail from '@/components/pages/ContributionDetail'
+import ContributionDetail from '@/components/pages/ContributionDetail'
 import React from 'react'
 
 export default function page({params}) {
   return (
-    <FacultyDetail id={params.id}/>
+    <ContributionDetail id={params.id}/>
   )
 }

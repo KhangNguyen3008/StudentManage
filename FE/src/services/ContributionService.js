@@ -4,6 +4,7 @@ export default  {
     getContribution : ()=> instance.get('/contribution') ,
     downloadfile : (id)=> instance.get(`/contribution/download/${id}`,{ responseType: 'blob' }) ,
     createContribution : (formdata)=> instance.post('/contribution',formdata) ,
+    updateContribution : (id,formdata)=> instance.put(`/contribution/${id}`,formdata) ,
     deleteContribution : (id)=> instance.delete(`/contribution/${id}`) ,
     getContributionById : (id)=> instance.get(`/contribution/${id}`) ,
     getContributionByFacId : (id)=> instance.get(`/contribution/fac/${id}`), 

@@ -7,7 +7,6 @@ export default function RootLayout({ children }) {
         <div className="flex ">
             <DashBoardNavBar />
             <div className="w-full">
-                <TopDashBoard />
                 <div className="p-10">
                     {children}
                 </div>

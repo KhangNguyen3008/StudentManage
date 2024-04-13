@@ -1,4 +1,5 @@
 
+import DashBoardNavBar from "@/components/layout/DashBoardNavBar";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import DetailMM from "@/components/pages/DetailMM";
@@ -13,9 +14,15 @@ const metadata = {
 export default function Layout({ children }) {
   return (
     <>
-
-        <Navbar />
-        {children}
+       <Navbar />
+        <div className="flex ">
+            <DashBoardNavBar />
+            <div className="w-full">
+                <div className="p-10">
+                    {children}
+                </div>
+            </div>
+        </div>
         <Footer />
 
     </>

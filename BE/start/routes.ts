@@ -38,21 +38,21 @@ router.group(() => {
     router.get('/mc', [UsersController, 'Getmc'])
     router.get('/:id', [UsersController, 'GetById'])
     router.post('/', [UsersController, 'Post'])
-    router.put('/', [UsersController, 'Put'])
+    router.put('/:id', [UsersController, 'Put'])
     router.delete('/:id', [UsersController, 'Delete'])
   }).prefix('/user')
   router.group(() => {
     router.get('/', [FacultiesController, 'Get'])
     router.get('/:id', [FacultiesController, 'GetById'])
     router.post('/', [FacultiesController, 'Post'])
-    router.put('/', [FacultiesController, 'Put'])
+    router.put('/:id', [FacultiesController, 'Put'])
     router.delete('/:id', [FacultiesController, 'Delete'])
   }).prefix('/faculty')
   router.group(() => {
     router.get('/', [DeadlinesController, 'Get'])
     router.get('/:id', [DeadlinesController, 'GetById'])
     router.post('/', [DeadlinesController, 'Post'])
-    // router.put('/', [DeadlinesController, 'Put'])
+    router.put('/:id', [DeadlinesController, 'Put'])
     router.delete('/:id', [DeadlinesController, 'Delete'])
   }).prefix('/deadline')
   router.group(() => {
@@ -63,7 +63,7 @@ router.group(() => {
     router.post('/', [SubmmissionsController, 'Post']).use([middleware.auth()])
 
 
-    // router.put('/', [SubmmissionsController, 'Put'])
+    router.put('/:id', [SubmmissionsController, 'Put'])
     router.delete('/:id', [SubmmissionsController, 'Delete'])
   }).prefix('/submission')
   router.group(() => {
@@ -73,7 +73,7 @@ router.group(() => {
     router.get('/:id', [ContributionsController, 'GetById'])
    
     router.post('/', [ContributionsController, 'Post'])
-    // router.put('/', [FacultiesController, 'Put'])
+    router.put('/:id', [ContributionsController, 'Put'])
     router.delete('/:id', [ContributionsController, 'Delete'])
   }).prefix('/contribution')
   router.group(() => {
@@ -84,6 +84,8 @@ router.group(() => {
     router.put('/:id', [CommentsController, 'Put']).use([middleware.auth()])
     router.delete('/:id', [CommentsController, 'Delete'])
   }).prefix('/comment')
-
+  router.group(() => {
+    router.delete('/deletefile/:id', [SubmmissionsController, 'DeleteFile'])
+  }).prefix('/upload')
 
 }).prefix('/api')

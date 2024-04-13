@@ -240,7 +240,7 @@ export default function UserTable() {
                                         <TableCell align="left">{row.fullName}</TableCell>
                                         <TableCell align="left">Hidden</TableCell>
                                         <TableCell align="left">{row.role.name}</TableCell>
-                                        <TableCell align="right"><Link href={'/admin/faculty/edit'} className='bg-blue-400 rounded-md p-2 text-white mr-2'><Edit /></Link></TableCell>
+                                        <TableCell align="right"><Link href={`/admin/user/update/${row.id}`} className='bg-blue-400 rounded-md p-2 text-white mr-2'><Edit /></Link></TableCell>
                                     </TableRow>
                                 );
                             })}

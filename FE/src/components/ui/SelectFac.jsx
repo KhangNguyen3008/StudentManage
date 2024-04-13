@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { FormLabel, InputLabel, MenuItem, Select } from '@mui/material'
 import FacultyService from '@/services/FacultyService'
 
-export default function SelectFac() {
+export default function SelectFac({defaultValue}) {
     const [data, setData] = useState()
  
     useEffect(() => {
@@ -27,7 +27,7 @@ export default function SelectFac() {
             id="facultyid"
             name='facultyid'
             label="Faculty"
-            defaultValue={data?data[0].id:null}
+            defaultValue={defaultValue?defaultValue:data?data[0].id:null}
         >
             {data && data.map((item, i) => {
                 return <MenuItem key={i} value={item.id}>{item.name}</MenuItem>

@@ -1,9 +1,7 @@
-
+import React from 'react';
 import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
-import IndexMM from "@/components/pages/IndexMM";
-//import { ConfirmProvider } from "material-ui-confirm";
-
+import NewArticle from '@/components/pages/NewArticle';
+import Navbar from '@/components/layout/Navbar';
 
 const metadata = {
   title: "Create Next App",
@@ -13,12 +11,9 @@ const metadata = {
 export default function Layout({ children }) {
   return (
     <>
-
-        <Navbar />
-        <IndexMM />
-        <Footer />
-
+      <Navbar />
+        {children}
+      <Footer />
     </>
   );
 }
-

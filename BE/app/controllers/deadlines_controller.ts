@@ -20,27 +20,28 @@ export default class DeadlinesController {
         deadline.closureDate=payload.closuredate
         deadline.finalclosureDate = payload.finalclosuredate
         deadline.contributionId = payload.contributionid
-
+        deadline.description = payload.description ||''
         await deadline.save()
 
         return deadline
 
     }
 
-    // Put = async ({ response, request }: HttpContext) => {
-    //     const id = request.param('id')
-    //     const payload = await request.validateUsing(PostFacultyForm)
-    //     const faculty = await Faculty.find(id)
-    //     if (!faculty) {
-    //         return response.status(400).send(`Faculty not found`)
-    //     }
-    //     faculty.name = payload.name
-    //     faculty.userId = payload.userid
+    Put = async ({ response, request }: HttpContext) => {
+        const id = request.param('id')
+        const payload = await request.validateUsing(PostDeadlineForm)
+        const deadline = await Deadline.find(id)
+        if (!deadline) {
+            return response.status(400).send(`deadline not found`)
+        }
+        deadline.name = payload.name
+        deadline.closureDate = payload.closuredate
+        deadline.finalclosureDate= payload.finalclosuredate
+        deadline.description = payload.description ||''
+        await deadline.save()
+        return deadline
 
-    //     await faculty.save()
-    //     return faculty
-
-    // }
+    }
     Delete = async ({ response, request }: HttpContext) => {
         const id = request.param('id')
         const deadline = await Deadline.find(id)

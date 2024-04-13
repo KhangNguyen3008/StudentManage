@@ -17,7 +17,7 @@ export default class FacultiesController {
         const faculty = new Faculty()
         faculty.name = payload.name
         faculty.userId = payload.userid
-
+        faculty.isrequest = payload.isrequest
 
         await faculty.save()
 
@@ -34,7 +34,7 @@ export default class FacultiesController {
         }
         faculty.name = payload.name
         faculty.userId = payload.userid
-
+        faculty.isrequest = payload.isrequest
         await faculty.save()
         return faculty
 

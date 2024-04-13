@@ -17,7 +17,7 @@ export default function ContributionDetailCo({ id }) {
         ContributionService.getContributionById(id).then(x => setContribution(x.data)).catch(e => {
             console.log(e)
         })
-       
+         
     }, [])
     const downloadfile = async(e)=>{
         e.preventDefault()
@@ -48,12 +48,12 @@ export default function ContributionDetailCo({ id }) {
             <div>
                 <div className='mb-[50px]'>
                     <h1 style={{ fontSize: '18px', color: 'black', fontWeight: 'bold' }}>Deadline List</h1>
-                     <Link className='bg-primary p-3 ' href={`/coordinator/newdeadline/${contribution.id}`}>New Deadline</Link>
+                     <Link className='bg-primary p-3 ' href={`/coordinator/createdeadline/${contribution.id}`}>New Deadline</Link>
                 </div>
                 {contribution && contribution.deadline.map((x, i) => {
 
                     return <details>
-                        <summary className="summary"><div className='flex justify-between items-center'><h1 className=''>Submission no {i+1}.#</h1><Link href={`/coordinator/submission/detail/${x.id}`}>View Submission</Link> </div></summary>
+                        <summary className="summary"><div className='flex justify-between items-center'><h1 className=''>Submission no {i+1}.#</h1><div className='flex gap-3'><Link href={`/coordinator/submission/detail/${x.id}`}>View Submission</Link><Link href={`/coordinator/updatedeadline/${x.id}`}>Update</Link></div> </div></summary>
                         <div className="table-container">
                             <table>
                                 <tbody>
@@ -67,7 +67,7 @@ export default function ContributionDetailCo({ id }) {
                                     </tr>
                                     <tr>
                                         <td className="left-column">FInal Closure Date:</td>
-                                        <td className="right-column">{<Time string={x.finalClosureDate} />}</td>
+                                        <td className="right-column">{<Time string={x.finalclosureDate} />}</td>
                                     </tr>
                                     <tr>
                                         <td className="left-column">Total Submission:</td>

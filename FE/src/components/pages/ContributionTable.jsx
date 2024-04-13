@@ -246,7 +246,7 @@ export default function ContributionTable() {
                                         <TableCell align="left"> {row.finalclosureDate && new Date(row.finalclosureDate).toLocaleString()} {}</TableCell> */}
                                         <TableCell align="left">{row.description}</TableCell>
                                         <TableCell align="left">{row.deadline.length}</TableCell>
-                                        <TableCell align="right"><Link href={'/admin/contribution/edit'} className='bg-blue-400 rounded-md p-2 text-white mr-2'><Edit /></Link></TableCell>
+                                        <TableCell align="right"><Link href={`/admin/contribution/update/${row.id}`} className='bg-blue-400 rounded-md p-2 text-white mr-2'><Edit /></Link></TableCell>
                                     </TableRow>
                                 );
                             })}

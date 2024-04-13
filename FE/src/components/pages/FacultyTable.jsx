@@ -244,7 +244,7 @@ export default function FacultyTable() {
                                         {/* <TableCell align="left"> {row.closureDate && new Date(row.closureDate).toLocaleString()} {}</TableCell>
                                         <TableCell align="left"> {row.finalclosureDate && new Date(row.finalclosureDate).toLocaleString()} {}</TableCell> */}
                                         <TableCell align="left"><Checkbox color="primary" checked={row.isrequest} /></TableCell>
-                                        <TableCell align="right"><Link href={'/admin/faculty/edit'} className='bg-blue-400 rounded-md p-2 text-white mr-2'><Edit /></Link></TableCell>
+                                        <TableCell align="right"><Link href={`/admin/faculty/update/${row.id}`} className='bg-blue-400 rounded-md p-2 text-white mr-2'><Edit /></Link></TableCell>
                                     </TableRow>
                                 );
                             })}

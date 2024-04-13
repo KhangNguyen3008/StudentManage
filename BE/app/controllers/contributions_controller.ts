@@ -72,22 +72,21 @@ export default class ContributionsController {
         await contribution.save()
         return contribution
     }
-    // Put = async ({ response, request }: HttpContext) => {
-    //     const id = request.param('id')
-    //     const payload = await request.validateUsing(PostFacultyForm)
-    //     const faculty = await Faculty.find(id)
-    //     if (!faculty) {
-    //         return response.status(400).send(`Faculty not found`)
-    //     }
-    //     faculty.name = payload.name
-    //     faculty.userId = payload.userid
-    //     faculty.closureDate = payload.closuredate
-    //     faculty.finalclosureDate = payload.finalclosuredate
+    Put = async ({ response, request }: HttpContext) => {
+        const id = request.param('id')
+        const payload = await request.validateUsing(PostContributionForm)
+        const contribution = await Contribution.find(id)
+        if (!contribution) {
+            return response.status(400).send(`Contribution not found`)
+        }
+        contribution.name = payload.name
+        contribution.facultyId = payload.facultyid
+        contribution.description = payload.description ||""
+        await contribution.save()
 
-    //     await faculty.save()
-    //     return faculty
+        return contribution
 
-    // }
+    }
     Delete = async ({ response, request }: HttpContext) => {
         const id = request.param('id')
         const contribution = await Contribution.find(id)

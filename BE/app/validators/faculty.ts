@@ -5,6 +5,7 @@ export const PostFacultyForm = vine.compile(
     vine.object({
         name:vine.string(),
         userid:vine.number(),
+        isrequest:vine.boolean()
         // closuredate: new VineDateTime,
         // finalclosuredate:new VineDateTime,
     })

@@ -77,7 +77,7 @@ export default function CreateFaculty() {
             Is Request
           </FormLabel>
           <div className='flex justify-start'>
-            <Checkbox className=' justify-start' />
+            <Checkbox name='isrequest' className=' justify-start' />
           </div>
         </Grid>
         <Grid item xs={6} md={3} className='flex !flex-col'>

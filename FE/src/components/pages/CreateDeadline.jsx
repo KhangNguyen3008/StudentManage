@@ -79,7 +79,7 @@ export default function CreateDeadline({id}) {
           <Button type='submit' variant='contained' className='bg-primary'>Create</Button>
         </Grid>
         <Grid item xs={6} md={3} className='flex !flex-col'>
-          <Button href='/admin/faculty' type='button' variant='contained' color='error' className='bg-error'>Cancel</Button>
+          <Button href='/coordinator/index' type='button' variant='contained' color='error' className='bg-error'>Cancel</Button>
         </Grid>
       </Grid>
     </form >

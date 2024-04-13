@@ -4,7 +4,7 @@ import UserService from '@/services/UserService'
 import { FormLabel, InputLabel, MenuItem, Select } from '@mui/material'
 import React,{useEffect, useState} from 'react'
 
-export default function SelectMc() {
+export default function SelectMc({defaultValue}) {
     const [data, setData] = useState()
  
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function SelectMc() {
             id="userid"
             name='userid'
             label="User"
-            defaultValue={data?data[0].id:null}
+            defaultValue={defaultValue?defaultValue:data?data[0].id:null}
         >
             {data && data.map((item, i) => {
                 return <MenuItem key={i} value={item.id}>{item.email}</MenuItem>

@@ -10,6 +10,7 @@ export default class extends BaseSchema {
       table.timestamp('closure_date')
       table.timestamp('finalclosure_date')
       table.integer('contribution_id').references('id').inTable('contributions').notNullable().unsigned().onDelete('CASCADE')
+      table.string('description')
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })

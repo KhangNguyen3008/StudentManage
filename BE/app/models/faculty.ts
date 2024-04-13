@@ -4,6 +4,7 @@ import User from './user.js'
 import type { BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
 import Contribution from './contribution.js'
 
+
 export default class Faculty extends BaseModel {
   @column({ isPrimary: true })
   declare id: number

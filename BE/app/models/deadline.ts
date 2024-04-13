@@ -23,6 +23,8 @@ export default class Deadline extends BaseModel {
 
   @belongsTo(()=> Contribution)
   declare contribution: BelongsTo<typeof Contribution>
+  @column()
+  declare description: string
 
   @hasMany(()=>Submission)
   declare submission: HasMany<typeof Submission>

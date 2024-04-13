@@ -110,7 +110,7 @@ g
                     </div>
                     <div>Accepted file formats:</div>
                     <div className="mb-3 document-files">
-                        Document files: <span>.doc .docx .epub .gdoc .odt .oth .ott .pdf .rtf</span>
+                        Document files: <span>.doc .docx </span>
                     </div>
                     <div className="mb-3 image-files">
                         Image files: <span>.jpg .jpeg .png</span>
@@ -118,7 +118,7 @@ g
                     <div className="mb-3">--------------------------------</div>
 
                     <button type="submit" className="btn bg-primary mr-2">Submit</button>
-                    <button type="button" className="btn bg-error">Cancel</button>
+                    <button type="button" onClick={(e)=>{router.push(`/Student/DetailArticle/${deadline?.id}`)}} className="btn bg-error">Cancel</button>
                 </form>
             </div>
         </>
