@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, belongsTo, column, hasMany } from '@adonisjs/lucid/orm'
+import { BaseModel, belongsTo, column, hasMany, hasManyThrough, manyToMany } from '@adonisjs/lucid/orm'
 import User from './user.js'
-import type { BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
+import type { BelongsTo, HasMany, ManyToMany } from '@adonisjs/lucid/types/relations'
 import Contribution from './contribution.js'
 
 
@@ -10,11 +10,9 @@ export default class Faculty extends BaseModel {
   declare id: number
   @column()
   declare name:string
-  @column()
-  declare userId: number
 
-  @belongsTo(() => User)
-  declare user: BelongsTo<typeof User>
+  @manyToMany(() => User)
+  declare user: ManyToMany<typeof User>
 
   @hasMany(()=>Contribution)
   declare contribution :HasMany<typeof Contribution>

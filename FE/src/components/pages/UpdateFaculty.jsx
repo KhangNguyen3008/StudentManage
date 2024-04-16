@@ -23,6 +23,7 @@ export default function UpdateFaculty({id}) {
       toast.success('Update success')
 
     }).catch(err => {
+      console.log(err)
       toast.error('Update failed')
     })
   }
@@ -77,14 +78,14 @@ export default function UpdateFaculty({id}) {
           />
         </Grid> */}
         <Grid item xs={12} md={6} className='flex !flex-col item'>
-          <SelectMc defaultValue={faculty?.userId}/>
+          <SelectMc defaultValue={faculty?.user.find(x=>x.roleId==3).id}/>
         </Grid>
         <Grid item xs={12} md={12} className='flex !flex-col'>
           <FormLabel htmlFor="isrequest" required>
             Is Request
           </FormLabel>
           <div className='flex justify-start'>
-            <Checkbox name='isrequest' defaultChecked={faculty?.isrequest} className=' justify-start' />
+            <Checkbox name="isrequest" defaultChecked={faculty?.isrequest} className=' justify-start' />
           </div>
         </Grid>
         <Grid item xs={6} md={3} className='flex !flex-col'>

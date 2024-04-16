@@ -42,7 +42,7 @@ router.group(() => {
     router.delete('/:id', [UsersController, 'Delete'])
   }).prefix('/user')
   router.group(() => {
-    router.get('/', [FacultiesController, 'Get'])
+    router.get('/', [FacultiesController, 'Get']).use([middleware.auth()])
     router.get('/:id', [FacultiesController, 'GetById'])
     router.post('/', [FacultiesController, 'Post'])
     router.put('/:id', [FacultiesController, 'Put'])
@@ -67,7 +67,7 @@ router.group(() => {
     router.delete('/:id', [SubmmissionsController, 'Delete'])
   }).prefix('/submission')
   router.group(() => {
-    router.get('/', [ContributionsController, 'Get'])
+    router.get('/', [ContributionsController, 'Get']).use([middleware.auth()])
     router.get('/download/:id', [ContributionsController, 'DownloadFile'])
     router.get('/student/:id', [ContributionsController, 'GetByStudent']).use([middleware.auth()])
     router.get('/:id', [ContributionsController, 'GetById'])

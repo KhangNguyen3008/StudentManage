@@ -7,14 +7,12 @@ export default class extends BaseSeeder {
     await Faculty.createMany([
       {
         name:'IT',
-        userId:3,
         isrequest:false,
         // closureDate: DateTime.now().plus({days:6}),
         // finalclosureDate: DateTime.now().plus({days:7})
       },
       {
         name:'Bussiness',
-        userId:3,
         isrequest:false,
   
       }

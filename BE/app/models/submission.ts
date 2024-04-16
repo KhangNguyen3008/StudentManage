@@ -49,11 +49,11 @@ export default class Submission extends BaseModel {
   public static async Sendmail (submission:Submission) {
 
     const contribution = await Contribution.query().where(x=>x.preload('deadline').where('id',submission.deadlineId).first()).preload('deadline',x=>x.where('id',submission.deadlineId).first()).first()
-    const faculty = await Faculty.query().where(x=>x.preload('contribution').where('id',contribution?.facultyId||-1)).preload('user').first()
+    const faculty = await Faculty.query().where(x=>x.preload('contribution').where('id',contribution?.facultyId||-1)).preload('user',x=>x.orderBy('created_at','asc')).first()
     const newsubmission = await Submission.query().where('id',submission.id).preload('user').first()
     await mail.send((message) => {
         message 
-          .to(faculty?.user?.email|| '')
+          .to(faculty?.user[0]?.email|| '')
           .from('WET@fpt.edu.vn')
           .subject('new Submission')
           .html(`${newsubmission?.user.fullName} was submited in deadline ${contribution?.deadline[0].name} <a href="http://localhost:3000/coordinator/submission/detail/${submission.deadlineId}">Click this link to view submission</a>`)

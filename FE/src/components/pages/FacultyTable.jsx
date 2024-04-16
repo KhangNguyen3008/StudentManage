@@ -240,7 +240,7 @@ export default function FacultyTable() {
                                         >
                                             {row.name}
                                         </TableCell>
-                                        <TableCell align="left">{row.user.email}</TableCell>
+                                        <TableCell align="left">{row.user?.find(x=>x.roleId==3)?.email}</TableCell>
                                         {/* <TableCell align="left"> {row.closureDate && new Date(row.closureDate).toLocaleString()} {}</TableCell>
                                         <TableCell align="left"> {row.finalclosureDate && new Date(row.finalclosureDate).toLocaleString()} {}</TableCell> */}
                                         <TableCell align="left"><Checkbox color="primary" checked={row.isrequest} /></TableCell>

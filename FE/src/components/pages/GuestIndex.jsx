@@ -3,22 +3,23 @@ import FacultyService from '@/services/FacultyService'
 import React, { useEffect, useState } from 'react'
 import Time from '../ui/Time'
 import Link from 'next/link'
+import SubmissionService from '@/services/SubmissionService'
 
-export default function IndexMM() {
-  const [faculty, setFaculty] = useState()
+export default function GuestIndex() {
+  const [submission, setSubmission] = useState()
   useEffect(() => {
-    FacultyService.getFaculty().then(x => setFaculty(x.data)).catch(e => {
+    SubmissionService.getSubmission().then(x => setSubmission(x.data)).catch(e => {
 
     })
   }, [])
+  if (!submission) return
   return (
     <>
-      
+
       <div className="container">
         <header>
           <div className="header-right">
             <button className="year-button">Current Year</button>
-            <button className="download-button">Download All Faculty</button>
           </div>
         </header>
 
@@ -37,26 +38,29 @@ export default function IndexMM() {
         <table className='gap-y-2'>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Total submited</th>
+              <th>Title</th>
+              <th>Content</th>
               {/* <th>Closure Date</th>
               <th>Final Closure Date</th> */}
               <th>Create Date</th>
-              <th>Marketing Coordinator</th>
-              <th>View Detail</th>
+              <th>Upload By</th>
+              <th>File Upload</th>
             </tr>
           </thead>
           <tbody>
-            {faculty && faculty.map(x => {
+            {submission && submission.map(x => {
               return <>
                 <tr className=''>
-                  <td>{x.name}</td>
-                  <td>{x.contribution.length}</td>
+                  <td>{x.title}</td>
+                  <td>{x.content}</td>
                   {/* <td>{<Time string={x.closureDate} />}</td>
                   <td>{<Time string={x.finalclosureDate} />}</td> */}
                   <td>{<Time string={x.createdAt} />}</td>
-                  <td>{x.user?.find(x=>x.roleId==3)?.email}</td>
-                  <td><Link href={`/Manager/Details/${x.id}`} className='bg-primary p-4 text-white'>View Detail</Link></td>
+                  <td>{x.user.fullName}</td>
+                  <td>
+                    {x.fileupload.map(z => {
+                      return <p>{z.fileName}</p>
+                    })}</td>
                 </tr>
               </>
             })}
