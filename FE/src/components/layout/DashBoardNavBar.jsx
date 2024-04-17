@@ -1,6 +1,8 @@
 import React from 'react'
 import NavItem from '../ui/NavItem'
 import { FaHome, FaListAlt } from "react-icons/fa";
+
+
 export default function DashBoardNavBar() {
     const navitem = [{
         icon: <FaHome />,
@@ -35,7 +37,7 @@ export default function DashBoardNavBar() {
                             <NavItem icon={item.icon} title={item.title} path={item.path} />
                         </li>
                     )
-
+                    
 
                 })}
 

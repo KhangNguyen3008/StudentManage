@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-
+import './header.css';
 export default function Navbar() {
   const [user, setUser] = useState()
   const [isAuth, setIsAuth] = useState()
@@ -21,12 +21,19 @@ export default function Navbar() {
     <>
 
       <ToastContainer />
-      <div className=' '>
-        <div className='mx-[300px] mt-2 flex justify-between items-center px-20 '>
-          <img src="/home/images/logo.png" alt="" className='max-w-[200px]' />
+      <div className='border-y-2 px-[180px] text-3xl font-bold py-3'>
+      <div className='flex justify-between items-center px-20'>
+        {/* Container cho Logo và Home */}
+        <div className='flex items-center space-x-8'>
+          <img src="/home/images/logo.png" alt="Logo" className='max-w-[180px]' />
+          <Link href='/home' className='text-black hover:border-red-300'>Home</Link>
+        </div>
           {
             !user ? <div>
-              <Link href={'/login'} className='text-3xl font-bold'>Login</Link>
+              <div>
+          <Link href='/login' className='text-black hover:border-red-300'>Login</Link>
+        </div>
+              
             </div> :
 
               <div className='flex items-center gap-4'>
@@ -34,9 +41,6 @@ export default function Navbar() {
                 <button onClick={(e) => { localStorage.removeItem('token'); setUser() }} className='text-3xl font-bold'>logout</button>
               </div>
           }
-        </div>
-        <div className=' border-y-2 px-[300px] text-3xl font-bold  py-3  '>
-          <Link href='/home' className='! text-black hover:border-red-300 '>Home</Link>
         </div>
       </div>
 

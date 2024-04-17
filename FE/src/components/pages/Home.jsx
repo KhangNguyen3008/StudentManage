@@ -258,7 +258,7 @@ export default function Home() {
                                             </h1>
                                             <p>
                                             In the bustling cityscape where skyscrapers reach for the sky and streets hum with activity, a solitary bicycle leans against a graffiti-covered wall, 
-                                            a silent witness to the ebb and flow of urban life. Against this backdrop of concrete and steel, the simple elegance of the bike stands in stark contrast, a symbol of freedom and escape.
+                                            a silent witness...
                                             </p>
                                             <footer>
                                                 <a href="#" className="love">
@@ -296,7 +296,7 @@ export default function Home() {
                                                 </a>
                                             </h1>
                                             <p>
-                                            High above the world, where the air is thin and the sky stretches endlessly, lies the majestic Himalayan mountain range. Towering peaks pierce the clouds, their snow-capped summits glistening in the sunlight. For adventurers brave enough to venture into this rugged terrain, the journey is as daunting as it is breathtaking
+                                            High above the world, where the air is thin and the sky stretches endlessly, lies the majestic Himalayan mountain range. Towering peaks pierce the clouds, their snow-capped summits...
                                             </p>
                                             <footer>
                                                 <a href="#" className="love active">
@@ -332,8 +332,7 @@ export default function Home() {
                                                 </a>
                                             </h1>
                                             <p>
-                                            In the heart of a bustling kitchen, the aroma of melting sugar fills the air as a skilled chef deftly manipulates a hot skillet. With a flick of the wrist, caramelized sugar transforms into a golden syrup, coating nuts and fruits in a sticky, 
-                                            sweet glaze. Each sizzle and crackle is a symphony of flavor, promising delectable delights to come.
+                                            In the heart of a bustling kitchen, the aroma of melting sugar fills the air as a skilled chef deftly manipulates a hot skillet. With a flick of the...
                                             </p>
                                             <footer>
                                                 <a href="#" className="love">
@@ -519,125 +518,7 @@ export default function Home() {
                                     </form>
                                 </div>
                             </aside>
-                            <aside>
-                                <ul className="nav nav-tabs nav-justified" role="tablist">
-                                    <li className="active">
-                                        <a
-                                            href="#recomended"
-                                            aria-controls="recomended"
-                                            role="tab"
-                                            data-toggle="tab"
-                                        >
-                                            <i className="ion-android-star-outline" /> Recomended
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#comments"
-                                            aria-controls="comments"
-                                            role="tab"
-                                            data-toggle="tab"
-                                        >
-                                            <i className="ion-ios-chatboxes-outline" /> Comments
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div className="tab-content">
-                                    <div className="tab-pane active" id="recomended">
-                                        <article className="article-fw">
-                                            <div className="inner">
-                                                <figure>
-                                                    <a href="single.html">
-                                                        <img src="/home/images/news/img16.jpg" alt="Sample Article" />
-                                                    </a>
-                                                </figure>
-                                                <div className="details">
-                                                    <div className="detail">
-                                                        <div className="time">December 31, 2016</div>
-                                                        <div className="category">
-                                                            <a href="category.html">Sport</a>
-                                                        </div>
-                                                    </div>
-                                                    <h1>
-                                                        <a href="single.html">
-                                                        Exploring the Wilderness: Mountain Biking Adventures</a>
-                                                    </h1>
-                                                    <p>
-                                                    whether you're a seasoned rider or a novice enthusiast, grab your bike, and embark on an unforgettable journey into the wilderness. With each turn of the pedal, 
-                                                    you'll discover new landscapes, conquer new challenges, and forge memories that will last a lifetime.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <div className="line" />
-                                        <article className="article-mini">
-                                            <div className="inner">
-                                                <figure>
-                                                    <a href="single.html">
-                                                        <img src="/home/images/news/img05.jpg" alt="Sample Article" />
-                                                    </a>
-                                                </figure>
-                                                <div className="padding">
-                                                    <h1>
-                                                        <a href="single.html">
-                                                        Thrilling Adventures of a Skateboarding Boy: Riding the Streets with Gusto
-                                                        </a>
-                                                    </h1>
-                                                    <div className="detail">
-                                                        <div className="category">
-                                                            <a href="category.html">Lifestyle</a>
-                                                        </div>
-                                                        <div className="time">December 22, 2016</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <article className="article-mini">
-                                            <div className="inner">
-                                                <figure>
-                                                    <a href="single.html">
-                                                        <img src="/home/images/news/img02.jpg" alt="Sample Article" />
-                                                    </a>
-                                                </figure>
-                                                <div className="padding">
-                                                    <h1>
-                                                        <a href="single.html">
-                                                        Embracing the Spirit of Fitness: The Joy of Running</a>
-                                                    </h1>
-                                                    <div className="detail">
-                                                        <div className="category">
-                                                            <a href="category.html">Travel</a>
-                                                        </div>
-                                                        <div className="time">December 21, 2016</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <article className="article-mini">
-                                            <div className="inner">
-                                                <figure>
-                                                    <a href="single.html">
-                                                        <img src="/home/images/news/img10.jpg" alt="Sample Article" />
-                                                    </a>
-                                                </figure>
-                                                <div className="padding">
-                                                    <h1>
-                                                        <a href="single.html">
-                                                        The Enigmatic Charm of Feline Companions: Exploring the World of Cats
-                                                        </a>
-                                                    </h1>
-                                                    <div className="detail">
-                                                        <div className="category">
-                                                            <a href="category.html">Healthy</a>
-                                                        </div>
-                                                        <div className="time">December 20, 2016</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                                </div>
-                            </aside>
+
                         </div>
                     </div>
                 </div>
