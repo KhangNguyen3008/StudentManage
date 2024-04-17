@@ -33,6 +33,9 @@ export default function Login() {
           case '4':
             window.location = 'http://localhost:3000/Student/index'
             break
+          case '5':
+            window.location = 'http://localhost:3000/guest/index'
+            break
         }
 
       }, 2000)
