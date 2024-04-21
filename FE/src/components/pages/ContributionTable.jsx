@@ -77,12 +77,18 @@ const headCells = [
         disablePadding: true,
         label: 'Total Deadline',
     },
-    // {
-    //     id: 'finalclosuredate',
-    //     numeric: false,
-    //     disablePadding: true,
-    //     label: 'Final Closure Date',
-    // },
+    {
+        id: 'begindate',
+        numeric: false,
+        disablePadding: true,
+        label: 'Begin Date',
+    },
+    {
+        id: 'enddate',
+        numeric: false,
+        disablePadding: true,
+        label: 'End Date',
+    },
     {
         id: 'edit',
         numeric: true,
@@ -242,8 +248,8 @@ export default function ContributionTable() {
                                             {row.name}
                                         </TableCell>
                                         <TableCell align="left">{row.faculty.name}</TableCell>
-                                        {/* <TableCell align="left"> {row.closureDate && new Date(row.closureDate).toLocaleString()} {}</TableCell>
-                                        <TableCell align="left"> {row.finalclosureDate && new Date(row.finalclosureDate).toLocaleString()} {}</TableCell> */}
+                                        <TableCell align="left"> {row.beginDate && new Date(row.beginDate).toLocaleString()} {}</TableCell>
+                                        <TableCell align="left"> {row.endDate && new Date(row.endDate).toLocaleString()} {}</TableCell>
                                         <TableCell align="left">{row.description}</TableCell>
                                         <TableCell align="left">{row.deadline.length}</TableCell>
                                         <TableCell align="right"><Link href={`/admin/contribution/update/${row.id}`} className='bg-blue-400 rounded-md p-2 text-white mr-2'><Edit /></Link></TableCell>

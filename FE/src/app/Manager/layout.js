@@ -1,8 +1,11 @@
-
+'use client'
 import DashBoardNavBar from "@/components/layout/DashBoardNavBar";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import DetailMM from "@/components/pages/DetailMM";
+import AuthService from "@/services/AuthService";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 //import { ConfirmProvider } from "material-ui-confirm";
 
 
@@ -12,6 +15,16 @@ const metadata = {
 };
 
 export default function Layout({ children }) {
+  const [user, setUser] = useState()
+  const router = useRouter()
+  useEffect(() => {
+      AuthService.profile().then(x => setUser(x.data)).catch(e => router.push('/login'))
+  })
+  if (user) {
+      if (user?.roleId !== 2) {
+          router.push('/login')
+      }
+  }
   return (
     <>
        <Navbar />

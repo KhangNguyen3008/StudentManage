@@ -16,24 +16,32 @@ import ContributionService from '@/services/ContributionService';
 import SelectFac from '../ui/SelectFac';
 
 
-export default function UpdateContribution({id}) {
-  const [contribution,setContribution] = useState()
+export default function UpdateContribution({ id }) {
+  function toLocalISOString(date) {
+    const localDate = new Date(date - date.getTimezoneOffset() * 60000); //offset in milliseconds. Credit https://stackoverflow.com/questions/10830357/javascript-toisostring-ignores-timezone-offset
+
+    // Optionally remove second/millisecond if needed
+    localDate.setSeconds(null);
+    localDate.setMilliseconds(null);
+    return localDate.toISOString().slice(0, -1);
+  }
+  const [contribution, setContribution] = useState()
   const onSubmit = (e) => {
     e.preventDefault()
     const formdata = new FormData(e.target)
-    ContributionService.updateContribution(id,formdata).then(x => {
+    ContributionService.updateContribution(id, formdata).then(x => {
       toast.success('Update success')
     }).catch(err => {
       toast.error('Update failed')
     })
   }
 
-  useEffect(()=>{
-    ContributionService.getContributionById(id).then(x=>[
+  useEffect(() => {
+    ContributionService.getContributionById(id).then(x => [
       setContribution(x.data)
     ])
-  },[])
-  if(!contribution) return
+  }, [])
+  if (!contribution) return
 
   return (
     <form onSubmit={onSubmit}>
@@ -50,6 +58,32 @@ export default function UpdateContribution({id}) {
             autoComplete="name"
             required
             defaultValue={contribution?.name || ''}
+          />
+        </Grid>
+        <Grid item xs={12} md={6} className='flex !flex-col'>
+          <FormLabel htmlFor="finalclosuredate" required>
+            Begin Date
+          </FormLabel>
+          <OutlinedInput
+            id="begindate"
+            name="begindate"
+            type="datetime-local"
+            placeholder="Select begin date"
+            required
+            defaultValue={toLocalISOString(new Date(contribution?.beginDate))}
+          />
+        </Grid>
+        <Grid item xs={12} md={6} className='flex !flex-col'>
+          <FormLabel htmlFor="finalclosuredate" required>
+            End Date
+          </FormLabel>
+          <OutlinedInput
+            id="enddate"
+            name="enddate"
+            type="datetime-local"
+            placeholder="Select begin date"
+            required
+            defaultValue={toLocalISOString(new Date(contribution?.endDate))}
           />
         </Grid>
         {/* <Grid item xs={12} md={6} className='flex !flex-col'>
@@ -79,12 +113,12 @@ export default function UpdateContribution({id}) {
           />
         </Grid> */}
         <Grid item xs={12} md={6} className='flex !flex-col'>
-          <SelectFac defaultValue={contribution?.facultyId}/>
+          <SelectFac defaultValue={contribution?.facultyId} />
         </Grid>
         <Grid item xs={12} md={12} className='flex !flex-col'>
           <FormLabel htmlFor="description" >Description</FormLabel>
-          <textarea name="description" id="" cols="10" rows="5"  defaultValue={contribution?.description || ''}></textarea>
-          
+          <textarea name="description" id="" cols="10" rows="5" defaultValue={contribution?.description || ''}></textarea>
+
         </Grid>
         <Grid item xs={6} md={3} className='flex !flex-col'>
 

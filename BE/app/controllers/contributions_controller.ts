@@ -79,6 +79,8 @@ export default class ContributionsController {
         contribution.description = payload.description || ""
         contribution.name = payload.name
         contribution.facultyId = payload.facultyid
+        contribution.beginDate =payload.begindate
+        contribution.endDate =payload.enddate
         await contribution.save()
         return contribution
     }
@@ -92,6 +94,8 @@ export default class ContributionsController {
         contribution.name = payload.name
         contribution.facultyId = payload.facultyid
         contribution.description = payload.description || ""
+        contribution.beginDate =payload.begindate
+        contribution.endDate =payload.enddate
         await contribution.save()
 
         return contribution

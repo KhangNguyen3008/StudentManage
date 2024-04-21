@@ -8,20 +8,26 @@ import Deadline from './deadline.js'
 export default class Contribution extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
-  
+
   @column()
-  declare name :string
+  declare name: string
   @column()
-  declare description :string
+  declare description: string
   @column()
   declare facultyId: number
+  
+  @column.dateTime()
+  declare beginDate: DateTime
 
-  @belongsTo(()=>Faculty)
-  declare faculty : BelongsTo<typeof Faculty>
-  
-  @hasMany(()=>Deadline)
-  declare deadline : HasMany<typeof Deadline>
-  
+  @column.dateTime()
+  declare endDate: DateTime
+
+  @belongsTo(() => Faculty)
+  declare faculty: BelongsTo<typeof Faculty>
+
+  @hasMany(() => Deadline)
+  declare deadline: HasMany<typeof Deadline>
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 
