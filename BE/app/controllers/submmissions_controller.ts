@@ -10,7 +10,7 @@ import app from '@adonisjs/core/services/app'
 
 export default class SubmmissionsController {
     Get = async ({ response }: HttpContext) => {
-        let submission = await Submission.query().preload('user').preload('comment')
+        let submission = await Submission.query().preload('user').preload('comment').preload('fileupload')
         return response.send(submission)
     }
     GetById = async ({ response, request }: HttpContext) => {
@@ -53,7 +53,12 @@ export default class SubmmissionsController {
         const payload = await request.validateUsing(PutSubmissionForm)
         const submission = await Submission.find(id)
         if (!submission) {
-            return response.status(400).send(`Faculty not found`)
+            return response.status(422).send({
+                errors:[{
+                    message:`Submission not found`
+                }]
+            })
+           
         }
         submission.title = payload.title
         submission.content = payload.content
@@ -78,7 +83,11 @@ export default class SubmmissionsController {
         const id = request.param('id')
         const submission = await Submission.find(id)
         if (!submission) {
-            return response.status(400).send(`submission not found`)
+            return response.status(422).send({
+                errors:[{
+                    message:`Submission not found`
+                }]
+            })
         }
         await submission.delete()
 
@@ -89,7 +98,11 @@ export default class SubmmissionsController {
         const id = request.param('id')
         const fileupload = await Fileupload.find(id)
         if (!fileupload) {
-            return response.status(400).send(`submission not found`)
+            return response.status(422).send({
+                errors:[{
+                    message:`File not found`
+                }]
+            })
         }
         fs.unlinkSync(fileupload.filePath)
         await fileupload.delete()

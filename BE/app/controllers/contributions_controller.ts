@@ -89,7 +89,12 @@ export default class ContributionsController {
         const payload = await request.validateUsing(PostContributionForm)
         const contribution = await Contribution.find(id)
         if (!contribution) {
-            return response.status(400).send(`Contribution not found`)
+            return response.status(422).send({
+                errors:[{
+                    message:`Contribution not found`
+                }]
+            })
+           
         }
         contribution.name = payload.name
         contribution.facultyId = payload.facultyid
@@ -105,7 +110,12 @@ export default class ContributionsController {
         const id = request.param('id')
         const contribution = await Contribution.find(id)
         if (!contribution) {
-            return response.status(400).send(`Contribution not found`)
+            return response.status(422).send({
+                errors:[{
+                    message:`Contribution not found`
+                }]
+            })
+            
         }
         await contribution.delete()
 

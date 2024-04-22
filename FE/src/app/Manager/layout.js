@@ -1,5 +1,5 @@
 'use client'
-import DashBoardNavBar from "@/components/layout/DashBoardNavBar";
+import ManagerNavBar from "@/components/layout/ManagerNavBar";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import DetailMM from "@/components/pages/DetailMM";
@@ -29,7 +29,7 @@ export default function Layout({ children }) {
     <>
        <Navbar />
         <div className="flex ">
-            <DashBoardNavBar />
+            <ManagerNavBar />
             <div className="w-full">
                 <div className="p-10">
                     {children}

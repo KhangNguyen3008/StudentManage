@@ -5,12 +5,12 @@ export default function ManagerNavBar() {
     const navitem = [{
         icon: <FaListAlt />,
         title: 'Statictical',
-        path: '/Manager/statictical'
+        path: '/Manager/statistical'
     },
     {
         icon: <FaListAlt />,
-        title: '/Manager/faculty',
-        path:'/admin/index'
+        title: 'Faculty',
+        path:'/Manager/Index'
     },
     ]
     return (

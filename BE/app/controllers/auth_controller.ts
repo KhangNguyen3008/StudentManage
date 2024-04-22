@@ -10,10 +10,16 @@ export default class AuthController {
         const user = await User.findBy('email', payload.email)
 
         if (!user) {
-            return response.abort('Username Not Found', 400)
+            return response.abort({errors:[{
+                message:  'Username Not Found'
+            }]}, 422)
+        
         }
         if (user.roleId !== payload.role) {
-            return response.abort('Role not match', 400)
+
+            return response.abort({errors:[{
+                message:  'Role not match'
+            }]}, 422)
         }
 
         /**
@@ -21,7 +27,9 @@ export default class AuthController {
          */
         let result = await hash.verify(user.password, payload.password)
         if (!result) {
-            return response.abort('Password Mismatch', 400)
+            return response.abort({errors:[{
+                message:'Password Mismatch'
+            }]}, 422)
         }
         let token = await User.accessTokens.create(user)
         return {
@@ -33,6 +41,7 @@ export default class AuthController {
         const user = await User.findBy('email', payload.email)
 
         if (user) {
+            
             return response.abort('Username is Same', 400)
         }
         let newUser = new User()

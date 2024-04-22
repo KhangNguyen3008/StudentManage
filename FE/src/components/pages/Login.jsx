@@ -40,7 +40,6 @@ export default function Login() {
 
       }, 2000)
     }).catch(e => {
-      toast.error(`login failed`)
     })
   }
   return (

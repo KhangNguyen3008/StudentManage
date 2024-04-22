@@ -18,7 +18,7 @@ export default function IndexMM() {
         <header>
           <div className="header-right">
             <button className="year-button">Current Year</button>
-            <button className="download-button">Download All Faculty</button>
+            {/* <button className="download-button">Download All Faculty</button> */}
           </div>
         </header>
 

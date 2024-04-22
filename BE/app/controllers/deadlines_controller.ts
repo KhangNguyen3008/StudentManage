@@ -32,7 +32,12 @@ export default class DeadlinesController {
         const payload = await request.validateUsing(PostDeadlineForm)
         const deadline = await Deadline.find(id)
         if (!deadline) {
-            return response.status(400).send(`deadline not found`)
+            return response.status(422).send({
+                errors:[{
+                    message:`deadline not found`
+                }]
+            })
+
         }
         deadline.name = payload.name
         deadline.closureDate = payload.closuredate
@@ -46,7 +51,12 @@ export default class DeadlinesController {
         const id = request.param('id')
         const deadline = await Deadline.find(id)
         if (!deadline) {
-            return response.status(400).send(`Deadline not found`)
+            return response.status(422).send({
+                errors:[{
+                    message:`Deadline not found`
+                }]
+            })
+       
         }
         await deadline.delete()
 

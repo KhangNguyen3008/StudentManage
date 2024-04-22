@@ -9,7 +9,7 @@ export default class UsersController {
         return response.send(user)
     }
     Getmc = async ({ response }: HttpContext) => {
-        let user = await User.query().preload('role').where('role_id', Roles.MAKETING_COORDINATOR)
+        let user = await User.query().preload('role').where('role_id', Roles.MARKETING_COORDINATOR)
         return response.send(user)
     }
     GetById = async ({ response, request }: HttpContext) => {
@@ -37,7 +37,12 @@ export default class UsersController {
         const payload = await request.validateUsing(PostUserForm)
         const user = await User.find(id)
         if (!user) {
-            return response.status(400).send(`User not found`)
+            return response.status(422).send({
+                errors:[{
+                    message:`User not found`
+                }]
+            })
+     
         }
         user.fullName = payload.fullname
         user.email = payload.email
@@ -53,7 +58,11 @@ export default class UsersController {
         const id = request.param('id')
         const user = await User.find(id)
         if (!user) {
-            return response.status(400).send(`User not found`)
+            return response.status(422).send({
+                errors:[{
+                    message:`User not found`
+                }]
+            })
         }
         await user.delete()
 

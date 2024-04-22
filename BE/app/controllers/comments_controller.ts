@@ -30,7 +30,11 @@ export default class CommentsController {
         const payload = await request.validateUsing(PostCommenttForm)
         const comment = await Comment.find(id)
         if (!comment) {
-            return response.status(400).send(`Faculty not found`)
+            return response.status(422).send({
+                errors:[{
+                    message:`Faculty not found`
+                }]
+            })  
         }
         comment.content = payload.content
         comment.userId = auth.user?.id ||-1
@@ -44,7 +48,11 @@ export default class CommentsController {
         const id = request.param('id')
         const comment = await Comment.find(id)
         if (!comment) {
-            return response.status(400).send(`comment not found`)
+            return response.status(422).send({
+                errors:[{
+                    message:'Username Not Found'
+                }]
+            })
         }
         await comment.delete()
 

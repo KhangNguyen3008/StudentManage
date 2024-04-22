@@ -10,19 +10,37 @@ import DeadlineService from '@/services/DeadlineService'
 
 export default function NewArticle({ id }) {
     const [deadline, setDeadline] = useState()
+    const [formData, setFormDate] = useState([])
     const router = useRouter()
+    const handleFileChange = (e) => {
+
+
+        const selectedFile = e.target.files;
+
+        if (selectedFile) {
+
+            [...selectedFile].map(x => {
+                if (x.type.startsWith('image/')) {
+
+                    setFormDate(oldArray => [...oldArray, x]);
+
+                } else {
+                }
+            })
+        }
+    };
     useEffect(() => {
         DeadlineService.getDeadlineById(id).then(x => setDeadline(x.data)).catch(e => {
-g
+            g
         })
-        return ()=>{
-            
+        return () => {
+
         }
-    },[])
+    }, [])
     const onSubmit = (e) => {
         e.preventDefault();
         const formdata = new FormData(e.target)
-        SubmissionService.createSubmission(formdata).then(x => { toast.success(`add success`);router.push(`/Student/DetailArticle/${id}`) }).catch(e => {
+        SubmissionService.createSubmission(formdata).then(x => { toast.success(`add success`); router.push(`/Student/DetailArticle/${id}`) }).catch(e => {
             console.log(e)
             toast.error(`add failed`)
         })
@@ -95,7 +113,7 @@ g
                     <div className="mb-3">
                         <label htmlFor="articleTitle" className="form-label">Article Title:</label>
                         <div className="textbox-container">
-                            <input type="text" name='title'  placeholder="Enter your article Title" />
+                            <input type="text" name='title' placeholder="Enter your article Title" />
                         </div>
                     </div>
                     <div className="mb-3">
@@ -106,11 +124,16 @@ g
                     </div>
                     <div className="mb-3">
                         <label htmlFor="articlePhoto" className="form-label">File Submission:</label>
-                        <input type="file" name='file' className="form-control" id="articlePhoto" accept="image/png, image/jpeg, application/msword" multiple />
+                        <div className='w-full flex gap-10 mb-5'>
+                            {formData && formData.map(x => {
+                                return <img src={URL.createObjectURL(x)} className='max-w-[300px]' alt="" />
+                            })}
+                        </div>
+                        <input onChange={handleFileChange} type="file" name='file' className="form-control" id="articlePhoto" accept="image/png, image/jpeg, application/msword, application/pdf" multiple />
                     </div>
                     <div>Accepted file formats:</div>
                     <div className="mb-3 document-files">
-                        Document files: <span>.doc .docx </span>
+                        Document files: <span>.doc .docx pdf </span>
                     </div>
                     <div className="mb-3 image-files">
                         Image files: <span>.jpg .jpeg .png</span>
@@ -118,7 +141,7 @@ g
                     <div className="mb-3">--------------------------------</div>
 
                     <button type="submit" className="btn bg-primary mr-2">Submit</button>
-                    <button type="button" onClick={(e)=>{router.push(`/Student/DetailArticle/${deadline?.id}`)}} className="btn bg-error">Cancel</button>
+                    <button type="button" onClick={(e) => { router.push(`/Student/DetailArticle/${deadline?.id}`) }} className="btn bg-error">Cancel</button>
                 </form>
             </div>
         </>

@@ -26,7 +26,11 @@ export default class FacultiesController {
 
         let oldFaculty =  await Faculty.findBy('name',payload.name)
         if(oldFaculty){
-            return ['faculty is not same name',400]
+            return response.status(422).send({
+                errors:[{
+                    message:`faculty is not same name`
+                }]
+            })
         }
         const faculty = new Faculty()
         faculty.name = payload.name
@@ -48,13 +52,18 @@ export default class FacultiesController {
         const payload = await request.validateUsing(PostFacultyForm)
         const faculty = await Faculty.find(id)
         if (!faculty) {
-            return response.status(400).send(`Faculty not found`)
+            return response.status(422).send({
+                errors:[{
+                    message:`Faculty not found`
+                }]
+            })
+         
         }
         await faculty.load('user')
         const user = await User.find(payload.userid)
         faculty.name = payload.name
         faculty.isrequest = payload.isrequest
-        let olduser = await User.find(faculty.user.find(x => x.roleId == Roles.MAKETING_COORDINATOR)?.id)
+        let olduser = await User.find(faculty.user.find(x => x.roleId == Roles.MARKETING_COORDINATOR)?.id)
         if (olduser && user) {
             if (!(olduser.id == user.id)) {
 
@@ -72,7 +81,12 @@ export default class FacultiesController {
         const id = request.param('id')
         const faculty = await Faculty.find(id)
         if (!faculty) {
-            return response.status(400).send(`Faculty not found`)
+            return response.status(422).send({
+                errors:[{
+                    message:`Faculty not found`
+                }]
+            })
+           
         }
         await faculty.delete()
 

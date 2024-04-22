@@ -1,7 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import type { NextFn } from '@adonisjs/core/types/http'
 import Roles from '../Enum/Roles.js'
-type  roleid  = 'ADMIN' | "MAKETING_MANAGER"
+type  roleid  = 'ADMIN' | "MARKETING_MANAGER"
 export default class RoleMiddleware {
   async handle(ctx: HttpContext, next: NextFn, options: { guards: roleid[] }) {
     
