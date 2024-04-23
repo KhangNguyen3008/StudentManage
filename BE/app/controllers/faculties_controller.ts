@@ -6,14 +6,23 @@ import Roles from '../Enum/Roles.js'
 import { Zone } from 'luxon'
 
 export default class FacultiesController {
-    Get = async ({ response, auth }: HttpContext) => {
-        let faculty = Faculty.query().preload('user', x => x.orderBy('created_at', 'asc')).preload('contribution')
+    Get = async ({ request, response, auth }: HttpContext) => {
+        let faculty = Faculty.query().preload('user', x => x.orderBy('created_at', 'asc'))
         if (auth.user) {
             if (auth.user.roleId == 3 || auth.user.roleId == 4) {
                 faculty.where(x => x.preload('user', z => z.where('id', auth?.user?.id || -1)))
             }
         }
+        const payload = request.qs()
+
+        if(payload.academicyearid!== 'undefined'&&payload.academicyearid){
+            faculty.preload('contribution',z=>z.where('academicyear_id',payload.academicyearid))
+        }
+        if(!payload.academicyearid){
+            faculty.preload('contribution')
+        }
         let faculty1 = await faculty
+ 
         return response.send(faculty1)
     }
     GetById = async ({ response, request }: HttpContext) => {

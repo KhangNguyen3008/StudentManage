@@ -8,22 +8,36 @@ import type { HttpContext } from '@adonisjs/core/http'
 import fs from "fs"
 import JSZip from "jszip";
 export default class ContributionsController {
-    Get = async ({ response, auth }: HttpContext) => {
-        let contribution =  Contribution.query().preload('faculty').preload('deadline')
+    Get = async ({ request,response, auth }: HttpContext) => {
+        const payload = request.qs()
+        let contribution = Contribution.query().preload('faculty').preload('deadline').preload('academicyear')
         if (auth?.user) {
             let user = await User.find(auth.user.id)
             if (user) {
-                await user.load('faculty')
-                contribution.where('faculty_id',user.faculty[0]?.id)
+                if (user.roleId !== 1 && user.roleId !==2) {
+                    await user.load('faculty')
+                    contribution.where('faculty_id', user.faculty[0]?.id)
+                }
             }
-         
+
+        }
+        if(payload.facultyid!== 'undefined' && payload.facultyid){
+            contribution.where('faculty_id', payload.facultyid)
+    
+        }
+        if(payload.page!== 'undefined' && payload.page){
+            contribution.paginate(payload.page, 5)
+    
         }
         let contributon1 = await contribution
+
         return response.send(contributon1)
     }
+
+
     GetById = async ({ response, request }: HttpContext) => {
         const id = request.param('id')
-        let contribution = await Contribution.query().preload('faculty').preload('deadline', x => x.preload('submission')).where('id', id).first()
+        let contribution = await Contribution.query().preload('faculty').preload('deadline', x => x.preload('submission')).preload('academicyear').where('id', id).first()
         return response.send(contribution)
     }
     DownloadFile = async ({ response, request }: HttpContext) => {
@@ -79,8 +93,7 @@ export default class ContributionsController {
         contribution.description = payload.description || ""
         contribution.name = payload.name
         contribution.facultyId = payload.facultyid
-        contribution.beginDate =payload.begindate
-        contribution.endDate =payload.enddate
+        contribution.academicyearId = payload.academicyear
         await contribution.save()
         return contribution
     }
@@ -90,17 +103,16 @@ export default class ContributionsController {
         const contribution = await Contribution.find(id)
         if (!contribution) {
             return response.status(422).send({
-                errors:[{
-                    message:`Contribution not found`
+                errors: [{
+                    message: `Contribution not found`
                 }]
             })
-           
+
         }
         contribution.name = payload.name
         contribution.facultyId = payload.facultyid
         contribution.description = payload.description || ""
-        contribution.beginDate =payload.begindate
-        contribution.endDate =payload.enddate
+        contribution.academicyearId = payload.academicyear
         await contribution.save()
 
         return contribution
@@ -111,11 +123,11 @@ export default class ContributionsController {
         const contribution = await Contribution.find(id)
         if (!contribution) {
             return response.status(422).send({
-                errors:[{
-                    message:`Contribution not found`
+                errors: [{
+                    message: `Contribution not found`
                 }]
             })
-            
+
         }
         await contribution.delete()
 

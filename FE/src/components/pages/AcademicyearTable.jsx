@@ -17,8 +17,9 @@ import { toast } from 'react-toastify';
 import { confirmAlert } from 'react-confirm-alert';
 import EnhancedTableHead from '../ui/TableHeader';
 import EnhancedTableToolbar from '../ui/TableToolBar';
-
-import ContributionService from '@/services/ContributionService';
+import FacultyService from '@/services/FacultyService';
+import AcademicyearService from '@/services/AcademicyearService';
+import Time from '../ui/Time';
 
 
 function descendingComparator(a, b, orderBy) {
@@ -60,28 +61,34 @@ const headCells = [
     },
 
     {
-        id: 'faculty',
+        id: 'begindate',
         numeric: false,
         disablePadding: false,
-        label: 'Faculty',
+        label: 'BeginDate',
     },
+    {
+        id: 'enddate',
+        numeric: false,
+        disablePadding: false,
+        label: 'End Date',
+    },
+    // {
+    //     id: 'closuredate',
+    //     numeric: false,
+    //     disablePadding: true,
+    //     label: 'Closure Date',
+    // },
+    // {
+    //     id: 'finalclosuredate',
+    //     numeric: false,
+    //     disablePadding: true,
+    //     label: 'Final Closure Date',
+    // },
     {
         id: 'description',
         numeric: false,
-        disablePadding: true,
+        disablePadding: false,
         label: 'Description',
-    },
-    {
-        id: 'deadline',
-        numeric: false,
-        disablePadding: true,
-        label: 'Total Deadline',
-    },
-    {
-        id: 'academicyear',
-        numeric: false,
-        disablePadding: true,
-        label: 'Academicyear',
     },
     {
         id: 'edit',
@@ -94,14 +101,14 @@ const headCells = [
 
 
 
-export default function ContributionTable() {
+export default function AcademicyearTable() {
 
     const [order, setOrder] = useState('asc');
-    const [orderBy, setOrderBy] = useState('faculty');
+    const [orderBy, setOrderBy] = useState('name');
     const [selected, setSelected] = useState([]);
     const [page, setPage] = useState(0);
+    const [academicyear,setAcademicyear] = useState()
     const [data, setData] = useState([])
-    const[ contribution ,setContribution ] = useState()
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const handleDelete = (e) => {
         e.preventDefault();
@@ -113,7 +120,7 @@ export default function ContributionTable() {
                 {
                     label: 'Yes',
                     onClick: () => {
-                        const promises = selected.map(row => ContributionService.deleteContribution(row));
+                        const promises = selected.map(row => AcademicyearService.deleteAcademicyear(row));
                         Promise.all(promises)
                             .then(results => {
                                 toast.success('Delete Success')
@@ -180,8 +187,8 @@ export default function ContributionTable() {
 
     const isSelected = (id) => selected.indexOf(id) !== -1;
     useEffect(() => {
-        ContributionService.getContribution().then(x => {
-            setContribution(x.data)
+        AcademicyearService.getAcademicyear().then(x => {
+            setAcademicyear(x.data)
             setData(stableSort(x.data, getComparator(order, orderBy)).slice(
                 page * rowsPerPage,
                 page * rowsPerPage + rowsPerPage,
@@ -190,7 +197,7 @@ export default function ContributionTable() {
         }).catch(e => console.log(e))
 
     }, [order, orderBy, page, rowsPerPage, selected])
-   
+    console.log(data)
     return (
         <Box sx={{ width: '100%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
@@ -243,11 +250,10 @@ export default function ContributionTable() {
                                         >
                                             {row.name}
                                         </TableCell>
-                                        <TableCell align="left">{row.faculty.name}</TableCell>
+                                        <TableCell align="left">{<Time string={row.beginDate}/>}</TableCell>
+                                        <TableCell align="left">{<Time string={row.endDate}/>}</TableCell>
                                         <TableCell align="left">{row.description}</TableCell>
-                                        <TableCell align="left">{row.deadline.length}</TableCell>
-                                        <TableCell align="left">{row.academicyear.name}</TableCell>
-                                        <TableCell align="right"><Link href={`/admin/contribution/update/${row.id}`} className='bg-blue-400 rounded-md p-2 text-white mr-2'><Edit /></Link></TableCell>
+                                        <TableCell align="right"><Link href={`/admin/academicyear/update/${row.id}`} className='bg-blue-400 rounded-md p-2 text-white mr-2'><Edit /></Link></TableCell>
                                     </TableRow>
                                 );
                             })}
@@ -257,7 +263,7 @@ export default function ContributionTable() {
                 <TablePagination
                     rowsPerPageOptions={[5, 10, 25]}
                     component="div"
-                    count={contribution?.length || 0}
+                    count={academicyear?.length || 0}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

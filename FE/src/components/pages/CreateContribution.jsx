@@ -14,6 +14,7 @@ import SelectMc from '../ui/SelectMc';
 import FacultyService from '@/services/FacultyService';
 import ContributionService from '@/services/ContributionService';
 import SelectFac from '../ui/SelectFac';
+import SelectAcadmicyear from '../ui/SelectAcadmicyear';
 
 
 export default function CreateContribution() {
@@ -73,34 +74,14 @@ export default function CreateContribution() {
         <Grid item xs={12} md={6} className='flex !flex-col'>
           <SelectFac />
         </Grid>
+        <Grid item xs={12} md={6} className='flex !flex-col'>
+          <SelectAcadmicyear />
+        </Grid>
         <Grid item xs={12} md={12} className='flex !flex-col'>
           <FormLabel htmlFor="description" >Description</FormLabel>
           <textarea name="description" id="" cols="10" rows="5"></textarea>
         </Grid>
-        <Grid item xs={12} md={6} className='flex !flex-col'>
-          <FormLabel htmlFor="finalclosuredate" required>
-            Begin Date
-          </FormLabel>
-          <OutlinedInput
-            id="begindate"
-            name="begindate"
-            type="datetime-local"
-            placeholder="Select begin date"
-            required
-          />
-        </Grid>
-        <Grid item xs={12} md={6} className='flex !flex-col'>
-          <FormLabel htmlFor="finalclosuredate" required>
-            End Date
-          </FormLabel>
-          <OutlinedInput
-            id="enddate"
-            name="enddate"
-            type="datetime-local"
-            placeholder="Select end date"
-            required
-          />
-        </Grid>
+
         <Grid item xs={6} md={3} className='flex !flex-col'>
 
           <Button type='submit' variant='contained' className='bg-primary'>Create</Button>

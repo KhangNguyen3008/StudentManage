@@ -2,6 +2,7 @@ import Faculty from '#models/faculty'
 import vine from '@vinejs/vine'
 import { exists } from './helpers/db.js'
 import { VineDateTime } from './dateTimeSchema.js'
+import Academicyear from '#models/academicyear'
 
 
 export const PostContributionForm = vine.compile(
@@ -10,8 +11,7 @@ export const PostContributionForm = vine.compile(
         // file:vine.file({extnames:['png','jpg','docs']}),
         name:vine.string(),
         description:vine.string().nullable(),
-        begindate: new VineDateTime,
-        enddate:new VineDateTime,
+        academicyear:vine.number().exists(exists(Academicyear.table,Academicyear.primaryKey)),
         // content:vine.string() 
 
     })

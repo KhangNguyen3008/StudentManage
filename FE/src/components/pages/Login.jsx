@@ -59,7 +59,7 @@ export default function Login() {
             </button>
           </form>
           <h2 className='flex justify-center gap-2 mt-5'>
-            Not a member <Link href={'signup'} className='text-pink-500'> Sign Up</Link>
+
           </h2>
         </div>
       </div>

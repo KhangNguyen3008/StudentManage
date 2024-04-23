@@ -98,6 +98,7 @@ export default function FacultyTable() {
     const [order, setOrder] = useState('asc');
     const [orderBy, setOrderBy] = useState('name');
     const [selected, setSelected] = useState([]);
+    const [faculty,setFaculty] = useState()
     const [page, setPage] = useState(0);
     const [data, setData] = useState([])
     const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -179,6 +180,7 @@ export default function FacultyTable() {
     const isSelected = (id) => selected.indexOf(id) !== -1;
     useEffect(() => {
         FacultyService.getFaculty().then(x => {
+            setFaculty(x.data)
             setData(stableSort(x.data, getComparator(order, orderBy)).slice(
                 page * rowsPerPage,
                 page * rowsPerPage + rowsPerPage,
@@ -254,7 +256,7 @@ export default function FacultyTable() {
                 <TablePagination
                     rowsPerPageOptions={[5, 10, 25]}
                     component="div"
-                    count={data?.length || 0}
+                    count={faculty?.length || 0}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

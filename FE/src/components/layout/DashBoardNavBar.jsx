@@ -22,6 +22,11 @@ export default function DashBoardNavBar() {
         icon: <FaListAlt />,
         title: 'Manager Contribution',
         path:'/admin/contribution'
+    },
+    {
+        icon: <FaListAlt />,
+        title: 'Manager Academicyear',
+        path:'/admin/academicyear'
     }
     ]
     return (
