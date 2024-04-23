@@ -97,7 +97,7 @@ export default function UserTable() {
     const [selected, setSelected] = useState([]);
     const [page, setPage] = useState(0);
     const [data, setData] = useState([])
-    const [rowsPerPage, setRowsPerPage] = useState(10);
+    const [rowsPerPage, setRowsPerPage] = useState(3);
     const handleDelete = (e) => {
         e.preventDefault();
 
@@ -248,7 +248,7 @@ export default function UserTable() {
                     </Table>
                 </TableContainer>
                 <TablePagination
-                    rowsPerPageOptions={[5, 10, 25]}
+                    rowsPerPageOptions={[3, 5, 10]}
                     component="div"
                     count={data?.length || 0}
                     rowsPerPage={rowsPerPage}
