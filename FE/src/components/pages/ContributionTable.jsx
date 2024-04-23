@@ -103,7 +103,7 @@ const headCells = [
 export default function ContributionTable() {
 
     const [order, setOrder] = useState('asc');
-    const [orderBy, setOrderBy] = useState('name');
+    const [orderBy, setOrderBy] = useState('faculty');
     const [selected, setSelected] = useState([]);
     const [page, setPage] = useState(0);
     const [data, setData] = useState([])

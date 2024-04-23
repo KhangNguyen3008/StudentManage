@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from "@/components/layout/Footer";
 import NewArticle from '@/components/pages/NewArticle';
 import Navbar from '@/components/layout/Navbar';
+import { useRouter } from 'next/navigation';
+import AuthService from '@/services/AuthService';
 
 const metadata = {
   title: "Create Next App",
@@ -9,6 +11,16 @@ const metadata = {
 };
 
 export default function Layout({ children }) {
+    const [user, setUser] = useState()
+    const router = useRouter()
+    useEffect(() => {
+        AuthService.profile().then(x => setUser(x.data)).catch(e => router.push('/login'))
+    },[])
+    if (user) {
+        if (user?.roleId !== 4) {
+            router.push('/login')
+        }
+    }
   return (
     <>
       <Navbar />

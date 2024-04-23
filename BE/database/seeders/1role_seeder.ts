@@ -10,11 +10,11 @@ export default class extends BaseSeeder {
         name:'ADMIN'
       },
       {
-        id:Roles.MAKETING_MANAGER,
+        id:Roles.MARKETING_MANAGER,
         name:'MAKETING_MANAGER'
       },
       {
-        id:Roles.MAKETING_COORDINATOR,
+        id:Roles.MARKETING_COORDINATOR,
         name:'MAKETING_COORDINATOR'
       },
       {
