@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '../../app/globals.css'
 import FacultyService from '@/services/FacultyService'
 import ContributionService from '@/services/ContributionService'
@@ -7,28 +7,47 @@ import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 import SubmissionService from '@/services/SubmissionService'
 import DeadlineService from '@/services/DeadlineService'
+import { MdDelete } from "react-icons/md";
 
 export default function NewArticle({ id }) {
     const [deadline, setDeadline] = useState()
     const [formData, setFormDate] = useState([])
+    const [image, setImage] = useState([])
     const router = useRouter()
+    const fileInputRef = useRef(null);
+    const removeFileAtIndex = (index) => {
+        setFormDate(prevFiles => {
+            const newFiles = [...prevFiles];
+            newFiles.splice(index, 1);
+            return newFiles;
+        });
+    };
+
+    const handleDeletefile = (index) => (e) => {
+
+        removeFileAtIndex(index)
+    }
     const handleFileChange = (e) => {
 
 
         const selectedFile = e.target.files;
-
+        console.log(selectedFile)
         if (selectedFile) {
 
             [...selectedFile].map(x => {
+                console.log(x)
                 if (x.type.startsWith('image/')) {
 
-                    setFormDate(oldArray => [...oldArray, x]);
+                    setFormDate(oldArray => [...oldArray, { file: x, type: 'image' }]);
 
                 } else {
+                    setFormDate(oldArray => [...oldArray, { file: x, type: 'docs' }]);
+
                 }
             })
         }
     };
+
     useEffect(() => {
         DeadlineService.getDeadlineById(id).then(x => setDeadline(x.data)).catch(e => {
             g
@@ -36,16 +55,20 @@ export default function NewArticle({ id }) {
         return () => {
 
         }
-    }, [])
+    }, [formData])
     const onSubmit = (e) => {
         e.preventDefault();
         const formdata = new FormData(e.target)
+        formData.map((x,i)=>{
+            formdata.append(`file`,x.file)
+        })
         SubmissionService.createSubmission(formdata).then(x => { toast.success(`add success`); router.push(`/Student/DetailArticle/${id}`) }).catch(e => {
             console.log(e)
             toast.error(`add failed`)
         })
 
     }
+    console.log(formData)
     if (!deadline) {
         return
     }
@@ -124,12 +147,28 @@ export default function NewArticle({ id }) {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="articlePhoto" className="form-label">File Submission:</label>
-                        <div className='w-full flex gap-10 mb-5'>
-                            {formData && formData.map(x => {
-                                return <img src={URL.createObjectURL(x)} className='max-w-[300px]' alt="" />
+                        <p className='' alt="" >{formData.length} files submited</p>
+                        <div className='w-full grid grid-cols-2 gap-10 mb-5'>
+                       
+                            {formData.map((x, i) => {
+                                if (x.type == 'image') {
+                                    return <div className='flex items-center gap-2 border-2 p-5 justify-center'>
+                                        <img src={URL.createObjectURL(x.file)} className='max-w-[200px]' alt="" />
+                                        <button type='button' onClick={handleDeletefile(i)} className='p-4 text-5xl hover:text-red-500'><MdDelete /></button>
+                                    </div>
+                                }
                             })}
+
                         </div>
-                        <input onChange={handleFileChange} type="file" name='file' className="form-control" id="articlePhoto" accept="image/png, image/jpeg, application/msword, application/pdf" multiple />
+                        {formData.map((x, i) => {
+                            if (x.type == 'docs') {
+                                return <div className='flex gap-2 items-center border-2 p-5'>
+                                    <p className='' alt="" >{x.file.name}</p>
+                                    <button type='button' onClick={handleDeletefile(i)} className='p-4 text-5xl hover:text-red-500'><MdDelete /></button>
+                                </div>
+                            }
+                        })}
+                        <input value={''} onChange={handleFileChange} type="file" className="form-control" id="articlePhoto" accept="image/png, image/jpeg, application/msword, application/pdf" multiple />
                     </div>
                     <div>Accepted file formats:</div>
                     <div className="mb-3 document-files">
