@@ -15,6 +15,7 @@ import FacultyService from '@/services/FacultyService';
 import ContributionService from '@/services/ContributionService';
 import SelectFac from '../ui/SelectFac';
 import SelectAcadmicyear from '../ui/SelectAcadmicyear';
+import SelectStatus from '../ui/SelectStatus';
 
 
 export default function CreateContribution() {
@@ -73,6 +74,9 @@ export default function CreateContribution() {
         </Grid> */}
         <Grid item xs={12} md={6} className='flex !flex-col'>
           <SelectFac />
+        </Grid>
+        <Grid item xs={12} md={6} className='flex !flex-col'>
+          <SelectStatus />
         </Grid>
         <Grid item xs={12} md={6} className='flex !flex-col'>
           <SelectAcadmicyear />

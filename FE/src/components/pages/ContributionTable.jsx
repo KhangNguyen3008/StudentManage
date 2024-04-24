@@ -72,6 +72,12 @@ const headCells = [
         label: 'Description',
     },
     {
+        id: 'status',
+        numeric: false,
+        disablePadding: true,
+        label: 'Status',
+    },
+    {
         id: 'deadline',
         numeric: false,
         disablePadding: true,
@@ -245,6 +251,7 @@ export default function ContributionTable() {
                                         </TableCell>
                                         <TableCell align="left">{row.faculty.name}</TableCell>
                                         <TableCell align="left">{row.description}</TableCell>
+                                        <TableCell align="left">{row.status.name}</TableCell>
                                         <TableCell align="left">{row.deadline.length}</TableCell>
                                         <TableCell align="left">{row.academicyear.name}</TableCell>
                                         <TableCell align="right"><Link href={`/admin/contribution/update/${row.id}`} className='bg-blue-400 rounded-md p-2 text-white mr-2'><Edit /></Link></TableCell>

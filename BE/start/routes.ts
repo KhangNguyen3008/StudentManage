@@ -20,6 +20,7 @@ import SubmmissionsController from '#controllers/submmissions_controller'
 import CommentsController from '#controllers/comments_controller'
 import Academicyear from '#models/academicyear'
 import AcademicyearsController from '#controllers/academicyears_controller'
+import StatusesController from '#controllers/statuses_controller'
 
 router.get('/', async () => {
   return {
@@ -96,6 +97,9 @@ router.group(() => {
     router.put('/:id', [CommentsController, 'Put']).use([middleware.auth()])
     router.delete('/:id', [CommentsController, 'Delete'])
   }).prefix('/comment')
+  router.group(() => {
+    router.get('/', [StatusesController, 'Get'])
+  }).prefix('/status')
   router.group(() => {
     router.delete('/deletefile/:id', [SubmmissionsController, 'DeleteFile'])
   }).prefix('/upload')

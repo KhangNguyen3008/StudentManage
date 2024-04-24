@@ -10,7 +10,7 @@ import JSZip from "jszip";
 export default class ContributionsController {
     Get = async ({ request,response, auth }: HttpContext) => {
         const payload = request.qs()
-        let contribution = Contribution.query().preload('faculty').preload('deadline').preload('academicyear')
+        let contribution = Contribution.query().preload('faculty').preload('deadline').preload('academicyear').preload('status')
         if (auth?.user) {
             let user = await User.find(auth.user.id)
             if (user) {
@@ -37,7 +37,7 @@ export default class ContributionsController {
 
     GetById = async ({ response, request }: HttpContext) => {
         const id = request.param('id')
-        let contribution = await Contribution.query().preload('faculty').preload('deadline', x => x.preload('submission')).preload('academicyear').where('id', id).first()
+        let contribution = await Contribution.query().preload('faculty').preload('status').preload('deadline', x => x.preload('submission')).preload('academicyear').where('id', id).first()
         return response.send(contribution)
     }
     DownloadFile = async ({ response, request }: HttpContext) => {
@@ -94,6 +94,7 @@ export default class ContributionsController {
         contribution.name = payload.name
         contribution.facultyId = payload.facultyid
         contribution.academicyearId = payload.academicyear
+        contribution.statusId = payload.statusid
         await contribution.save()
         return contribution
     }
@@ -113,6 +114,7 @@ export default class ContributionsController {
         contribution.facultyId = payload.facultyid
         contribution.description = payload.description || ""
         contribution.academicyearId = payload.academicyear
+        contribution.statusId = payload.statusid
         await contribution.save()
 
         return contribution

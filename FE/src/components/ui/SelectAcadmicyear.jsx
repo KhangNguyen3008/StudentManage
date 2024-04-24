@@ -30,7 +30,7 @@ export default function SelectAcadmicyear({ defaultValue }) {
                 id="academicyearId"
                 name='academicyear'
                 label="Academic Year"
-                defaultValue={defaultValue ? defaultValue : data ? data[0].id : null}
+                defaultValue={defaultValue ? defaultValue : data ? data[0]?.id : null}
             >
                 {data && data.map((item, i) => {
                     return <MenuItem key={i} value={item.id}>{item.name}</MenuItem>

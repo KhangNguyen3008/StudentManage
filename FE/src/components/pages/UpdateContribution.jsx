@@ -15,6 +15,7 @@ import FacultyService from '@/services/FacultyService';
 import ContributionService from '@/services/ContributionService';
 import SelectFac from '../ui/SelectFac';
 import SelectAcadmicyear from '../ui/SelectAcadmicyear';
+import SelectStatus from '../ui/SelectStatus';
 
 
 export default function UpdateContribution({ id }) {
@@ -88,9 +89,13 @@ export default function UpdateContribution({ id }) {
             required
           />
         </Grid> */}
+             <Grid item xs={12} md={6} className='flex !flex-col'>
+          <SelectStatus defaultValue={contribution?.statusId} />
+        </Grid>
         <Grid item xs={12} md={6} className='flex !flex-col'>
           <SelectAcadmicyear defaultValue={contribution?.academicyearId} />
         </Grid>
+   
         <Grid item xs={12} md={6} className='flex !flex-col'>
           <SelectFac defaultValue={contribution?.facultyId} />
         </Grid>

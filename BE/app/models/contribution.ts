@@ -5,6 +5,7 @@ import type { BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
 import Faculty from './faculty.js'
 import Deadline from './deadline.js'
 import Academicyear from './academicyear.js'
+import Status from './status.js'
 
 export default class Contribution extends BaseModel {
   @column({ isPrimary: true })
@@ -22,6 +23,12 @@ export default class Contribution extends BaseModel {
 
   @belongsTo(() => Academicyear)
   declare academicyear: BelongsTo<typeof Academicyear>
+  
+  @column()
+  declare statusId:number
+
+  @belongsTo(() => Status)
+  declare status: BelongsTo<typeof Status>
 
   @belongsTo(() => Faculty)
   declare faculty: BelongsTo<typeof Faculty>
