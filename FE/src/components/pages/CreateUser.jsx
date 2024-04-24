@@ -10,6 +10,7 @@ import { Button, MenuItem, Select } from '@mui/material';
 import SelectRole from '../ui/SelectRole';
 import UserService from '@/services/UserService';
 import { toast } from 'react-toastify';
+import SelectFac from '../ui/SelectFac';
 
 
 export default function CreateUser() {
@@ -56,18 +57,7 @@ export default function CreateUser() {
           />
         </Grid>
         <Grid item xs={12} md={6} className='flex !flex-col'>
-          <FormLabel htmlFor="password" required>
-            Password
-          </FormLabel>
-          <OutlinedInput
-            id="password"
-            name="password"
-            type="password"
-
-            placeholder="enter user password"
-            autoComplete="password"
-            required
-          />
+          <SelectFac />
         </Grid>
         <Grid item xs={12} md={6} className='flex !flex-col'>
         <SelectRole />

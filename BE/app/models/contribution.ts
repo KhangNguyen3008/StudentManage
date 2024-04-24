@@ -4,6 +4,7 @@ import { BaseModel, belongsTo, column, hasMany } from '@adonisjs/lucid/orm'
 import type { BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
 import Faculty from './faculty.js'
 import Deadline from './deadline.js'
+import Academicyear from './academicyear.js'
 
 export default class Contribution extends BaseModel {
   @column({ isPrimary: true })
@@ -16,11 +17,11 @@ export default class Contribution extends BaseModel {
   @column()
   declare facultyId: number
   
-  @column.dateTime()
-  declare beginDate: DateTime
+  @column()
+  declare academicyearId:number
 
-  @column.dateTime()
-  declare endDate: DateTime
+  @belongsTo(() => Academicyear)
+  declare academicyear: BelongsTo<typeof Academicyear>
 
   @belongsTo(() => Faculty)
   declare faculty: BelongsTo<typeof Faculty>

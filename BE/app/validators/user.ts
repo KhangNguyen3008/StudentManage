@@ -1,9 +1,11 @@
 import vine from '@vinejs/vine'
+import { exists } from './helpers/db.js'
+import Faculty from '#models/faculty'
 export const PostUserForm = vine.compile(
     vine.object({
         fullname:vine.string(),
         email: vine.string().email(),
-        password: vine.string().minLength(8),
+        facultyid:vine.number().exists(exists(Faculty.table,Faculty.primaryKey)),
         role:vine.number().positive()
     })
 

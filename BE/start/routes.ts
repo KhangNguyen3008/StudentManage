@@ -18,6 +18,8 @@ import ContributionsController from '#controllers/contributions_controller'
 import DeadlinesController from '#controllers/deadlines_controller'
 import SubmmissionsController from '#controllers/submmissions_controller'
 import CommentsController from '#controllers/comments_controller'
+import Academicyear from '#models/academicyear'
+import AcademicyearsController from '#controllers/academicyears_controller'
 
 router.get('/', async () => {
   return {
@@ -76,6 +78,16 @@ router.group(() => {
     router.put('/:id', [ContributionsController, 'Put'])
     router.delete('/:id', [ContributionsController, 'Delete'])
   }).prefix('/contribution')
+
+  router.group(() => {
+    router.get('/', [AcademicyearsController, 'Get'])
+
+    router.get('/:id', [AcademicyearsController, 'GetById'])
+   
+    router.post('/', [AcademicyearsController, 'Post'])
+    router.put('/:id', [AcademicyearsController, 'Put'])
+    router.delete('/:id', [AcademicyearsController, 'Delete'])
+  }).prefix('/academicyear')
   router.group(() => {
     router.get('/', [CommentsController, 'Get'])
     router.get('/:id', [CommentsController, 'GetById'])

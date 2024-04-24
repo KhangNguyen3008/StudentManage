@@ -97,6 +97,7 @@ export default function UserTable() {
     const [selected, setSelected] = useState([]);
     const [page, setPage] = useState(0);
     const [data, setData] = useState([])
+    const[user,setUser] = useState();
     const [rowsPerPage, setRowsPerPage] = useState(3);
     const handleDelete = (e) => {
         e.preventDefault();
@@ -176,6 +177,7 @@ export default function UserTable() {
     const isSelected = (id) => selected.indexOf(id) !== -1;
     useEffect(() => {
         UserService.getUser().then(x => {
+            setUser(x.data)
             setData(stableSort(x.data, getComparator(order, orderBy)).slice(
                 page * rowsPerPage,
                 page * rowsPerPage + rowsPerPage,
@@ -184,6 +186,7 @@ export default function UserTable() {
         }).catch(e => console.log(e))
 
     }, [order, orderBy, page, rowsPerPage,selected])
+
     return (
         <Box sx={{ width: '100%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
@@ -250,7 +253,7 @@ export default function UserTable() {
                 <TablePagination
                     rowsPerPageOptions={[3, 5, 10]}
                     component="div"
-                    count={data?.length || 0}
+                    count={user?.length || 0}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}
