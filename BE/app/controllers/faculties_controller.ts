@@ -44,14 +44,14 @@ export default class FacultiesController {
         const faculty = new Faculty()
         faculty.name = payload.name
 
-        const user = await User.find(payload.userid)
-        if (user) {
-            faculty.related('user').create(user)
-        }
+
         faculty.isrequest = payload.isrequest
 
         await faculty.save()
-
+        const user = await User.find(payload.userid)
+        if (user) {
+            await faculty.related('user').attach([user.id])
+        }
         return faculty
 
     }
