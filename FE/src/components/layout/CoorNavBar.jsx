@@ -10,8 +10,16 @@ export default function CoorNavBar() {
         icon: <FaListAlt />,
         title: 'View Contribution',
         path: '/coordinator/contribution'
+    },{
+        icon: <FaListAlt />,
+        title: 'Statistical',
+        path: '/coordinator/statistical'
     },
-
+    ,{
+        icon: <FaListAlt />,
+        title: 'Manager User',
+        path: '/coordinator/user'
+    },
     ]
     return (
         <div className=' sticky min-h-[100vh] w-[300px] bg-main-gray'>

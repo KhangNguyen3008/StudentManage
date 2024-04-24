@@ -11,8 +11,16 @@ export default class FacultiesController {
         if (auth.user) {
             if (auth.user.roleId == 3 || auth.user.roleId == 4) {
                 faculty.where(x => x.preload('user', z => z.where('id', auth?.user?.id || -1)))
+                let user = await User.query().where('id',auth?.user?.id).preload('faculty',z=>z.first()).first()
+                if(user){
+                    user.faculty.map((x)=>{
+                        faculty.where('id',x.id)
+                    })         
+                }
             }
+         
         }
+
         const payload = request.qs()
 
         if(payload.academicyearid!== 'undefined'&&payload.academicyearid){

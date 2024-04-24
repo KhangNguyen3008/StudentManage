@@ -17,9 +17,15 @@ function generateRandomPassword(length: number): string {
     return password;
 }
 export default class UsersController {
-    Get = async ({ response }: HttpContext) => {
-        let user = await User.query().preload('role')
-        return response.send(user)
+    Get = async ({ response,auth }: HttpContext) => {
+        let user =  User.query().preload('role')
+        if(auth.isAuthenticated){
+            if(auth?.user?.roleId==3){
+                user.where('roleId',Roles.STUDENT).orWhere('roleId',Roles.GUEST)
+            }
+        }
+        let user1 = await user
+        return response.send(user1)
     }
     Getmc = async ({ response }: HttpContext) => {
         let user = await User.query().preload('role').where('role_id', Roles.MARKETING_COORDINATOR)

@@ -35,9 +35,10 @@ router.group(() => {
   }).prefix('/auth')
   router.group(() => {
     router.get('/', [RolesController, 'Get'])
+    router.get('/co', [RolesController, 'GetCo'])
   }).prefix('/role')
   router.group(() => {
-    router.get('/', [UsersController, 'Get'])
+    router.get('/', [UsersController, 'Get']).use([middleware.auth()])
     router.get('/mc', [UsersController, 'Getmc'])
     router.get('/:id', [UsersController, 'GetById'])
     router.post('/', [UsersController, 'Post'])
