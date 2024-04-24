@@ -25,6 +25,13 @@ export default class AcademicyearsController {
                 }]
             })
         }
+        if(payload.begindate>payload.enddate){
+            return response.status(422).send({
+                errors:[{
+                    message:`begin date must less than end date`
+                }]
+            })
+        }
         const year = new Academicyear()
         year.name = payload.name
         year.beginDate = payload.begindate
