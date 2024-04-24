@@ -12,7 +12,7 @@ export default class SubmmissionsController {
     Get = async ({ response,auth }: HttpContext) => {
         let submission =  Submission.query().preload('user').preload('comment').preload('fileupload')
         if(auth.isAuthenticated){
-            if(auth.user?.roleId ==4 || auth.user?.roleId==4){
+            if(auth.user?.roleId ==4 || auth.user?.roleId==5){
                 submission.where('status_id',2)
             }
         }
