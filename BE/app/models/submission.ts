@@ -8,6 +8,7 @@ import Comment from './comment.js'
 import Contribution from './contribution.js'
 import Faculty from './faculty.js'
 import mail from '@adonisjs/mail/services/main'
+import Status from './status.js'
 export default class Submission extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
@@ -30,13 +31,18 @@ export default class Submission extends BaseModel {
   @column()
   declare content: string
 
+  @column()
+  declare statusId:number
 
+  @belongsTo(() => Status)
+  declare status: BelongsTo<typeof Status>
   @hasMany(()=>Comment)
   declare comment:HasMany<typeof Comment>
 
   @hasMany(()=>Fileupload,{
     foreignKey:'submissionId'
   })
+  
   declare fileupload :HasMany<typeof Fileupload>
 
   @column.dateTime({ autoCreate: true })

@@ -11,7 +11,7 @@ export default class extends BaseSchema {
       table.integer('faculty_id').references('id').inTable('faculties').notNullable().unsigned().onDelete('CASCADE')
       table.string('description')
       table.integer('academicyear_id').references('id').inTable('academicyears').notNullable().unsigned().onDelete('CASCADE')
-      table.integer('status_id').references('id').inTable('statuses').notNullable().unsigned().onDelete('CASCADE')
+
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })

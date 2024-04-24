@@ -1,5 +1,5 @@
 import User from '#models/user'
-import { PostUserForm } from '#validators/user'
+import { PostUserForm, PutUserForm } from '#validators/user'
 import type { HttpContext } from '@adonisjs/core/http'
 import Roles from '../Enum/Roles.js'
 import mail from '@adonisjs/mail/services/main'
@@ -68,7 +68,7 @@ export default class UsersController {
     }
     Put = async ({ response, request }: HttpContext) => {
         const id = request.param('id')
-        const payload = await request.validateUsing(PostUserForm)
+        const payload = await request.validateUsing(PutUserForm)
         const user = await User.find(id)
         if (!user) {
             return response.status(422).send({
@@ -80,9 +80,9 @@ export default class UsersController {
         }
         user.fullName = payload.fullname
         user.email = payload.email
-        // if (!(user.password === payload.password)) {
-        //     user.password = payload.password
-        // }
+        if (!(user.password === payload.password)) {
+            user.password = payload.password
+        }
         user.roleId = payload.role
         await user.save()
         return user

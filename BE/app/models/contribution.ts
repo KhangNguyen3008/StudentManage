@@ -23,12 +23,8 @@ export default class Contribution extends BaseModel {
 
   @belongsTo(() => Academicyear)
   declare academicyear: BelongsTo<typeof Academicyear>
-  
-  @column()
-  declare statusId:number
 
-  @belongsTo(() => Status)
-  declare status: BelongsTo<typeof Status>
+
 
   @belongsTo(() => Faculty)
   declare faculty: BelongsTo<typeof Faculty>

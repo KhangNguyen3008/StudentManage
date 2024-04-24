@@ -75,9 +75,9 @@ export default function CreateContribution() {
         <Grid item xs={12} md={6} className='flex !flex-col'>
           <SelectFac />
         </Grid>
-        <Grid item xs={12} md={6} className='flex !flex-col'>
+        {/* <Grid item xs={12} md={6} className='flex !flex-col'>
           <SelectStatus />
-        </Grid>
+        </Grid> */}
         <Grid item xs={12} md={6} className='flex !flex-col'>
           <SelectAcadmicyear />
         </Grid>

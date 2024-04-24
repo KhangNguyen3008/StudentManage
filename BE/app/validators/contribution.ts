@@ -14,7 +14,7 @@ export const PostContributionForm = vine.compile(
         name:vine.string(),
         description:vine.string().nullable(),
         academicyear:vine.number().exists(exists(Academicyear.table,Academicyear.primaryKey)),
-        statusid:vine.number().exists(exists(Status.table,Status.primaryKey)),
+        
         // content:vine.string() 
 
     })

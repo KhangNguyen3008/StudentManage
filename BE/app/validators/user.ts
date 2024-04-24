@@ -10,3 +10,13 @@ export const PostUserForm = vine.compile(
     })
 
 )
+export const PutUserForm = vine.compile(
+    vine.object({
+        fullname:vine.string(),
+        email: vine.string().email(),
+        password:vine.string(),
+        facultyid:vine.number().exists(exists(Faculty.table,Faculty.primaryKey)),
+        role:vine.number().positive()
+    })
+
+)

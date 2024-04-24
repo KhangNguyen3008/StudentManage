@@ -65,7 +65,7 @@ router.group(() => {
     router.get('/:id', [SubmmissionsController, 'GetById'])
 
     router.post('/', [SubmmissionsController, 'Post']).use([middleware.auth()])
-
+    router.put('/status/:id', [SubmmissionsController, 'PutStatus'])
 
     router.put('/:id', [SubmmissionsController, 'Put'])
     router.delete('/:id', [SubmmissionsController, 'Delete'])
