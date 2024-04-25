@@ -68,10 +68,10 @@ const headCells = [
         label: 'Full name',
     },
     {
-        id: 'password',
+        id: 'faculty',
         numeric: false,
         disablePadding: false,
-        label: 'Password',
+        label: 'Faculty',
     },
     {
         id: 'role',
@@ -241,7 +241,7 @@ export default function UserTable() {
                                         </TableCell>
 
                                         <TableCell align="left">{row.fullName}</TableCell>
-                                        <TableCell align="left">Hidden</TableCell>
+                                        <TableCell align="left">{(row.roleId!==1 &&row.roleId!==2) ?row.faculty[0]?.name:"All"}</TableCell>
                                         <TableCell align="left">{row.role.name}</TableCell>
                                         <TableCell align="right"><Link href={`/admin/user/update/${row.id}`} className='bg-blue-400 rounded-md p-2 text-white mr-2'><Edit /></Link></TableCell>
                                     </TableRow>
