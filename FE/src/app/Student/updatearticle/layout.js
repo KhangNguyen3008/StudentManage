@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useState } from 'react';
 import Footer from "@/components/layout/Footer";
 import NewArticle from '@/components/pages/NewArticle';

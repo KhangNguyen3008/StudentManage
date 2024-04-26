@@ -55,7 +55,8 @@ export default class Submission extends BaseModel {
   public static async Sendmail (submission:Submission) {
 
     const contribution = await Contribution.query().where(x=>x.preload('deadline').where('id',submission.deadlineId).first()).preload('deadline',x=>x.where('id',submission.deadlineId).first()).first()
-    const faculty = await Faculty.query().where(x=>x.preload('contribution').where('id',contribution?.facultyId||-1)).preload('user',x=>x.orderBy('created_at','asc')).first()
+    const faculty = await Faculty.query().where(x=>x.preload('contribution').where('id',contribution?.facultyId||-1)).preload('user').first()
+    console.log(faculty)
     const newsubmission = await Submission.query().where('id',submission.id).preload('user').first()
     await mail.send((message) => {
         message 
