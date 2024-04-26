@@ -59,7 +59,7 @@ export default class Submission extends BaseModel {
     const newsubmission = await Submission.query().where('id',submission.id).preload('user').first()
     await mail.send((message) => {
         message 
-          .to(faculty?.user[0]?.email|| '')
+          .to(faculty?.user?.filter(x=>x.roleId==3)[0]?.email||'')
           .from('WET@fpt.edu.vn')
           .subject('new Submission')
           .html(`${newsubmission?.user.fullName} was submited in deadline ${contribution?.deadline[0].name} <a href="http://localhost:3000/coordinator/submission/detail/${submission.deadlineId}">Click this link to view submission</a>`)
