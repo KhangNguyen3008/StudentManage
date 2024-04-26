@@ -9,6 +9,7 @@ export default class extends BaseSeeder {
     let user2 = await User.find(3)
     let user3 = await User.find(4)
     let user4 = await User.find(5)
+    let user5= await User.find(6)
     let faculty = await Faculty.find(1)
     let faculty2 = await Faculty.find(2)
 
@@ -18,6 +19,7 @@ export default class extends BaseSeeder {
       await  user2?.related('faculty').create(faculty)
       await user3?.related('faculty').create(faculty2)
       await user4?.related('faculty').create(faculty)
+      await user5?.related('faculty').create(faculty)
     }
   }
 }

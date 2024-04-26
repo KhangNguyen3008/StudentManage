@@ -40,6 +40,13 @@ export default class extends BaseSeeder {
         roleId: Roles.STUDENT,
         fullName: 'Student',
 
+      },
+      {
+        email: 'guest@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.GUEST,
+        fullName: 'Guest',
+
       }
     ])
     

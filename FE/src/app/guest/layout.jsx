@@ -3,7 +3,7 @@ import Footer from '@/components/layout/Footer'
 import Navbar from '@/components/layout/Navbar'
 import AuthService from '@/services/AuthService'
 import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function layout({ children }) {
     const [user, setUser] = useState()
