@@ -3,15 +3,29 @@ import FacultyService from '@/services/FacultyService'
 import React, { useEffect, useState } from 'react'
 import Time from '../ui/Time'
 import { Button } from '@mui/material'
+import ContributionService from '@/services/ContributionService'
+import { toast } from 'react-toastify'
 
 export default function DetailMM({ id }) {
     const [faculty, setFaculty] = useState()
     useEffect(() => {
         FacultyService.getFacultyById(id).then(x => { setFaculty(x.data) }).catch(e => { })
     }, [])
+    const downloadfile = async(e)=>{
+        e.preventDefault()
+        let result = await FacultyService.downloadfile(id)
+        const url = window.URL.createObjectURL(new Blob([result.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", `${faculty?.name}.zip`);
+        document.body.appendChild(link);
+        link.click();
+        toast.success(`export success`)
+    }
     if (!faculty) {
         return "Do not exist this faculty"
     }
+
     return (
         <>
             <meta charSet="utf-8" />
@@ -92,7 +106,7 @@ export default function DetailMM({ id }) {
                         </section>
                         <section className="download">
                             <h5>Download File</h5>
-                            <p>You can download the file related to this article here: <a href="#">Download File</a></p>
+                            <p>You can download the file related to this article here:  <button onClick={downloadfile}>Download All File</button></p>
                         </section>
                     </div>
                     <section className="related-contributions">

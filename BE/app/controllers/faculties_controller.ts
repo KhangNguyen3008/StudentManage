@@ -1,9 +1,12 @@
+import  fs  from 'fs';
 import Faculty from '#models/faculty'
 import User from '#models/user'
 import { PostFacultyForm } from '#validators/faculty'
 import type { HttpContext } from '@adonisjs/core/http'
 import Roles from '../Enum/Roles.js'
 import { Zone } from 'luxon'
+import Contribution from '#models/contribution'
+import JSZip from 'jszip'
 
 export default class FacultiesController {
     Get = async ({ request, response, auth }: HttpContext) => {
@@ -32,6 +35,47 @@ export default class FacultiesController {
         let faculty1 = await faculty
  
         return response.send(faculty1)
+    }
+    DownloadFile = async ({ response, request }: HttpContext) => {
+        const id = request.param('id');
+        let faculty = await Faculty.query().where('id',id).preload('contribution').first()
+        
+        var zip = new JSZip();
+        if(Array.isArray(faculty?.contribution)){
+            for(const con of faculty?.contribution){
+                let contribution = await Contribution.query().where('id', con.id).preload('deadline', x => x.preload('submission', z => z.preload('fileupload'))).first();
+                if (contribution && contribution.deadline && Array.isArray(contribution.deadline)) {
+                    for (const deadline of contribution.deadline) {
+                        if (deadline.submission && Array.isArray(deadline.submission)) {
+                            for (const submission of deadline.submission) {
+                                if (submission.fileupload && Array.isArray(submission.fileupload)) {
+                                    for (const fileupload of submission.fileupload) {
+                                        try {
+                                            const file = await fs.readFileSync(fileupload.filePath);
+                                            zip.file(`${contribution.name}/${fileupload.fileName}`, file, { binary: true });
+                                        } catch (e) {
+                                            console.log(e);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+       
+        let filename = faculty?.name;
+        let content = await zip.generateAsync({ type: "nodebuffer", compression: 'DEFLATE' });
+
+        response.header('Content-Type', 'application/zip');
+        response.header(
+            'Content-disposition',
+            `attachment; filename=${filename}.zip`
+        );
+
+        // Send the response after generating the zip file
+        return response.send(content);
     }
     GetById = async ({ response, request }: HttpContext) => {
         const id = request.param('id')

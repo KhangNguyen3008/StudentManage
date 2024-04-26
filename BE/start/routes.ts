@@ -46,6 +46,7 @@ router.group(() => {
     router.delete('/:id', [UsersController, 'Delete'])
   }).prefix('/user')
   router.group(() => {
+    router.get('/download/:id', [FacultiesController, 'DownloadFile'])
     router.get('/', [FacultiesController, 'Get']).use([middleware.auth()])
     router.get('/:id', [FacultiesController, 'GetById'])
     router.post('/', [FacultiesController, 'Post'])
