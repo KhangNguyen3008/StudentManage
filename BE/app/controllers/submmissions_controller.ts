@@ -10,7 +10,7 @@ import app from '@adonisjs/core/services/app'
 
 export default class SubmmissionsController {
     Get = async ({ response,auth }: HttpContext) => {
-        let submission =  Submission.query().preload('user').preload('comment').preload('fileupload')
+        let submission =  Submission.query().preload('user').preload('comment').preload('fileupload').preload('status')
         if(auth.isAuthenticated){
             if(auth.user?.roleId ==4 || auth.user?.roleId==5 ){
                 submission.where('status_id',2)
@@ -21,7 +21,7 @@ export default class SubmmissionsController {
     }
     GetById = async ({ response, request }: HttpContext) => {
         const id = request.param('id')
-        let submission = await Submission.query().where('id', id).preload('fileupload').preload('user').first()
+        let submission = await Submission.query().where('id', id).preload('fileupload').preload('user').preload('status').first()
         return response.send(submission)
     }
     GetByDeadlineId = async ({ response, request }: HttpContext) => {

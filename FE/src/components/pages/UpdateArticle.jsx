@@ -7,11 +7,12 @@ import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 import SubmissionService from '@/services/SubmissionService'
 import DeadlineService from '@/services/DeadlineService'
-import { MdDeleteSweep } from "react-icons/md";
+import { MdDelete, MdDeleteSweep } from "react-icons/md";
 import UploadFileService from '@/services/UploadFileService'
 export default function UpdateArticle({ id }) {
     const [deadline, setDeadline] = useState()
     const [submission, setSubmission] = useState()
+    const [formData, setFormDate] = useState([])
     const router = useRouter()
     useEffect(() => {
         SubmissionService.getSubmissionById(id).then(x => {
@@ -25,10 +26,45 @@ export default function UpdateArticle({ id }) {
 
         }
     }, [])
+
+    const removeFileAtIndex = (index) => {
+        setFormDate(prevFiles => {
+            const newFiles = [...prevFiles];
+            newFiles.splice(index, 1);
+            return newFiles;
+        });
+    };
+    const handleDeletefile = (index) => (e) => {
+
+        removeFileAtIndex(index)
+    }
+    const handleFileChange = (e) => {
+
+
+        const selectedFile = e.target.files;
+        console.log(selectedFile)
+        if (selectedFile) {
+
+            [...selectedFile].map(x => {
+
+                if (x.type.startsWith('image/')) {
+
+                    setFormDate(oldArray => [...oldArray, { file: x, type: 'image' }]);
+
+                } else {
+                    setFormDate(oldArray => [...oldArray, { file: x, type: 'docs' }]);
+
+                }
+            })
+        }
+    };
     const onSubmit = (e) => {
         e.preventDefault();
         const formdata = new FormData(e.target)
-        SubmissionService.updateSubmission(id, formdata).then(x => { toast.success(`Update success`); router.push(`/Student/DetailArticle/${id}`) }).catch(e => {
+        formData.map((x,i)=>{
+            formdata.append(`file`,x.file)
+        })
+        SubmissionService.updateSubmission(id, formdata).then(x => { toast.success(`Update success`); router.push(`/Student/DetailArticle/${deadline?.contribution?.id}`) }).catch(e => {
             console.log(e)
             toast.error(`Update failed`)
         })
@@ -112,6 +148,7 @@ export default function UpdateArticle({ id }) {
                 <h1 className="faculty" style={{ fontSize: '1.5rem' }}>{deadline.name}</h1>
                 <form className="mt-3" onSubmit={onSubmit}>
                     <input type="hidden" name='deadlineid' value={deadline.id} />
+                    <input type="hidden" name='statusid' value={submission.status.id} />
                     <div className="mb-3">
                         <label htmlFor="articleTitle" className="form-label">Article Title:</label>
                         <div className="textbox-container">
@@ -132,8 +169,26 @@ export default function UpdateArticle({ id }) {
                                 <p >{x.fileName}</p> <button type='button' onClick={deleteFile(x.id)}><MdDeleteSweep className='text-3xl' /></button>
                             </div>
                         })}
-                        <input type="file" name='file' className="form-control" id="articlePhoto" accept="image/png, image/jpeg, application/msword" multiple />
+
+                        {formData.map((x, i) => {
+                            if (x.type == 'image') {
+                                return <div className='flex items-center gap-2 border-2 p-5 justify-center'>
+                                    <img src={URL.createObjectURL(x.file)} className='max-w-[200px]' alt="" />
+                                    <button type='button' onClick={handleDeletefile(i)} className='p-4 text-5xl hover:text-red-500'><MdDelete /></button>
+                                </div>
+                            }
+                        })}
+
                     </div>
+                    {formData.map((x, i) => {
+                        if (x.type == 'docs') {
+                            return <div className='flex gap-2 items-center border-2 p-5'>
+                                <p className='' alt="" >{x.file.name}</p>
+                                <button type='button' onClick={handleDeletefile(i)} className='p-4 text-5xl hover:text-red-500'><MdDelete /></button>
+                            </div>
+                        }
+                    })}
+                    <input value={''} onChange={handleFileChange} type="file" className="form-control" id="articlePhoto" accept="image/png, image/jpeg, application/msword, application/pdf" multiple />
                     <div>Accepted file formats:</div>
                     <div className="mb-3 document-files">
                         Document files: <span>.doc .docx .epub .gdoc .odt .oth .ott .pdf .rtf</span>
@@ -144,7 +199,7 @@ export default function UpdateArticle({ id }) {
                     <div className="mb-3">--------------------------------</div>
 
                     <button type="submit" className="btn bg-primary mr-2">Submit</button>
-                    <button type="button" onClick={(e)=>{router.push(`/Student/DetailArticle/${deadline?.id}`)}} className="btn bg-error">Cancel</button>
+                    <button type="button" onClick={(e) => { router.push(`/Student/DetailArticle/${deadline?.contribution?.id}`) }} className="btn bg-error">Cancel</button>
                 </form>
             </div>
         </>

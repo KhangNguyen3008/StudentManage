@@ -50,7 +50,7 @@ export default function NewArticle({ id }) {
 
     useEffect(() => {
         DeadlineService.getDeadlineById(id).then(x => setDeadline(x.data)).catch(e => {
-            g
+            
         })
         return () => {
 
