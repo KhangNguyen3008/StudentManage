@@ -25,7 +25,7 @@ export default function DetailMM({ id }) {
     if (!faculty) {
         return "Do not exist this faculty"
     }
-
+    console.log(faculty)
     return (
         <>
             <meta charSet="utf-8" />
@@ -98,7 +98,7 @@ export default function DetailMM({ id }) {
                             </div>
                             <div className="right-column">
                                 <ul>
-                                    <li>Marketing Coordinator : {faculty.user.email} </li>
+                                    <li>Marketing Coordinator : {faculty?.user.filter(x=>x.roleId==3)[0].email} </li>
                                     <li>Total Submited : {faculty.contribution.length} </li>
                                     <li></li>
                                 </ul>
@@ -129,6 +129,10 @@ export default function DetailMM({ id }) {
                                             <tr>
                                                 <td className="left-column">Update:</td>
                                                 <td className="right-column">{<Time string={x.updatedAt} />}</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="left-column"> User</td>
+                                                <td className="right-column">{faculty?.user.filter(x=>x.roleId==3)[0].email}</td>
                                             </tr>
                                             <tr>
                                                 <td className="left-column">File Submission:</td>
