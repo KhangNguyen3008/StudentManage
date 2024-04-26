@@ -62,7 +62,7 @@ export default function ContributionDetail({ id }) {
                                     </tr>
                                     <tr>
                                         <td className="left-column">Submit</td>
-                                        <td className="right-column">{new Date().getTime() > new Date(x.closureDate).getTime()?"You can't submmit":user&& x.submission.filter(z=>z.userId ==user?.id).length>0?<Link href={`/Student/updatearticle/${x.id}`} className='p-3 text-white bg-primary rounded-md'>Update</Link>:<Link href={`/Student/NewArticle/${x.id}`} className='p-3 text-white bg-primary rounded-md'>submit</Link>}</td>
+                                        <td className="right-column">{new Date().getTime() > new Date(x.closureDate).getTime()?"You can't submmit":user&& x.submission.filter(z=>z.userId ==user?.id).length>0?<Link href={`/Student/updatearticle/${x.submission.filter(z=>z.userId ==user?.id)[0].id}`} className='p-3 text-white bg-primary rounded-md'>Update</Link>:<Link href={`/Student/NewArticle/${x.id}`} className='p-3 text-white bg-primary rounded-md'>submit</Link>}</td>
                                     </tr>
                                     <tr>
                                         <td className="left-column">Comment:</td>
