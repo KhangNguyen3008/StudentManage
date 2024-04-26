@@ -40,14 +40,17 @@ export default class SubmmissionsController {
         submission.statusId = 1
 
 
-        payload.file.map(async (x) => {
-            await x.move(app.makePath('public/uploads'))
-            const fileupload = new Fileupload()
-            fileupload.fileName = x.fileName || "image"
-            fileupload.filePath = x.filePath || ""
-            fileupload.submissionId = submission.id
-            await submission.related('fileupload').create(fileupload)
-        })
+        if(Array.isArray(payload.file)){
+            payload.file.map(async (x) => {
+                await x.move(app.makePath('public/uploads'))
+                const fileupload = new Fileupload()
+                fileupload.fileName = x.fileName || "image"
+                fileupload.filePath = x.filePath || ""
+                fileupload.submissionId = submission.id
+                await submission.related('fileupload').create(fileupload)
+            })
+        }
+
         await submission.save()
 
         return submission

@@ -8,6 +8,7 @@ import React, { useEffect, useState } from 'react'
 
 export default function Coordinatorindex() {
     const [contribution, setContribution] = useState()
+    const [search,setSearch] = useState('')
     const router = useRouter()
 
     useEffect(() => {
@@ -21,7 +22,14 @@ export default function Coordinatorindex() {
             <h1 style={{ fontSize: '18px', color: 'black', fontWeight: 'bold' }}> Your Contribution </h1>
 
             <div className="search-bar">
-                <input type="text" placeholder="Search..." />
+                <input value={search} onChange={(e)=>{
+                     setSearch(e.target.value)
+                     const filteredContributions = contribution.filter(x => x.name.includes(e.target.value));
+                     // Assuming `starContribution` is a function to set the star contribution
+                     setContribution(filteredContributions);
+                     // Set star contribution here based on the filteredContributions array
+                    
+                }} type="text" placeholder="Search..." />
 
                 <select name="sort-by" style={{ marginRight: '20px' }}>
                     <option value="falculty">Contribution</option>

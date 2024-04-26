@@ -12,12 +12,14 @@ export default class FacultiesController {
     Get = async ({ request, response, auth }: HttpContext) => {
         let faculty = Faculty.query().preload('user', x => x.orderBy('created_at', 'asc'))
         if (auth.user) {
-            if (auth.user.roleId == 3 || auth.user.roleId == 4) {
-                faculty.where(x => x.preload('user', z => z.where('id', auth?.user?.id || -1)))
-                let user = await User.query().where('id',auth?.user?.id).preload('faculty',z=>z.first()).first()
+            if (auth.user.roleId == 3 || auth.user.roleId == 4|| auth.user.roleId == 5) {
+                
+                let user = await User.query().where('id',auth?.user?.id).preload('faculty').first()
                 if(user){
+                    
                     user.faculty.map((x)=>{
-                        faculty.where('id',x.id)
+                        console.log(x.name)
+                        faculty.orWhere('id',x.id)
                     })         
                 }
             }

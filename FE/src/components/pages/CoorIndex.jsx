@@ -8,10 +8,14 @@ import React, { useEffect, useState } from 'react'
 
 export default function CoorIndex() {
     const [contribution, setContribution] = useState()
+    const [filtercontribution, setFilterContribution] = useState()
     const router = useRouter()
-
+    const [search, setSearch] = useState('')
     useEffect(() => {
-        ContributionService.getContribution().then(x => setContribution(x.data)).catch(e => { })
+        ContributionService.getContribution().then(x => {
+            setContribution(x.data)
+            setFilterContribution(x.data)
+        }).catch(e => { })
     }, [])
     if (!contribution) {
         return
@@ -21,7 +25,14 @@ export default function CoorIndex() {
             <h1 style={{ fontSize: '18px', color: 'black', fontWeight: 'bold' }}> Your Contribution </h1>
 
             <div className="search-bar">
-                <input type="text" placeholder="Search..." />
+                <input value={search} onChange={(e) => {
+                    setSearch(e.target.value)
+                    const filteredContributions = contribution.filter(x => x.name.includes(e.target.value));
+                    // Assuming `starContribution` is a function to set the star contribution
+                    setFilterContribution(filteredContributions)
+              
+
+                }} type="text" placeholder="Search..." />
 
                 <select name="sort-by" style={{ marginRight: '20px' }}>
                     <option value="falculty">Contribution</option>
@@ -37,7 +48,7 @@ export default function CoorIndex() {
                 <h1> Content of index</h1>
             </div>
             <div>
-                {contribution && contribution.map(x => {
+                {filtercontribution && filtercontribution.map(x => {
                     return <>
                         <div role='button' onClick={(e => {
                             router.push(`/coordinator/DetailArticle/${x.id}`)

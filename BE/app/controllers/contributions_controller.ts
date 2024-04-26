@@ -16,7 +16,10 @@ export default class ContributionsController {
             if (user) {
                 if (user.roleId !== 1 && user.roleId !==2) {
                     await user.load('faculty')
-                    contribution.where('faculty_id', user.faculty[0]?.id)
+                    
+                    user.faculty.map(x=>{
+                        contribution.orWhere('faculty_id', x.id)
+                    })
                 }
             }
 

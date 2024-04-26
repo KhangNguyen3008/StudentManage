@@ -19,7 +19,7 @@ export const PutSubmissionForm = vine.compile(
         content:vine.string(),
         deadlineid:vine.number().exists(exists(Deadline.table,Deadline.primaryKey)),
         title:vine.string(),
-        file:vine.array(vine.file({extnames:['png','jpg','docx','doc','pdf']})).optional() ,
+        file: vine.array(vine.file({extnames:['png','jpg','docx','doc','pdf']})).optional() ,
         statusid:vine.number().exists(exists(Status.table,Status.primaryKey)),
     })
 
