@@ -42,6 +42,7 @@ router.group(() => {
     router.get('/mc', [UsersController, 'Getmc'])
     router.get('/:id', [UsersController, 'GetById'])
     router.post('/', [UsersController, 'Post'])
+    router.put('/changepass/:id', [UsersController, 'Changepass'])
     router.put('/:id', [UsersController, 'Put'])
     router.delete('/:id', [UsersController, 'Delete'])
   }).prefix('/user')

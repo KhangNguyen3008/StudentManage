@@ -20,3 +20,14 @@ export const PutUserForm = vine.compile(
     })
 
 )
+export const Changepass = vine.compile(
+    vine.object({
+
+        oldpassword:vine.string(),
+        newpassword:vine.string(),
+        confirmpassword:vine.string().confirmed({
+            confirmationField:'newpassword'
+        }),
+    })
+
+)

@@ -43,6 +43,7 @@ export default class DeadlinesController {
         deadline.closureDate = payload.closuredate
         deadline.finalclosureDate= payload.finalclosuredate
         deadline.description = payload.description ||''
+        deadline.contributionId = payload.contributionid
         await deadline.save()
         return deadline
 

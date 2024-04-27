@@ -62,7 +62,7 @@ export default function Navbar() {
             </div> :
 
               <div className='flex items-center gap-4'>
-                <button className='text-3xl font-bold'>{user && user.fullName}</button>
+                <Link href={'/profile'} className='text-3xl font-bold'>{user && user.fullName}</Link>
                 <button onClick={(e) => { localStorage.removeItem('token'); setUser();router.push('/login') }} className='text-3xl font-bold'>logout</button>
               </div>
           }

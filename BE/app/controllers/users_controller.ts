@@ -1,9 +1,11 @@
 import User from '#models/user'
-import { PostUserForm, PutUserForm } from '#validators/user'
+import { Changepass, PostUserForm, PutUserForm } from '#validators/user'
 import type { HttpContext } from '@adonisjs/core/http'
 import Roles from '../Enum/Roles.js'
 import mail from '@adonisjs/mail/services/main'
 import Faculty from '#models/faculty'
+import { Hash } from '@adonisjs/core/hash'
+import hash from '@adonisjs/core/services/hash'
 
 function generateRandomPassword(length: number): string {
     const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+";
@@ -17,11 +19,11 @@ function generateRandomPassword(length: number): string {
     return password;
 }
 export default class UsersController {
-    Get = async ({ response,auth }: HttpContext) => {
-        let user =  User.query().preload('role').preload('faculty')
-        if(auth.isAuthenticated){
-            if(auth?.user?.roleId==3){
-                user.where('roleId',Roles.STUDENT).orWhere('roleId',Roles.GUEST)
+    Get = async ({ response, auth }: HttpContext) => {
+        let user = User.query().preload('role').preload('faculty')
+        if (auth.isAuthenticated) {
+            if (auth?.user?.roleId == 3) {
+                user.where('roleId', Roles.STUDENT).orWhere('roleId', Roles.GUEST)
             }
         }
         let user1 = await user
@@ -45,7 +47,7 @@ export default class UsersController {
         const user = new User()
         user.fullName = payload.fullname
         user.email = payload.email
-        user.password =randompass
+        user.password = randompass
 
 
         user.roleId = payload.role
@@ -59,10 +61,10 @@ export default class UsersController {
 
         })
         let faculty = await Faculty.find(payload.facultyid)
-        if(faculty){
+        if (faculty) {
             user.related('faculty').attach([faculty.id])
         }
-        
+
         return user
 
     }
@@ -84,6 +86,33 @@ export default class UsersController {
             user.password = payload.password
         }
         user.roleId = payload.role
+        await user.save()
+        return user
+
+    }
+    Changepass = async ({ response, request }: HttpContext) => {
+        const id = request.param('id')
+        const payload = await request.validateUsing(Changepass)
+        const user = await User.find(id)
+        if (!user) {
+            return response.status(422).send({
+                errors: [{
+                    message: `User not found`
+                }]
+            })
+
+        }
+        let check = await hash.verify( user.password,payload.oldpassword)
+        if (!check) {
+
+            return response.status(422).send({
+                errors: [{
+                    message: `Old password not match`
+                }]
+            })
+
+        }
+        user.password = payload.newpassword
         await user.save()
         return user
 
