@@ -15,6 +15,21 @@ export default class extends BaseSeeder {
         name:'Bussiness',
         isrequest:false,
   
+      },
+      {
+        name:'Design',
+        isrequest:false,
+  
+      },
+      {
+        name:'AI',
+        isrequest:false,
+  
+      },
+      {
+        name:'IOT',
+        isrequest:false,
+  
       }
     ])
   }

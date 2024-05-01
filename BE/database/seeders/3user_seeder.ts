@@ -28,21 +28,243 @@ export default class extends BaseSeeder {
 
       },
       {
-        email: 'co@fpt.edu.vn',
+        email: 'co1@gmail.com',
         password: 'passwordtest',
         roleId: Roles.MARKETING_COORDINATOR,
         fullName: 'Marketing Coordinator',
 
       },
       {
-        email: 'student@gmail.com',
+        email: 'co2@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.MARKETING_COORDINATOR,
+        fullName: 'Marketing Coordinator',
+
+      },
+      {
+        email: 'co3@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.MARKETING_COORDINATOR,
+        fullName: 'Marketing Coordinator',
+
+      },
+      {
+        email: 'co4@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.MARKETING_COORDINATOR,
+        fullName: 'Marketing Coordinator',
+
+      },
+      {
+        email: 'co5@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.MARKETING_COORDINATOR,
+        fullName: 'Marketing Coordinator',
+
+      },
+      {
+        email: 'student1@gmail.com',
         password: 'passwordtest',
         roleId: Roles.STUDENT,
         fullName: 'Student',
 
       },
       {
-        email: 'guest@gmail.com',
+        email: 'student2@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student3@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student4@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student5@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student6@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student7@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student8@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student9@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student10@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student11@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student12@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student13@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student14@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student15@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student16@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student17@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student18@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student19@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student20@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student21@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student22@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student23@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student24@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'student25@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.STUDENT,
+        fullName: 'Student',
+
+      },
+      {
+        email: 'guest1@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.GUEST,
+        fullName: 'Guest',
+
+      },
+      {
+        email: 'guest2@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.GUEST,
+        fullName: 'Guest',
+
+      },
+      {
+        email: 'guest3@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.GUEST,
+        fullName: 'Guest',
+
+      },    {
+        email: 'guest4@gmail.com',
+        password: 'passwordtest',
+        roleId: Roles.GUEST,
+        fullName: 'Guest',
+
+      },    {
+        email: 'guest5@gmail.com',
         password: 'passwordtest',
         roleId: Roles.GUEST,
         fullName: 'Guest',
