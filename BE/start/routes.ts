@@ -65,7 +65,7 @@ router.group(() => {
     router.get('/', [SubmmissionsController, 'Get'])
     router.get('/getbydeadline/:id', [SubmmissionsController, 'GetByDeadlineId'])
     router.get('/:id', [SubmmissionsController, 'GetById'])
-
+    router.get('/download/:id', [SubmmissionsController, 'DownloadFile'])
     router.post('/', [SubmmissionsController, 'Post']).use([middleware.auth()])
     router.put('/status/:id', [SubmmissionsController, 'PutStatus'])
 

@@ -42,7 +42,7 @@ export default function ContributionDetailCo({ id }) {
                 {/* <h2>Closure date: {faculty.closureDate && new Date(faculty.closureDate).toLocaleString()}</h2>
                 <h2>Final Closure date: {faculty.closureDate && new Date(faculty.finalclosureDate).toLocaleString()}</h2> */}
                 <h2> {contribution.description}</h2>
-                <button onClick={downloadfile}>Download All File</button>
+                <button className='bg-primary p-3' onClick={downloadfile}>Download All File</button>
             </div>
 
             <div>

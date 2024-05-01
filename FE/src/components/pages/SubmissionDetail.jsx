@@ -21,6 +21,17 @@ export default function SubmissionDetail({ id }) {
             }).catch(e => { })
         })
     }
+    const downloadfile = (x) => async (e) => {
+        e.preventDefault()
+        let result = await SubmissionService.downloadfile(x.id)
+        const url = window.URL.createObjectURL(new Blob([result.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", `${x.title}.zip`);
+        document.body.appendChild(link);
+        link.click();
+        toast.success(`export success`)
+    }
     const changeStatus = (e) => {
         e.preventDefault();
         const formdata = new FormData(e.target)
@@ -40,7 +51,7 @@ export default function SubmissionDetail({ id }) {
         const formdata = new FormData(e.target)
         CommentService.updateComment(idcm, formdata).then(x => {
             SubmissionService.getSubmissionBydeadline(id).then(x => {
-                
+
                 setSubmission(x.data)
 
 
@@ -58,6 +69,7 @@ export default function SubmissionDetail({ id }) {
 
     return (
         <div>
+
             {submission && submission.map(x => {
                 return (
                     <details>
@@ -65,6 +77,11 @@ export default function SubmissionDetail({ id }) {
                         <div className="table-container">
                             <table>
                                 <tbody>
+
+                                    <tr>
+                                        <td className="left-column">Download file</td>
+                                        <td className="right-column"><button className='bg-primary p-3' onClick={downloadfile(x)}>Download All File</button></td>
+                                    </tr>
                                     <tr>
                                         <td className="left-column">Student Email:</td>
                                         <td className="right-column">{x.user.email}</td>
