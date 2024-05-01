@@ -58,7 +58,6 @@ export default function SubmissionDetail({ id }) {
 
     return (
         <div>
-            <button>Download All File</button>
             {submission && submission.map(x => {
                 return (
                     <details>

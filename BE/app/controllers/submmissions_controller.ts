@@ -7,6 +7,7 @@ import Submission from '#models/submission'
 import { PostSubmissionForm, PutSubmissionForm, PutSubmissionStatusForm } from '#validators/submmission'
 import type { HttpContext } from '@adonisjs/core/http'
 import app from '@adonisjs/core/services/app'
+import { MultipartFile } from '@adonisjs/core/bodyparser';
 
 export default class SubmmissionsController {
     Get = async ({ response,auth }: HttpContext) => {
@@ -31,6 +32,7 @@ export default class SubmmissionsController {
     }
 
     Post = async ({ response, request, auth }: HttpContext) => {
+
         const payload = await request.validateUsing(PostSubmissionForm)
         const submission = new Submission()
         submission.title = payload.title
@@ -39,15 +41,10 @@ export default class SubmmissionsController {
         submission.userId = auth.user?.id || -1
         submission.statusId = 1
 
-
+  
         if(Array.isArray(payload.file)){
             payload.file.map(async (x) => {
-                await x.move(app.makePath('public/uploads'))
-                const fileupload = new Fileupload()
-                fileupload.fileName = x.fileName || "image"
-                fileupload.filePath = x.filePath || ""
-                fileupload.submissionId = submission.id
-                await submission.related('fileupload').create(fileupload)
+               
             })
         }
 
