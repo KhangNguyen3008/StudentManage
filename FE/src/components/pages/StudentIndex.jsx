@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import ContributionService from '@/services/ContributionService';
-
+import '../layout/footer.css'
 export default function StudentIndex() {
     const [contributions, setContributions] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -25,6 +25,14 @@ export default function StudentIndex() {
 
     return (
         <div className='container1'>
+            <label for="academic-year">Academic year: </label>
+            <select id="academic-year">
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+            </select>
+
             <h1 style={{ fontSize: '18px', color: 'black', fontWeight: 'bold' }}>Your Contribution</h1>
 
             {/* Search and sorting components */}
@@ -51,13 +59,13 @@ export default function StudentIndex() {
 
             {/* Pagination */}
             <div className="pagination">
-                <span className="page-index" onClick={() => paginate(currentPage - 1)}>&lt; Prev</span>
+                <span className="page-index" onClick={() => paginate(currentPage - 1)}>&lt;</span>
                 {Array.from({ length: Math.ceil(contributions.length / itemsPerPage) }, (_, i) => (
                     <span key={i} className={`page-index ${currentPage === i + 1 ? 'active' : ''}`} onClick={() => paginate(i + 1)}>
                         {i + 1}
                     </span>
                 ))}
-                <span className="page-index" onClick={() => paginate(currentPage + 1)}>Next &gt;</span>
+                <span className="page-index" onClick={() => paginate(currentPage + 1)}> &gt;</span>
             </div>
         </div>
     );

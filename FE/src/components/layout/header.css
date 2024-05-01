@@ -1,13 +1,13 @@
 
 .logo {
-    max-width: 200px; /* Độ rộng tối đa của logo */
+    max-width: 200px; 
   }
   
   .link-home {
-    margin-left: 20px; /* Khoảng cách giữa logo và liên kết "Home" */
-    color: black; /* Màu chữ của liên kết "Home" */
+    margin-left: 20px; 
+    color: black; 
   }
   
   .link-home:hover {
-    border-color: red; /* Màu viền khi di chuột qua liên kết "Home" */
+    border-color: red; 
   }

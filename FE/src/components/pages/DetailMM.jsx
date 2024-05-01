@@ -21,6 +21,7 @@ export default function DetailMM({ id }) {
         document.body.appendChild(link);
         link.click();
         toast.success(`export success`)
+        
     }
     if (!faculty) {
         return "Do not exist this faculty"
