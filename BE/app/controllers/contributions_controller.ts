@@ -28,6 +28,10 @@ export default class ContributionsController {
             contribution.where('faculty_id', payload.facultyid)
     
         }
+       
+        if(payload.academicyear!== 'undefined' && payload.academicyear && payload.academicyear!== 'all'){
+            contribution.where('academicyear_id', payload.academicyear)
+        }
         if(payload.page!== 'undefined' && payload.page){
             contribution.paginate(payload.page, 5)
     

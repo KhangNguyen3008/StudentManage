@@ -51,21 +51,21 @@ export default class Submission extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  @afterSave()
-  public static async Sendmail (submission:Submission) {
+  // @afterSave()
+  // public static async Sendmail (submission:Submission) {
 
-    const contribution = await Contribution.query().where(x=>x.preload('deadline').where('id',submission.deadlineId).first()).preload('deadline',x=>x.where('id',submission.deadlineId).first()).first()
-    const faculty = await Faculty.query().where(x=>x.preload('contribution').where('id',contribution?.facultyId||-1)).preload('user').first()
-    console.log(faculty)
-    const newsubmission = await Submission.query().where('id',submission.id).preload('user').first()
-    await mail.send((message) => {
-        message 
-          .to(faculty?.user?.filter(x=>x.roleId==3)[0]?.email||'')
-          .from('WET@fpt.edu.vn')
-          .subject('new Submission')
-          .html(`${newsubmission?.user.fullName} was submited in deadline ${contribution?.deadline[0].name} <a href="http://localhost:3000/coordinator/submission/detail/${submission.deadlineId}">Click this link to view submission</a>`)
+  //   const contribution = await Contribution.query().where(x=>x.preload('deadline').where('id',submission.deadlineId).first()).preload('deadline',x=>x.where('id',submission.deadlineId).first()).first()
+  //   const faculty = await Faculty.query().where(x=>x.preload('contribution').where('id',contribution?.facultyId||-1)).preload('user').first()
+  //   console.log(faculty)
+  //   const newsubmission = await Submission.query().where('id',submission.id).preload('user').first()
+  //   await mail.send((message) => {
+  //       message 
+  //         .to(faculty?.user?.filter(x=>x.roleId==3)[0]?.email||'')
+  //         .from('WET@fpt.edu.vn')
+  //         .subject('new Submission')
+  //         .html(`${newsubmission?.user.fullName} was submited in deadline ${contribution?.deadline[0].name} <a href="http://localhost:3000/coordinator/submission/detail/${submission.deadlineId}">Click this link to view submission</a>`)
           
           
-      })
-  }
+  //     })
+  // }
 }

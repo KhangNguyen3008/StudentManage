@@ -6,7 +6,7 @@ export default class AcademicyearsController {
     Get = async ({ response, auth }: HttpContext) => {
         let academicyear =await Academicyear.query()
 
-
+        
         return response.send(academicyear)
     }
     GetById = async ({ response, request }: HttpContext) => {
@@ -37,7 +37,7 @@ export default class AcademicyearsController {
         year.beginDate = payload.begindate
         year.endDate = payload.enddate
         year.description = payload.description ||""
- 
+        
 
         await year.save()
 

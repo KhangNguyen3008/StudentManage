@@ -1,7 +1,7 @@
 import instance from "@/data/Instance"
 
 export default  {
-    getContribution : ()=> instance.get('/contribution') ,
+    getContribution : (academicyear)=> instance.get(`/contribution?academicyear=${academicyear}`) ,
     getContributionwithpage : (page)=> instance.get(`/contribution?page=${page}`) ,
     getContributionByFacultyId : (id)=> instance.get(`/contribution?facultyid=${id}`) ,
     downloadfile : (id)=> instance.get(`/contribution/download/${id}`,{ responseType: 'blob' }) ,

@@ -3,34 +3,45 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import ContributionService from '@/services/ContributionService';
 import '../layout/footer.css'
+import AcademicyearService from '@/services/AcademicyearService';
+import AuthService from '@/services/AuthService';
+import Time from '../ui/Time';
 export default function StudentIndex() {
     const [contributions, setContributions] = useState([]);
+    const [user, setUser] = useState();
     const [currentPage, setCurrentPage] = useState(1);
+    const [academicyear, setAcademicyear] = useState('all');
+    const [academicyears, setAcademicyears] = useState([]);
     const [itemsPerPage, setItemsPerPage] = useState(5); // You can adjust the number of items per page
     const router = useRouter();
 
     useEffect(() => {
-        ContributionService.getContribution().then((response) => {
+        ContributionService.getContribution(academicyear).then((response) => {
             setContributions(response.data);
         }).catch((error) => {
             console.error('Error fetching contributions:', error);
         });
-    }, []);
+        AuthService.profile().then((response) => {
+            setUser(response.data);
+        }).catch((error) => {
+            console.error('Error fetching contributions:', error);
+        });
+        AcademicyearService.getAcademicyear().then((response) => {setAcademicyears(response.data);})
+    }, [academicyear]);
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentContributions = contributions.slice(indexOfFirstItem, indexOfLastItem);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+    console.log(academicyear)
     return (
         <div className='container1'>
             <label for="academic-year">Academic year: </label>
-            <select id="academic-year">
-                <option value="2021">2021</option>
-                <option value="2022">2022</option>
-                <option value="2023">2023</option>
-                <option value="2024">2024</option>
+            
+            <select id="academic-year" onChange={(e)=>{setAcademicyear(e.target.value)}} > 
+            <option value='all' >All</option>
+                {academicyears&&academicyears.map(academicYear =>  <option value={academicYear.id}>{academicYear.name}</option>)}
             </select>
 
             <h1 style={{ fontSize: '18px', color: 'black', fontWeight: 'bold' }}>Your Contribution</h1>
@@ -52,7 +63,7 @@ export default function StudentIndex() {
                             <h1>{contribution.name}</h1>
                             <p>Faculty: {contribution.faculty.name}</p>
                         </div>
-                        <div>Status: Submitted</div>
+                        <div>Academic Year: {contribution.academicyear.name} </div>
                     </div>
                 ))}
             </div>
