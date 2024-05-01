@@ -1,6 +1,9 @@
 import React from 'react'
 import NavItem from '../ui/NavItem'
 import { FaHome, FaListAlt } from "react-icons/fa";
+import { FaChartPie } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+
 export default function CoorNavBar() {
     const navitem = [{
         icon: <FaHome />,
@@ -11,12 +14,12 @@ export default function CoorNavBar() {
         title: 'View Contribution',
         path: '/coordinator/contribution'
     },{
-        icon: <FaListAlt />,
+        icon: <FaChartPie/>,
         title: 'Statistical',
         path: '/coordinator/statistical'
     },
     ,{
-        icon: <FaListAlt />,
+        icon: <FaUser />,
         title: 'Manager User',
         path: '/coordinator/user'
     },
@@ -24,7 +27,7 @@ export default function CoorNavBar() {
     return (
         <div className=' sticky min-h-[100vh] w-[300px] bg-main-gray'>
             <div className='text-white text-center py-5'>
-                Logo
+                 
             </div>
             <ul className=''>
 

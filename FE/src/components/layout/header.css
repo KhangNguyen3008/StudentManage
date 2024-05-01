@@ -11,3 +11,76 @@
   .link-home:hover {
     border-color: red; 
   }
+
+  .main-header {
+    background-color: #ffffff; /* Màu nền */
+    color: #333333; /* Màu chữ */
+    padding: 10px 20px; /* Khoảng cách đệm */
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-item {
+    margin-right: 10px; /* Khoảng cách với nav-header */
+  }
+  
+  .nav-link {
+    text-decoration: none; /* Không gạch chân */
+    color: inherit; /* Màu chữ giống màu chữ trong phần nav-header */
+  }
+  
+  /* CSS cho NavItem */
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-item {
+    margin-right: 10px; /* Khoảng cách giữa các nav-item */
+  }
+  
+  .nav-link {
+    text-decoration: none; /* Không gạch chân */
+    color: #333333; /* Màu chữ */
+  }
+
+  .containerFE {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--bgSoft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .titleFE {
+    color: var(--textSoft);
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  
+  .menuFE {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .searchFE {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #2e374a;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .inputFE {
+    background-color: transparent;
+    border: none;
+    color: var(--text);
+  }
+  
+  .iconsFE{
+    display: flex;
+    gap: 20px;
+  }

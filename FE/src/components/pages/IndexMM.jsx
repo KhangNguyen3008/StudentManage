@@ -3,6 +3,9 @@ import FacultyService from '@/services/FacultyService'
 import React, { useEffect, useState } from 'react'
 import Time from '../ui/Time'
 import Link from 'next/link'
+import './style.css'
+// import NavBE from '../layout/NavBE'
+
 
 export default function IndexMM() {
   const [faculty, setFaculty] = useState()
@@ -13,8 +16,8 @@ export default function IndexMM() {
   }, [])
   return (
     <>
-      
       <div className="container">
+        {/* <NavBE/> */}
         <header>
           <div className="header-right">
             <button className="year-button">Current Year</button>
@@ -33,7 +36,7 @@ export default function IndexMM() {
             <option value="title">Sort by Title</option>
           </select>
         </div>
-
+    
         <table className='gap-y-2'>
           <thead>
             <tr>

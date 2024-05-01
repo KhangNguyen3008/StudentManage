@@ -1,7 +1,10 @@
 import React from 'react'
 import NavItem from '../ui/NavItem'
 import { FaHome, FaListAlt } from "react-icons/fa";
-
+import { FaBook } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa";
+import { FaRegCalendarTimes } from "react-icons/fa";
+import { MdOutlineViewTimeline } from "react-icons/md";
 
 export default function DashBoardNavBar() {
     const navitem = [{
@@ -9,12 +12,12 @@ export default function DashBoardNavBar() {
         title: 'Dashboard',
         path: '/admin'
     },{
-        icon: <FaListAlt />,
+        icon: <FaBook />,
         title: 'Manager Faculty',
         path: '/admin/faculty'
     },
     {
-        icon: <FaListAlt />,
+        icon: <FaUser />,
         title: 'Manager User',
         path:'/admin/user'
     },
@@ -24,12 +27,12 @@ export default function DashBoardNavBar() {
         path:'/admin/contribution'
     },
     {
-        icon: <FaListAlt />,
+        icon: <FaRegCalendarTimes />,
         title: 'Manager Academicyear',
         path:'/admin/academicyear'
     },
     {
-        icon: <FaListAlt />,
+        icon: <MdOutlineViewTimeline />,
         title: 'Manager Deadline',
         path:'/admin/deadline'
     }
