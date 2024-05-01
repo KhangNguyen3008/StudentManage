@@ -7,7 +7,8 @@ import { FaRegCalendarTimes } from "react-icons/fa";
 import { MdOutlineViewTimeline } from "react-icons/md";
 
 export default function DashBoardNavBar() {
-    const navitem = [{
+    const navitem = [
+        {
         icon: <FaHome />,
         title: 'Dashboard',
         path: '/admin'
@@ -35,13 +36,12 @@ export default function DashBoardNavBar() {
         icon: <MdOutlineViewTimeline />,
         title: 'Manager Deadline',
         path:'/admin/deadline'
-    }
+    },
+    
     ]
     return (
         <div className=' sticky min-h-[100vh] w-[300px] bg-main-gray'>
-            <div className='text-white text-center py-5'>
-                Logo
-            </div>
+
             <ul className=''>
 
                 {navitem.map(item => {

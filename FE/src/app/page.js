@@ -1,4 +1,4 @@
-import Home from "@/components/pages/Home";
+import Login from "@/components/pages/Login";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -9,9 +9,7 @@ export default function page() {
   return (
     <div>
 
-        <Navbar />
-        <Home />
-        <Footer />
+        <Login />
     </div>
   );
 }

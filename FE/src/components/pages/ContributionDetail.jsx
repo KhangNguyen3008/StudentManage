@@ -58,7 +58,7 @@ export default function ContributionDetail({ id }) {
                                     </tr>
                                     <tr>
                                         <td className="left-column">Status</td>
-                                        <td className="right-column">{user&& x.submission.filter(z=>z.userId ==user?.id).length>0?'submmited':'Not submitted'}</td>
+                                        <td className="right-column">{user&& x.submission.filter(z=>z.userId ==user?.id).length>0?'Submmited':'Not Submitted'}</td>
                                     </tr>
                                     <tr>
                                         <td className="left-column">Submit</td>

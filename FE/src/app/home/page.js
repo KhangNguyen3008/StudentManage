@@ -1,11 +1,11 @@
 
-import Home from "@/components/pages/Home";
+import GuestIndex from '@/components/pages/GuestIndex'
 import Image from "next/image";
 
 export default function page() {
   return (
     <>
-      <Home/>
+    <div><GuestIndex/></div>
     </>
   );
 }

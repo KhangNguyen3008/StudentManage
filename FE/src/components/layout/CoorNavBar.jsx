@@ -26,9 +26,7 @@ export default function CoorNavBar() {
     ]
     return (
         <div className=' sticky min-h-[100vh] w-[300px] bg-main-gray'>
-            <div className='text-white text-center py-5'>
-                 
-            </div>
+
             <ul className=''>
 
                 {navitem.map(item => {
