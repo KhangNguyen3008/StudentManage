@@ -30,3 +30,24 @@
         display: none;
     }
 }
+button {
+    border-radius: 0;
+  }
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+
+.main-header .navbar-nav .nav-item {
+    margin: 0;
+  }
+
+.navbar-nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
