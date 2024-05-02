@@ -32,10 +32,10 @@ export default function SubmissionDetail({ id }) {
         link.click();
         toast.success(`export success`)
     }
-    const changeStatus = (e) => {
+    const changeStatus = (ids)=>(e) => {
         e.preventDefault();
         const formdata = new FormData(e.target)
-        SubmissionService.updateStatus(id, formdata).then(x => {
+        SubmissionService.updateStatus(ids, formdata).then(x => {
             toast.success(`update success`)
             SubmissionService.getSubmissionBydeadline(id).then(x => {
                 setSubmission(x.data)
@@ -104,7 +104,7 @@ export default function SubmissionDetail({ id }) {
                                     </tr>
                                     <tr>
                                         <td className="left-column">Status</td>
-                                        <td className="right-column"><form action="" onSubmit={changeStatus}>
+                                        <td className="right-column"><form action="" onSubmit={changeStatus(x.id)}>
                                             <Grid item xs={12} md={6} className='flex !flex-col'>
                                                 <SelectStatus defaultValue={x?.statusId} />
                                                 <button type='submit' className='bg-primary mt-4 p-2 text-white'>save</button>

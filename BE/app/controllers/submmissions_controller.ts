@@ -130,9 +130,10 @@ export default class SubmmissionsController {
 
         }
         submission.statusId = payload.statusid
-
+        console.log(1)
 
         await submission.save()
+        console.log(submission)
         return submission
 
     }

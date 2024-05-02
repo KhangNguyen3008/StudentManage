@@ -29,10 +29,10 @@ export default class FacultiesController {
         const payload = request.qs()
 
         if(payload.academicyearid!== 'undefined'&&payload.academicyearid){
-            faculty.preload('contribution',z=>z.where('academicyear_id',payload.academicyearid))
+            faculty.preload('contribution',z=>z.preload('deadline',m=>m.preload('submission')).where('academicyear_id',payload.academicyearid))
         }
         if(!payload.academicyearid){
-            faculty.preload('contribution')
+            faculty.preload('contribution',z=>z.preload('deadline',m=>m.preload('submission')))
         }
         let faculty1 = await faculty
  
