@@ -107,7 +107,7 @@ export default function DetailMM({ id }) {
                         </section>
                         <section className="download">
                             <h5>Download File</h5>
-                            <p>You can download the file related to this article here:  <button onClick={downloadfile}>Download All File</button></p>
+                            <p>You can download the file related to this article here:  <button className='bg-primary p-3' onClick={downloadfile}>Download All File</button></p>
                         </section>
                     </div>
                     <section className="related-contributions">
