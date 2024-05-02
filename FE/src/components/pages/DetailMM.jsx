@@ -115,7 +115,7 @@ export default function DetailMM({ id }) {
                         {faculty.contribution && faculty.contribution.map(x => {
 
                             return <details>
-                                <summary className="summary">Submission no.#</summary>
+                                <summary className="summary">Contributions</summary>
                                 <div className="table-container">
                                     <table>
                                         <tbody>
@@ -124,30 +124,22 @@ export default function DetailMM({ id }) {
                 <td className="right-column">Selected</td>
             </tr> */}
                                             <tr>
-                                                <td className="left-column">Submit At:</td>
+                                                <td className="left-column">Create At:</td>
                                                 <td className="right-column">{<Time string={x.createdAt} />}</td>
                                             </tr>
                                             <tr>
-                                                <td className="left-column">Update:</td>
+                                                <td className="left-column">Update At:</td>
                                                 <td className="right-column">{<Time string={x.updatedAt} />}</td>
                                             </tr>
                                             <tr>
-                                                <td className="left-column"> User</td>
+                                                <td className="left-column">Description:</td>
+                                                <td className="right-column">{x.description} </td>
+                                            </tr>
+                                            <tr>
+                                                <td className="left-column"> Coordinator</td>
                                                 <td className="right-column">{faculty?.user.filter(x=>x.roleId==3)[0].email}</td>
                                             </tr>
-                                            <tr>
-                                                <td className="left-column">File Submission:</td>
-                                                <td className="right-column"><a href={`/${x.filePath}`}>{x.fileName}</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td className="left-column">Comment:</td>
-                                                <td className="right-column">
-                                                    <form action=""><textarea name="" id="" cols="10" rows="4">
-                                                    </textarea>
-                                                        <Button variant='contained' className=' bg-primary'>Comment</Button>
-                                                    </form>
-                                                </td>
-                                            </tr>
+                                          
                                         </tbody>
                                     </table>
                                 </div>
