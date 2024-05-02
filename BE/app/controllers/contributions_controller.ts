@@ -1,6 +1,7 @@
 import Contribution from '#models/contribution'
 import User from '#models/user';
 import { PostContributionForm } from '#validators/contribution'
+import { cuid } from '@adonisjs/core/helpers';
 
 import type { HttpContext } from '@adonisjs/core/http'
 
@@ -60,7 +61,7 @@ export default class ContributionsController {
                             for (const fileupload of submission.fileupload) {
                                 try {
                                     const file = await fs.readFileSync(fileupload.filePath);
-                                    zip.file(`${contribution.name}/${fileupload.fileName}`, file, { binary: true });
+                                    zip.file(`${contribution.name}/${cuid()}.${fileupload.fileName}`, file, { binary: true });
                                 } catch (e) {
                                     console.log(e);
                                 }
