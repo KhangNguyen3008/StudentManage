@@ -52,7 +52,7 @@ export default class UsersController {
 
         user.roleId = payload.role
         await user.save()
-        await mail.send((message) => {
+        mail.send((message) => {
             message
                 .to(user?.email || '')
                 .from('WET@fpt.edu.vn')
