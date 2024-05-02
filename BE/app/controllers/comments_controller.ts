@@ -12,6 +12,11 @@ export default class CommentsController {
         let comment = await Comment.query().where('id', id).preload('submission').preload('user').first()
         return response.send(comment)
     }
+    GetBySubId = async ({ response, request }: HttpContext) => {
+        const id = request.param('id')
+        let comment = await Comment.query().where('id', id).preload('submission').preload('user').first()
+        return response.send(comment)
+    }
     Post = async ({ response, request,auth }: HttpContext) => {
         const payload = await request.validateUsing(PostCommenttForm)
         const comment = new Comment()

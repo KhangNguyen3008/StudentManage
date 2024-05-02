@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { FaWeight } from 'react-icons/fa';
 import Time from '../ui/Time';
 import AuthService from '@/services/AuthService';
+import CommentService from '@/services/CommentService';
 
 
 export default function ContributionDetail({ id }) {
@@ -17,11 +18,13 @@ export default function ContributionDetail({ id }) {
         ContributionService.getContributionById(id).then(x => setContribution(x.data)).catch(e => {
             console.log(e)
         })
+        CommentService.g
         AuthService.profile().then(x => setUser(x.data)).catch(e => { })
     }, [])
     if (!contribution) {
         return "Don't have Contribution this"
     }
+    console.log(contribution)
     return (
         <div className='container'>
             <div>
@@ -71,10 +74,14 @@ export default function ContributionDetail({ id }) {
                                     <tr>
                                         <td className="left-column">Comment:</td>
                                         <td className="right-column">
-                                            <form action=""><textarea name="" id="" cols="10" rows="4">
-                                            </textarea>
-                                                <Button variant='contained' className=' bg-primary'>Comment</Button>
-                                            </form>
+                                            {user&& x.submission.filter(z=>z.userId ==user?.id).length > 0?
+                                            <>
+                                            {x.submission.filter(z=>z.userId ==user?.id)[0].comment?.map(x=>{
+                                                return <p>{x.content}</p>
+                                            })}
+                                            </>
+                                            :""}
+                                            
                                         </td>
                                     </tr>
                                 </tbody>

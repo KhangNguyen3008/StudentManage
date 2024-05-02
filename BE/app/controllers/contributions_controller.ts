@@ -11,7 +11,7 @@ import JSZip from "jszip";
 export default class ContributionsController {
     Get = async ({ request,response, auth }: HttpContext) => {
         const payload = request.qs()
-        let contribution = Contribution.query().preload('faculty').preload('deadline').preload('academicyear')
+        let contribution = Contribution.query().preload('faculty').preload('deadline',z=>z.preload('submission')).preload('academicyear')
         if (auth?.user) {
             let user = await User.find(auth.user.id)
             if (user) {
@@ -45,7 +45,7 @@ export default class ContributionsController {
 
     GetById = async ({ response, request }: HttpContext) => {
         const id = request.param('id')
-        let contribution = await Contribution.query().preload('faculty').preload('deadline', x => x.preload('submission',z=>z.preload('status'))).preload('academicyear').where('id', id).first()
+        let contribution = await Contribution.query().preload('faculty').preload('deadline', x => x.preload('submission',z=>z.preload('status').preload('comment'))).preload('academicyear').where('id', id).first()
         return response.send(contribution)
     }
     DownloadFile = async ({ response, request }: HttpContext) => {
