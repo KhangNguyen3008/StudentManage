@@ -44,7 +44,7 @@ export default class ContributionsController {
 
     GetById = async ({ response, request }: HttpContext) => {
         const id = request.param('id')
-        let contribution = await Contribution.query().preload('faculty').preload('deadline', x => x.preload('submission')).preload('academicyear').where('id', id).first()
+        let contribution = await Contribution.query().preload('faculty').preload('deadline', x => x.preload('submission',z=>z.preload('status'))).preload('academicyear').where('id', id).first()
         return response.send(contribution)
     }
     DownloadFile = async ({ response, request }: HttpContext) => {

@@ -57,8 +57,12 @@ export default function ContributionDetail({ id }) {
                                         <td className="right-column">{<Time string={x.finalclosureDate} />}</td>
                                     </tr>
                                     <tr>
-                                        <td className="left-column">Status</td>
+                                        <td className="left-column">Status submit</td>
                                         <td className="right-column">{user&& x.submission.filter(z=>z.userId ==user?.id).length>0?'Submmited':'Not Submitted'}</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="left-column">Status</td>
+                                        <td className="right-column">{user&& x.submission.filter(z=>z.userId ==user?.id).length > 0? x.submission.filter(z=>z.userId ==user?.id)[0]?.status?.name:'Not Submitted'}</td>
                                     </tr>
                                     <tr>
                                         <td className="left-column">Submit</td>
