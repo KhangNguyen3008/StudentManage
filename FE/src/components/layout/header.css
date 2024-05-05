@@ -90,6 +90,11 @@
   .heading_container h2 {
     text-transform: uppercase;
     font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size: 34px;
+    color: #333;
+    font-style: italic; 
+    margin: 0;
   }
   
   .heading_container h2 span {
@@ -427,4 +432,28 @@
     top: 10px;
     right: 10px;
   }
-  
+    /*HomeGuest*/
+    .sort_container {
+      margin-top: 10px; 
+      margin-left: 850px; 
+      }
+      
+      .sort_select {
+      width: 200px; 
+      }
+
+      .sort_container {
+        margin-right: 10px; 
+      }
+      
+      .search_container {
+        display: flex;
+        align-items: center;
+      }
+      
+      .search_input {
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 22px;
+      }
+      

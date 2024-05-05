@@ -9,7 +9,23 @@ export default function
 <section className="shop_section layout_padding">
   <div className="container">
     <div className="heading_container heading_center">
+      <h2>FPT GreenWich VN</h2>
     </div>
+      <div className="row">
+        <div className="col-12">
+          <div className="search_container1">
+            <input type="text" className="search_input" placeholder="Search..." />
+          </div>
+          <div className="sort_container d-flex justify-content-end">
+            <select className="sort_select" >
+              <option >Sort by Date</option>
+              <option >Sort by Faculty</option>
+              <option >Sort by Title</option>
+              <option >Sort by Author</option>
+            </select>
+          </div>
+        </div>
+      </div>
     <div className="row">
       <div className="col-sm-6 col-md-4 col-lg-3">
         <div className="box">

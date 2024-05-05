@@ -44,7 +44,6 @@ export default function GuestIndex() {
               <th>Final Closure Date</th> */}
               <th>Create Date</th>
               <th>Upload By</th>
-              <th>File Upload</th>
             </tr>
           </thead>
           <tbody>
@@ -57,10 +56,6 @@ export default function GuestIndex() {
                   <td>{<Time string={x.finalclosureDate} />}</td> */}
                   <td>{<Time string={x.createdAt} />}</td>
                   <td>{x.user.fullName}</td>
-                  <td>
-                    {x.fileupload.map(z => {
-                      return <p>{z.fileName}</p>
-                    })}</td>
                 </tr>
               </>
             })}
