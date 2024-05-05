@@ -19,12 +19,12 @@ export default function
             </div>
             <div className="detail-box">
               <h6>
-                Ring
+                title
               </h6>
               <h6>
-                Price
+                Author: 
                 <span>
-                  $200
+                  Author Name
                 </span>
               </h6>
             </div>
@@ -69,12 +69,12 @@ export default function
             </div>
             <div className="detail-box">
               <h6>
-                Teddy Bear
+                Title
               </h6>
               <h6>
-                Price
+                Author:
                 <span>
-                  $110
+                  Author Name
                 </span>
               </h6>
             </div>
