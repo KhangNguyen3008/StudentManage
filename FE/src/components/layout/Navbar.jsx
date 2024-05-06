@@ -49,7 +49,7 @@ export default function Navbar() {
     <div className='flex items-center space-x-8'>
       <img src="/home/images/logo.png" alt="Logo" className='max-w-[180px]' />
       <Link href='/home' className='text-black hover:border-red-300 font-bold text-xl'>Home</Link>
-      <Link href={`/${path}`} className='text-black hover:border-red-300 font-bold text-xl'>Dashboard</Link>
+      {user && <Link href={`/${path}`} className='text-black hover:border-red-300 font-bold text-xl'>Dashboard</Link>}
     </div>
     <div className='flex items-center'>
     {!user ? (
