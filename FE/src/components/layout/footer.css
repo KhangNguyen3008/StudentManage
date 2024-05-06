@@ -126,4 +126,11 @@ ul{
 	border: 1px solid #ccc;
 	border-radius: 4px;
   }
+  /*HomeGuest*/
+  .sort_container {
+	margin-top: 20px; /* Để tạo khoảng cách giữa thanh sắp xếp và phần content bên dưới */
+  }
   
+  .sort_select {
+	width: 200px; /* Độ rộng của select box */
+  }

@@ -53,7 +53,8 @@ export default function ContributionDetailCo({ id }) {
                 {contribution && contribution.deadline.map((x, i) => {
 
                     return <details>
-                        <summary className="summary"><div className='flex justify-between items-center'><h1 className=''>Submission no {i+1}.#</h1><div className='flex gap-3'><Link href={`/coordinator/submission/detail/${x.id}`}>View Submission</Link><Link href={`/coordinator/updatedeadline/${x.id}`}>Update</Link></div> </div></summary>
+                        <summary className="summary"><div className='flex justify-between items-center'><h1 className=''>Submission no {i+1}.#</h1><div className='flex gap-3'><Link href={`/coordinator/submission/detail/${x.id}`}>View Submission
+                        </Link><Link href={`/coordinator/updatedeadline/${x.id}`}>Update</Link></div> </div></summary>
                         <div className="table-container">
                             <table>
                                 <tbody>
